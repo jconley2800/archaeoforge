@@ -1,0 +1,14 @@
+.venv/
+.test-venv/
+.env
+build/
+*.egg-info/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+dist/
+**/.archaeoforge/
+**/outputs/
+*.blend1

@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Babylon, approximately 570 BCE | Schematic Pipeline Starter | ArchaeoForge Evidence Report</title>
+  <style>
+    :root { color-scheme: light; --ink:#1f2328; --muted:#59636e; --line:#d0d7de; --paper:#ffffff; --panel:#f6f8fa; --ok:#1a7f37; --warn:#9a6700; --error:#cf222e; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:#eef1f4; color:var(--ink); font:14px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    main { width:min(1500px, calc(100% - 32px)); margin:24px auto 72px; }
+    header, section { background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:22px; margin-bottom:16px; }
+    h1 { margin:0 0 4px; font-size:28px; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h3 { margin:18px 0 8px; font-size:16px; }
+    p { margin:7px 0; }
+    .muted { color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px; }
+    .card { border:1px solid var(--line); border-radius:8px; padding:13px; background:var(--panel); }
+    .metric { font-size:25px; font-weight:700; }
+    .badge { display:inline-block; padding:2px 7px; border-radius:999px; font-size:12px; font-weight:650; background:#d8dee4; }
+    .A { background:#dafbe1; color:#116329; } .B { background:#ddf4ff; color:#0969da; }
+    .C { background:#fff8c5; color:#7d4e00; } .D { background:#ffebe9; color:#a40e26; }
+    .approved { background:#dafbe1; color:#116329; } .needs_review { background:#fff8c5; color:#7d4e00; }
+    .draft { background:#eaeef2; color:#424a53; } .rejected { background:#ffebe9; color:#a40e26; }
+    .error { color:var(--error); font-weight:700; } .warning { color:var(--warn); font-weight:700; } .info { color:#0969da; font-weight:700; }
+    table { border-collapse:collapse; width:100%; font-size:12.5px; }
+    th, td { border:1px solid var(--line); padding:7px 8px; vertical-align:top; text-align:left; }
+    th { background:var(--panel); position:sticky; top:0; }
+    .scroll { overflow:auto; max-height:680px; border:1px solid var(--line); border-radius:7px; }
+    .scroll table { border:0; }
+    .scroll th:first-child,.scroll td:first-child { border-left:0; }
+    .mono { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; word-break:break-all; }
+    details { border-top:1px solid var(--line); padding:8px 0; }
+    summary { cursor:pointer; font-weight:650; }
+    .valid { border-left:5px solid var(--ok); } .invalid { border-left:5px solid var(--error); }
+    footer { color:var(--muted); text-align:center; }
+    @media print { body { background:#fff; } main { width:100%; margin:0; } header,section { break-inside:avoid; border-radius:0; } .scroll { max-height:none; overflow:visible; } th { position:static; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Babylon, approximately 570 BCE | Schematic Pipeline Starter</h1>
+    <p><strong>Babylon</strong>, approximately 570 BCE</p>
+    <p class="muted">A training project that demonstrates the ArchaeoForge evidence controls and procedural scene compiler. Coordinates, residential blocks, wall lines, palace massing, river alignment, and unsupported upper dimensions are schematic until replaced with georeferenced archaeological data and reviewed claims.</p>
+    <p class="muted">Report generated 2026-08-09T11:00:18.784478+00:00. Coordinates: LOCAL_METERS. Units: metres.</p>
+  </header>
+
+  <section class="valid">
+    <h2>Build status</h2>
+    <div class="grid">
+      <div class="card"><div class="metric">True</div><div>Validation valid</div></div>
+      <div class="card"><div class="metric">0</div><div>Errors</div></div>
+      <div class="card"><div class="metric">4</div><div>Warnings</div></div>
+      <div class="card"><div class="metric">10</div><div>Compiled features</div></div>
+      <div class="card"><div class="metric">0</div><div>Excluded features</div></div>
+      <div class="card"><div class="metric">preview</div><div>Build mode</div></div>
+    </div>
+<p class="mono">Input fingerprint: 3f0851e50d21103d640a8a85feef1aaf570db786db64c7be1e849f01fb5e4557</p>  </section>
+
+  <section>
+    <h2>Evidence register summary</h2>
+    <div class="grid">
+      <div class="card"><div class="metric">5</div><div>Sources</div></div>
+      <div class="card"><div class="metric">9</div><div>Claims</div></div>
+      <div class="card"><div class="metric">0</div><div>Review actions</div></div>
+      <div class="card"><div class="metric">10</div><div>Authored features</div></div>
+    </div>
+    <h3>Claim status</h3>
+<span class="badge needs_review">needs_review: 9</span>     <h3>Evidence class</h3>
+<span class="badge B">Class B: 6</span> <span class="badge C">Class C: 3</span>   </section>
+
+  <section>
+    <h2>Validation findings</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Severity</th><th>Code</th><th>Object</th><th>Message</th><th>Remediation</th></tr></thead>
+        <tbody>
+          <tr><td class="warning">warning</td><td class="mono">SOURCE_EXTERNAL_ONLY</td><td>source SRC-UPPSALA-BABYLON-MODEL</td><td>Source has no local immutable copy in the project.</td><td>Add the licensed source file under sources/ and ingest it, or retain this as preview-only evidence.</td></tr>
+          <tr><td class="warning">warning</td><td class="mono">SOURCE_EXTERNAL_ONLY</td><td>source SRC-KOLDEWEY-1914</td><td>Source has no local immutable copy in the project.</td><td>Add the licensed source file under sources/ and ingest it, or retain this as preview-only evidence.</td></tr>
+          <tr><td class="warning">warning</td><td class="mono">SOURCE_EXTERNAL_ONLY</td><td>source SRC-PEDERSEN-ISHTAR</td><td>Source has no local immutable copy in the project.</td><td>Add the licensed source file under sources/ and ingest it, or retain this as preview-only evidence.</td></tr>
+          <tr><td class="warning">warning</td><td class="mono">SOURCE_EXTERNAL_ONLY</td><td>source SRC-PEDERSEN-2023</td><td>Source has no local immutable copy in the project.</td><td>Add the licensed source file under sources/ and ingest it, or retain this as preview-only evidence.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Compiled scene features</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>ID</th><th>Template</th><th>Class</th><th>Confidence</th><th>Status</th><th>Evidence IDs</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="mono">TERRAIN-CONTEXT</td><td>terrain</td><td><span class="badge C">C</span></td>
+            <td>0.15</td><td><span class="badge needs_review">needs_review</span></td>
+            <td class="mono"></td><td>Neutral context slab only. No claim of ancient topography.</td>
+          </tr>
+          <tr>
+            <td class="mono">EUPHRATES-SCHEMATIC</td><td>water</td><td><span class="badge C">C</span></td>
+            <td>0.20</td><td><span class="badge needs_review">needs_review</span></td>
+            <td class="mono">EVID-SCHEMATIC-PLACEMENT</td><td>River alignment is a preview placeholder.</td>
+          </tr>
+          <tr>
+            <td class="mono">ETEMENANKI-VARIANT-DEMO</td><td>ziggurat</td><td><span class="badge C">C</span></td>
+            <td>0.25</td><td><span class="badge needs_review">needs_review</span></td>
+            <td class="mono">EVID-ETEM-BASE; EVID-ETEM-CORE; EVID-ETEM-HEIGHT; EVID-SCHEMATIC-PLACEMENT</td><td>Preview combines measured lower dimensions with explicitly interpretive upper massing.</td>
+          </tr>
+          <tr>
+            <td class="mono">PROCESSIONAL-WAY-DEMO</td><td>processional</td><td><span class="badge C">C</span></td>
+            <td>0.25</td><td><span class="badge needs_review">needs_review</span></td>
+            <td class="mono">EVID-PROCESSIONAL-WIDTH; EVID-SCHEMATIC-PLACEMENT</td><td>Width and local alignment need exact plan-level confirmation.</td>
+          </tr>
+          <tr>
+            <td class="mono">ISHTAR-GATE-DEMO</td><td>gate</td><td><span class="badge C">C</span></td>
+            <td>0.25</td><td><span class="badge needs_review">needs_review</span></td>
+            <td class="mono">EVID-ISHTAR-DIMENSIONS; EVID-ISHTAR-MATERIAL; EVID-SCHEMATIC-PLACEMENT</td><td>Simplified volumetric gate. Decorative animal placement is not generated by this starter.</td>
+          </tr>
+          <tr>
+            <td class="mono">INNER-WALL-DEMO</td><td>city_wall</td><td><span class="badge C">C</span></td>
+            <td>0.18</td><td><span class="badge needs_review">needs_review</span></td>
+            <td class="mono">EVID-WALL-COMPARATIVE</td><td>Preview circuit only.</td>
+          </tr>
+          <tr>
+            <td class="mono">PALACE-MASS-DEMO</td><td>palace</td><td><span class="badge C">C</span></td>
+            <td>0.20</td><td><span class="badge needs_review">needs_review</span></td>
+            <td class="mono">EVID-SCHEMATIC-PLACEMENT</td><td>Single mass for pipeline demonstration, not a palace plan.</td>
+          </tr>
+          <tr>
+            <td class="mono">RESIDENTIAL-WEST-DEMO</td><td>residential_cluster</td><td><span class="badge C">C</span></td>
+            <td>0.20</td><td><span class="badge needs_review">needs_review</span></td>
+            <td class="mono">EVID-HOUSE-COMPARATIVE</td><td>Procedural urban texture only.</td>
+          </tr>
+          <tr>
+            <td class="mono">RESIDENTIAL-CENTRAL-DEMO</td><td>residential_cluster</td><td><span class="badge C">C</span></td>
+            <td>0.20</td><td><span class="badge needs_review">needs_review</span></td>
+            <td class="mono">EVID-HOUSE-COMPARATIVE</td><td>Procedural urban texture only.</td>
+          </tr>
+          <tr>
+            <td class="mono">RESIDENTIAL-EAST-DEMO</td><td>residential_cluster</td><td><span class="badge C">C</span></td>
+            <td>0.20</td><td><span class="badge needs_review">needs_review</span></td>
+            <td class="mono">EVID-HOUSE-COMPARATIVE</td><td>Procedural urban texture only.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Evidence claims</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>ID</th><th>Source</th><th>Subject</th><th>Property</th><th>Claim</th><th>Value</th><th>Locator</th><th>Class</th><th>Confidence</th><th>Status</th><th>Uncertainty</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="mono">EVID-ISHTAR-MATERIAL</td><td class="mono">SRC-KOLDEWEY-1914</td><td>Ishtar Gate</td><td>facade material</td><td>The ceremonial facade used glazed baked brick with moulded animal figures.</td>
+            <td>glazed baked brick with moulded animals</td><td>Ishtar Gate excavation discussion and plates</td>
+            <td><span class="badge B">B</span></td><td>0.86</td>
+            <td><span class="badge needs_review">needs_review</span></td><td>Color distribution and restoration boundaries require object-level and museum documentation.</td>
+          </tr>
+          <tr>
+            <td class="mono">EVID-ETEM-HEIGHT</td><td class="mono">SRC-PEDERSEN-2023</td><td>Etemenanki</td><td>total height</td><td>One reconstruction interprets the tower as approximately 90 metres high.</td>
+            <td>approximately 90 m 90.0 m</td><td>article 3D reconstruction discussion</td>
+            <td><span class="badge B">B</span></td><td>0.62</td>
+            <td><span class="badge needs_review">needs_review</span></td><td>Upper stages, circulation, and summit architecture remain interpretive.</td>
+          </tr>
+          <tr>
+            <td class="mono">EVID-ETEM-BASE</td><td class="mono">SRC-PEDERSEN-2023</td><td>Etemenanki</td><td>lower footprint</td><td>The lower footprint is reconstructed as approximately 91.5 metres square.</td>
+            <td>approximately 91.5 m square 91.5 m</td><td>article discussion and reconstruction plan</td>
+            <td><span class="badge B">B</span></td><td>0.90</td>
+            <td><span class="badge needs_review">needs_review</span></td><td>Verify the exact plan, metrology, and publication locator against a permitted copy.</td>
+          </tr>
+          <tr>
+            <td class="mono">EVID-ETEM-CORE</td><td class="mono">SRC-PEDERSEN-2023</td><td>Etemenanki</td><td>core and mantle</td><td>The lower structure is interpreted as a roughly 60 metre core with a mantle of approximately 15 metres on each side.</td>
+            <td>60 m core plus approximately 15 m mantle 60.0 m</td><td>article reconstruction discussion</td>
+            <td><span class="badge B">B</span></td><td>0.82</td>
+            <td><span class="badge needs_review">needs_review</span></td><td>The starter converts a textual interpretation into a symmetric mass; verify phase relationships.</td>
+          </tr>
+          <tr>
+            <td class="mono">EVID-PROCESSIONAL-WIDTH</td><td class="mono">SRC-PEDERSEN-ISHTAR</td><td>Processional Way</td><td>monumental width</td><td>The monumental section is represented in the starter at approximately 20 metres wide.</td>
+            <td>approximately 20 m 20.0 m</td><td>digital model and plan discussion; verify exact measured segment</td>
+            <td><span class="badge B">B</span></td><td>0.70</td>
+            <td><span class="badge needs_review">needs_review</span></td><td>Width may vary by segment and must be tied to a georeferenced plan.</td>
+          </tr>
+          <tr>
+            <td class="mono">EVID-ISHTAR-DIMENSIONS</td><td class="mono">SRC-PEDERSEN-ISHTAR</td><td>Ishtar Gate</td><td>overall dimensions</td><td>Published digital reconstruction work constrains the gate complex to an overall length around 50 metres, with distinct front and main gate masses.</td>
+            <td>approximately 50 m overall 50.0 m</td><td>digital reconstruction publication; verify exact figure</td>
+            <td><span class="badge B">B</span></td><td>0.82</td>
+            <td><span class="badge needs_review">needs_review</span></td><td>The numerical subdimensions in the preview require exact figure-level confirmation.</td>
+          </tr>
+          <tr>
+            <td class="mono">EVID-SCHEMATIC-PLACEMENT</td><td class="mono">SRC-SCHEMATIC-DEMO</td><td>Babylon starter</td><td>feature placement</td><td>All local coordinates and relative placements in the starter are schematic placeholders.</td>
+            <td>schematic placement</td><td>items 1 and 5</td>
+            <td><span class="badge C">C</span></td><td>0.25</td>
+            <td><span class="badge needs_review">needs_review</span></td><td>Must be replaced with georeferenced archaeological plans.</td>
+          </tr>
+          <tr>
+            <td class="mono">EVID-HOUSE-COMPARATIVE</td><td class="mono">SRC-SCHEMATIC-DEMO</td><td>Residential districts</td><td>procedural houses</td><td>Procedural house footprints, density, orientation, and height are placeholders rather than excavated building plans.</td>
+            <td>procedural placeholders</td><td>items 2</td>
+            <td><span class="badge C">C</span></td><td>0.20</td>
+            <td><span class="badge needs_review">needs_review</span></td><td>Use excavated parcel and street plans before publication.</td>
+          </tr>
+          <tr>
+            <td class="mono">EVID-WALL-COMPARATIVE</td><td class="mono">SRC-SCHEMATIC-DEMO</td><td>Inner wall</td><td>wall geometry</td><td>The wall circuit, thickness, height, and gate relationships in the starter are schematic placeholders.</td>
+            <td>schematic wall</td><td>items 4</td>
+            <td><span class="badge C">C</span></td><td>0.18</td>
+            <td><span class="badge needs_review">needs_review</span></td><td>Replace with phase-specific georeferenced wall plans and sections.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Sources</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>ID</th><th>Title</th><th>Authors</th><th>Year</th><th>Type</th><th>Local copy</th><th>SHA-256</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">SRC-SCHEMATIC-DEMO</td><td>Schematic Demo Declaration</td><td>ArchaeoForge</td><td>2026</td><td>other</td><td>1</td><td class="mono">e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3</td><td>Declares the non-evidentiary status of starter geometry.</td></tr>
+          <tr><td class="mono">SRC-UPPSALA-BABYLON-MODEL</td><td>The Babylon Project Digital Model</td><td>Uppsala University</td><td>2025</td><td>dataset</td><td>0</td><td class="mono"></td><td>Project-level reference. Feature-level claims require exact publications, plans, or datasets.</td></tr>
+          <tr><td class="mono">SRC-KOLDEWEY-1914</td><td>The Excavations at Babylon</td><td>Robert Koldewey</td><td>1914</td><td>excavation_report</td><td>0</td><td class="mono"></td><td>Starter bibliographic record only. Add a local source file before authoritative use.</td></tr>
+          <tr><td class="mono">SRC-PEDERSEN-ISHTAR</td><td>The Ishtar Gate Area in Babylon: From Excavation to Digital Reconstruction</td><td>Olof Pedersén</td><td>None</td><td>peer_reviewed_article</td><td>0</td><td class="mono"></td><td>Starter bibliographic record only. Replace with exact publication metadata and a permitted local copy.</td></tr>
+          <tr><td class="mono">SRC-PEDERSEN-2023</td><td>The Tower of Babylon Stele Found in Babylon</td><td>Olof Pedersén</td><td>2023</td><td>peer_reviewed_article</td><td>0</td><td class="mono"></td><td>Starter bibliographic record only. Confirm locators against the licensed article.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Review audit trail</h2>
+<p>No review actions have been recorded.</p>  </section>
+
+  <footer>Generated by ArchaeoForge. Visual plausibility is not evidence. Review source provenance before publication.</footer>
+</main>
+</body>
+</html>

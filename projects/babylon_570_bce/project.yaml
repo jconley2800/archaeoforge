@@ -1,0 +1,84 @@
+schema_version: 1
+project:
+  id: babylon-570-bce-starter
+  title: "Babylon, approximately 570 BCE | Schematic Pipeline Starter"
+  place_name: Babylon
+  target_year: -570
+  target_year_label: approximately 570 BCE
+  description: >-
+    A training project that demonstrates the ArchaeoForge evidence controls and procedural scene compiler.
+    Coordinates, residential blocks, wall lines, palace massing, river alignment, and unsupported upper dimensions
+    are schematic until replaced with georeferenced archaeological data and reviewed claims.
+  spatial_reference: LOCAL_METERS
+  units: m
+  origin_note: Local schematic origin. +X east, +Y north, +Z up.
+evidence_policy:
+  authoritative_statuses: [approved]
+  preview_statuses: [approved, needs_review, draft]
+  require_evidence_for_geometry: true
+  require_locator_for_classes: [A, B]
+  require_local_copy_for_authoritative: false
+  conservative_feature_classification: true
+ai:
+  enabled: false
+  extraction_model: gpt-5.6-terra
+  reasoning_effort: medium
+  pdf_detail: high
+  max_source_mb: 48
+  max_text_chars_per_request: 60000
+  use_direct_pdf_input: true
+  image_model: gpt-image-2
+  image_quality: high
+  image_input_fidelity: high
+  image_size: auto
+  finish_enabled: false
+  finish_backend: interactive_handoff
+  finish_mode: historical_scene
+  geometry_audit_enabled: true
+blender:
+  executable: blender
+  engine: BLENDER_EEVEE
+  resolution_x: 1536
+  resolution_y: 864
+  resolution_percentage: 100
+  samples: 64
+  transparent_background: false
+  view_transform: AgX
+  look: ""
+  exposure: -1.0
+  shadows: true
+  raytracing: true
+  shadow_ray_count: 4
+  shadow_step_count: 6
+  camera:
+    auto_frame: true
+    azimuth_degrees: 152.0
+    elevation_degrees: 22.0
+    margin: 1.05
+    target_height_bias: 0.0
+    frame_includes_context: false
+    location: [560.0, -720.0, 470.0]
+    target: [-50.0, 75.0, 20.0]
+    lens_mm: 40.0
+    orthographic: false
+    ortho_scale: 850.0
+  sun:
+    elevation_degrees: 38.0
+    azimuth_degrees: 232.0
+    rotation_degrees: null
+    energy: 2.6
+    angle_degrees: 1.6
+  sky:
+    procedural_sky: true
+    strength: 0.7
+    turbidity: 3.0
+    ground_albedo: 0.35
+    air_density: 1.0
+    dust_density: 1.5
+  render_mode: realistic
+  save_blend: true
+  render_passes: true
+gis:
+  target_crs: EPSG:32638
+  georeference_transform: affine
+  resampling: cubic

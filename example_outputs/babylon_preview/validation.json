@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-08-09T11:00:18.709599+00:00",
+  "mode": "preview",
+  "project": {
+    "id": "babylon-570-bce-starter",
+    "title": "Babylon, approximately 570 BCE | Schematic Pipeline Starter",
+    "place_name": "Babylon",
+    "target_year": -570,
+    "target_year_label": "approximately 570 BCE",
+    "description": "A training project that demonstrates the ArchaeoForge evidence controls and procedural scene compiler. Coordinates, residential blocks, wall lines, palace massing, river alignment, and unsupported upper dimensions are schematic until replaced with georeferenced archaeological data and reviewed claims.",
+    "spatial_reference": "LOCAL_METERS",
+    "units": "m",
+    "origin_note": "Local schematic origin. +X east, +Y north, +Z up."
+  },
+  "features_path": "/path/to/archaeoforge/projects/babylon_570_bce/data/features.geojson",
+  "counts": {
+    "error": 0,
+    "warning": 4,
+    "info": 0
+  },
+  "eligible_features": 10,
+  "total_features": 10,
+  "valid": true,
+  "issues": [
+    {
+      "severity": "warning",
+      "code": "SOURCE_EXTERNAL_ONLY",
+      "message": "Source has no local immutable copy in the project.",
+      "object_type": "source",
+      "object_id": "SRC-UPPSALA-BABYLON-MODEL",
+      "remediation": "Add the licensed source file under sources/ and ingest it, or retain this as preview-only evidence."
+    },
+    {
+      "severity": "warning",
+      "code": "SOURCE_EXTERNAL_ONLY",
+      "message": "Source has no local immutable copy in the project.",
+      "object_type": "source",
+      "object_id": "SRC-KOLDEWEY-1914",
+      "remediation": "Add the licensed source file under sources/ and ingest it, or retain this as preview-only evidence."
+    },
+    {
+      "severity": "warning",
+      "code": "SOURCE_EXTERNAL_ONLY",
+      "message": "Source has no local immutable copy in the project.",
+      "object_type": "source",
+      "object_id": "SRC-PEDERSEN-ISHTAR",
+      "remediation": "Add the licensed source file under sources/ and ingest it, or retain this as preview-only evidence."
+    },
+    {
+      "severity": "warning",
+      "code": "SOURCE_EXTERNAL_ONLY",
+      "message": "Source has no local immutable copy in the project.",
+      "object_type": "source",
+      "object_id": "SRC-PEDERSEN-2023",
+      "remediation": "Add the licensed source file under sources/ and ingest it, or retain this as preview-only evidence."
+    }
+  ]
+}

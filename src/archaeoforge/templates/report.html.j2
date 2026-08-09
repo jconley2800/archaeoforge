@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ config.project.title }} | ArchaeoForge Evidence Report</title>
+  <style>
+    :root { color-scheme: light; --ink:#1f2328; --muted:#59636e; --line:#d0d7de; --paper:#ffffff; --panel:#f6f8fa; --ok:#1a7f37; --warn:#9a6700; --error:#cf222e; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:#eef1f4; color:var(--ink); font:14px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    main { width:min(1500px, calc(100% - 32px)); margin:24px auto 72px; }
+    header, section { background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:22px; margin-bottom:16px; }
+    h1 { margin:0 0 4px; font-size:28px; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h3 { margin:18px 0 8px; font-size:16px; }
+    p { margin:7px 0; }
+    .muted { color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px; }
+    .card { border:1px solid var(--line); border-radius:8px; padding:13px; background:var(--panel); }
+    .metric { font-size:25px; font-weight:700; }
+    .badge { display:inline-block; padding:2px 7px; border-radius:999px; font-size:12px; font-weight:650; background:#d8dee4; }
+    .A { background:#dafbe1; color:#116329; } .B { background:#ddf4ff; color:#0969da; }
+    .C { background:#fff8c5; color:#7d4e00; } .D { background:#ffebe9; color:#a40e26; }
+    .approved { background:#dafbe1; color:#116329; } .needs_review { background:#fff8c5; color:#7d4e00; }
+    .draft { background:#eaeef2; color:#424a53; } .rejected { background:#ffebe9; color:#a40e26; }
+    .error { color:var(--error); font-weight:700; } .warning { color:var(--warn); font-weight:700; } .info { color:#0969da; font-weight:700; }
+    table { border-collapse:collapse; width:100%; font-size:12.5px; }
+    th, td { border:1px solid var(--line); padding:7px 8px; vertical-align:top; text-align:left; }
+    th { background:var(--panel); position:sticky; top:0; }
+    .scroll { overflow:auto; max-height:680px; border:1px solid var(--line); border-radius:7px; }
+    .scroll table { border:0; }
+    .scroll th:first-child,.scroll td:first-child { border-left:0; }
+    .mono { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; word-break:break-all; }
+    details { border-top:1px solid var(--line); padding:8px 0; }
+    summary { cursor:pointer; font-weight:650; }
+    .valid { border-left:5px solid var(--ok); } .invalid { border-left:5px solid var(--error); }
+    footer { color:var(--muted); text-align:center; }
+    @media print { body { background:#fff; } main { width:100%; margin:0; } header,section { break-inside:avoid; border-radius:0; } .scroll { max-height:none; overflow:visible; } th { position:static; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>{{ config.project.title }}</h1>
+    <p><strong>{{ config.project.place_name }}</strong>, {{ config.project.target_year_label }}</p>
+    <p class="muted">{{ config.project.description }}</p>
+    <p class="muted">Report generated {{ generated_at }}. Coordinates: {{ config.project.spatial_reference }}. Units: metres.</p>
+  </header>
+
+  <section class="{{ 'valid' if validation.valid else 'invalid' }}">
+    <h2>Build status</h2>
+    <div class="grid">
+      <div class="card"><div class="metric">{{ validation.valid if validation.valid is not none else 'Not run' }}</div><div>Validation valid</div></div>
+      <div class="card"><div class="metric">{{ validation.counts.error|default(0) }}</div><div>Errors</div></div>
+      <div class="card"><div class="metric">{{ validation.counts.warning|default(0) }}</div><div>Warnings</div></div>
+      <div class="card"><div class="metric">{{ manifest.statistics.compiled_features|default(0) }}</div><div>Compiled features</div></div>
+      <div class="card"><div class="metric">{{ manifest.statistics.excluded_features|default(0) }}</div><div>Excluded features</div></div>
+      <div class="card"><div class="metric">{{ manifest.mode|default('not compiled') }}</div><div>Build mode</div></div>
+    </div>
+    {% if manifest.input_fingerprint %}<p class="mono">Input fingerprint: {{ manifest.input_fingerprint }}</p>{% endif %}
+  </section>
+
+  <section>
+    <h2>Evidence register summary</h2>
+    <div class="grid">
+      <div class="card"><div class="metric">{{ sources|length }}</div><div>Sources</div></div>
+      <div class="card"><div class="metric">{{ claims|length }}</div><div>Claims</div></div>
+      <div class="card"><div class="metric">{{ reviews|length }}</div><div>Review actions</div></div>
+      <div class="card"><div class="metric">{{ raw_feature_count }}</div><div>Authored features</div></div>
+    </div>
+    <h3>Claim status</h3>
+    {% for key, value in claim_statuses.items() %}<span class="badge {{ key }}">{{ key }}: {{ value }}</span> {% endfor %}
+    <h3>Evidence class</h3>
+    {% for key, value in evidence_classes.items() %}<span class="badge {{ key }}">Class {{ key }}: {{ value }}</span> {% endfor %}
+  </section>
+
+  <section>
+    <h2>Validation findings</h2>
+    {% if validation.issues %}
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Severity</th><th>Code</th><th>Object</th><th>Message</th><th>Remediation</th></tr></thead>
+        <tbody>
+        {% for issue in validation.issues %}
+          <tr><td class="{{ issue.severity }}">{{ issue.severity }}</td><td class="mono">{{ issue.code }}</td><td>{{ issue.object_type }} {{ issue.object_id }}</td><td>{{ issue.message }}</td><td>{{ issue.remediation }}</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}<p>No validation findings are available.</p>{% endif %}
+  </section>
+
+  <section>
+    <h2>Compiled scene features</h2>
+    {% if manifest.features %}
+    <div class="scroll">
+      <table>
+        <thead><tr><th>ID</th><th>Template</th><th>Class</th><th>Confidence</th><th>Status</th><th>Evidence IDs</th><th>Notes</th></tr></thead>
+        <tbody>
+        {% for feature in manifest.features %}
+          <tr>
+            <td class="mono">{{ feature.id }}</td><td>{{ feature.template }}</td><td><span class="badge {{ feature.evidence_class }}">{{ feature.evidence_class }}</span></td>
+            <td>{{ '%.2f'|format(feature.confidence) }}</td><td><span class="badge {{ feature.review_status }}">{{ feature.review_status }}</span></td>
+            <td class="mono">{{ feature.evidence_ids|join('; ') }}</td><td>{{ feature.notes }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}<p>No compiled features. Review validation and build mode.</p>{% endif %}
+    {% if manifest.excluded_features %}
+    <h3>Excluded features</h3>
+    {% for feature in manifest.excluded_features %}
+      <details><summary>{{ feature.id }}</summary><ul>{% for reason in feature.reasons %}<li>{{ reason }}</li>{% endfor %}</ul></details>
+    {% endfor %}
+    {% endif %}
+  </section>
+
+  <section>
+    <h2>Evidence claims</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>ID</th><th>Source</th><th>Subject</th><th>Property</th><th>Claim</th><th>Value</th><th>Locator</th><th>Class</th><th>Confidence</th><th>Status</th><th>Uncertainty</th></tr></thead>
+        <tbody>
+        {% for claim in claims %}
+          <tr>
+            <td class="mono">{{ claim.id }}</td><td class="mono">{{ claim.source_id }}</td><td>{{ claim.subject }}</td><td>{{ claim.property_name }}</td><td>{{ claim.claim }}</td>
+            <td>{{ claim.value_text }}{% if claim.value_number is not none %} {{ claim.value_number }} {{ claim.unit or '' }}{% endif %}</td><td>{{ claim.locator }}</td>
+            <td><span class="badge {{ claim.evidence_class }}">{{ claim.evidence_class }}</span></td><td>{{ '%.2f'|format(claim.confidence) }}</td>
+            <td><span class="badge {{ claim.review_status }}">{{ claim.review_status }}</span></td><td>{{ claim.uncertainty }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Sources</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>ID</th><th>Title</th><th>Authors</th><th>Year</th><th>Type</th><th>Local copy</th><th>SHA-256</th><th>Notes</th></tr></thead>
+        <tbody>
+        {% for source in sources %}
+          <tr><td class="mono">{{ source.id }}</td><td>{{ source.title }}</td><td>{{ source.authors }}</td><td>{{ source.publication_year }}</td><td>{{ source.source_type }}</td><td>{{ source.local_copy }}</td><td class="mono">{{ source.sha256 }}</td><td>{{ source.notes }}</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Review audit trail</h2>
+    {% if reviews %}
+    <div class="scroll"><table><thead><tr><th>Claim</th><th>Previous</th><th>New</th><th>Reviewer</th><th>Reviewed at</th><th>Notes</th></tr></thead><tbody>
+    {% for review in reviews %}<tr><td class="mono">{{ review.claim_id }}</td><td>{{ review.previous_status }}</td><td>{{ review.new_status }}</td><td>{{ review.reviewer }}</td><td>{{ review.reviewed_at }}</td><td>{{ review.notes }}</td></tr>{% endfor %}
+    </tbody></table></div>
+    {% else %}<p>No review actions have been recorded.</p>{% endif %}
+  </section>
+
+  <footer>Generated by ArchaeoForge. Visual plausibility is not evidence. Review source provenance before publication.</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,4 @@
+interface:
+  display_name: "ArchaeoForge Reconstruction"
+  short_description: "Evidence-led historical site reconstructions"
+  default_prompt: "Use $archaeoforge-reconstruction to build an evidence-controlled reconstruction of a historical site at a specified date and generate a lifelike scene."

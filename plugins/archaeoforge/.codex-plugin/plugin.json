@@ -1,0 +1,43 @@
+{
+  "name": "archaeoforge",
+  "version": "0.1.0",
+  "description": "Evidence-controlled historical-site reconstruction and lifelike visualization workflows for ArchaeoForge.",
+  "author": {
+    "name": "jconley2800",
+    "url": "https://github.com/jconley2800"
+  },
+  "homepage": "https://github.com/jconley2800/archaeoforge",
+  "repository": "https://github.com/jconley2800/archaeoforge",
+  "license": "MIT",
+  "keywords": [
+    "archaeology",
+    "historical-reconstruction",
+    "blender",
+    "provenance",
+    "image-generation"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "ArchaeoForge",
+    "shortDescription": "Evidence-led reconstruction",
+    "longDescription": "Drive an installed ArchaeoForge pipeline from Codex: create site projects, review evidence, validate and render dated geometry, turn model renders into lifelike historical scenes, and register derived images with hash-bound provenance.",
+    "developerName": "jconley2800",
+    "category": "Productivity",
+    "capabilities": [
+      "Historical research",
+      "Local project workflows",
+      "Image generation"
+    ],
+    "websiteURL": "https://github.com/jconley2800/archaeoforge",
+    "privacyPolicyURL": "https://github.com/jconley2800/archaeoforge/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/jconley2800/archaeoforge/blob/main/TERMS.md",
+    "defaultPrompt": [
+      "Build an evidence-controlled reconstruction of a historical site at a specified date.",
+      "Turn my ArchaeoForge model render into a lifelike historical scene with provenance.",
+      "Inspect my ArchaeoForge project and continue safely from its first incomplete stage."
+    ],
+    "brandColor": "#0A214A",
+    "composerIcon": "./assets/logo.png",
+    "logo": "./assets/logo.png"
+  }
+}

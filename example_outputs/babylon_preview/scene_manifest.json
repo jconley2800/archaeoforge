@@ -1,0 +1,885 @@
+{
+  "manifest_schema": 1,
+  "generated_at": "2026-08-09T11:00:18.740652+00:00",
+  "input_fingerprint": "3f0851e50d21103d640a8a85feef1aaf570db786db64c7be1e849f01fb5e4557",
+  "mode": "preview",
+  "is_preview": true,
+  "project_root": "/path/to/archaeoforge/projects/babylon_570_bce",
+  "project": {
+    "id": "babylon-570-bce-starter",
+    "title": "Babylon, approximately 570 BCE | Schematic Pipeline Starter",
+    "place_name": "Babylon",
+    "target_year": -570,
+    "target_year_label": "approximately 570 BCE",
+    "description": "A training project that demonstrates the ArchaeoForge evidence controls and procedural scene compiler. Coordinates, residential blocks, wall lines, palace massing, river alignment, and unsupported upper dimensions are schematic until replaced with georeferenced archaeological data and reviewed claims.",
+    "spatial_reference": "LOCAL_METERS",
+    "units": "m",
+    "origin_note": "Local schematic origin. +X east, +Y north, +Z up."
+  },
+  "blender": {
+    "executable": "blender",
+    "engine": "BLENDER_EEVEE",
+    "resolution_x": 1536,
+    "resolution_y": 864,
+    "resolution_percentage": 100,
+    "samples": 64,
+    "transparent_background": false,
+    "view_transform": "AgX",
+    "look": "",
+    "exposure": -1.0,
+    "shadows": true,
+    "raytracing": true,
+    "shadow_ray_count": 4,
+    "shadow_step_count": 6,
+    "camera": {
+      "auto_frame": true,
+      "azimuth_degrees": 152.0,
+      "elevation_degrees": 22.0,
+      "margin": 1.05,
+      "target_height_bias": 0.0,
+      "frame_includes_context": false,
+      "location": [
+        560.0,
+        -720.0,
+        470.0
+      ],
+      "target": [
+        -50.0,
+        75.0,
+        20.0
+      ],
+      "lens_mm": 40.0,
+      "orthographic": false,
+      "ortho_scale": 850.0
+    },
+    "sun": {
+      "elevation_degrees": 38.0,
+      "azimuth_degrees": 232.0,
+      "rotation_degrees": null,
+      "energy": 2.6,
+      "angle_degrees": 1.6
+    },
+    "sky": {
+      "procedural_sky": true,
+      "strength": 0.7,
+      "turbidity": 3.0,
+      "ground_albedo": 0.35,
+      "air_density": 1.0,
+      "dust_density": 1.5,
+      "color": [
+        0.28,
+        0.42,
+        0.62,
+        1.0
+      ]
+    },
+    "render_mode": "realistic",
+    "save_blend": true,
+    "render_passes": true
+  },
+  "sources": [
+    {
+      "id": "SRC-SCHEMATIC-DEMO",
+      "title": "Schematic Demo Declaration",
+      "authors": "ArchaeoForge",
+      "publication_year": 2026,
+      "source_type": "other",
+      "url": "",
+      "license": "MIT",
+      "relative_path": "sources/Schematic_Demo_Declaration.md",
+      "registered_sha256": "e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3",
+      "current_sha256": "e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3",
+      "local_copy": true,
+      "notes": "Declares the non-evidentiary status of starter geometry."
+    },
+    {
+      "id": "SRC-UPPSALA-BABYLON-MODEL",
+      "title": "The Babylon Project Digital Model",
+      "authors": "Uppsala University",
+      "publication_year": 2025,
+      "source_type": "dataset",
+      "url": "https://www.uu.se/en/department/archaeology-and-ancient-history/research/research-projects/the-babylon-project",
+      "license": "Website terms",
+      "relative_path": null,
+      "registered_sha256": "",
+      "current_sha256": "",
+      "local_copy": false,
+      "notes": "Project-level reference. Feature-level claims require exact publications, plans, or datasets."
+    },
+    {
+      "id": "SRC-KOLDEWEY-1914",
+      "title": "The Excavations at Babylon",
+      "authors": "Robert Koldewey",
+      "publication_year": 1914,
+      "source_type": "excavation_report",
+      "url": "https://www.gutenberg.org/ebooks/57597",
+      "license": "Public domain",
+      "relative_path": null,
+      "registered_sha256": "",
+      "current_sha256": "",
+      "local_copy": false,
+      "notes": "Starter bibliographic record only. Add a local source file before authoritative use."
+    },
+    {
+      "id": "SRC-PEDERSEN-ISHTAR",
+      "title": "The Ishtar Gate Area in Babylon: From Excavation to Digital Reconstruction",
+      "authors": "Olof Pedersén",
+      "publication_year": null,
+      "source_type": "peer_reviewed_article",
+      "url": "https://www.uu.se/en/department/archaeology-and-ancient-history/research/research-projects/the-babylon-project",
+      "license": "Publisher terms",
+      "relative_path": null,
+      "registered_sha256": "",
+      "current_sha256": "",
+      "local_copy": false,
+      "notes": "Starter bibliographic record only. Replace with exact publication metadata and a permitted local copy."
+    },
+    {
+      "id": "SRC-PEDERSEN-2023",
+      "title": "The Tower of Babylon Stele Found in Babylon",
+      "authors": "Olof Pedersén",
+      "publication_year": 2023,
+      "source_type": "peer_reviewed_article",
+      "url": "https://www.cambridge.org/core/journals/iraq/article/tower-of-babylon-stele-found-in-babylon/A712F186B2FA1965854911081620467B",
+      "license": "Publisher terms",
+      "relative_path": null,
+      "registered_sha256": "",
+      "current_sha256": "",
+      "local_copy": false,
+      "notes": "Starter bibliographic record only. Confirm locators against the licensed article."
+    }
+  ],
+  "statistics": {
+    "raw_features": 10,
+    "compiled_features": 10,
+    "excluded_features": 0,
+    "claims": 9,
+    "sources": 5
+  },
+  "features": [
+    {
+      "id": "TERRAIN-CONTEXT",
+      "name": "Schematic alluvial plain",
+      "template": "terrain",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -350.0,
+              -350.0
+            ],
+            [
+              350.0,
+              -350.0
+            ],
+            [
+              350.0,
+              500.0
+            ],
+            [
+              -350.0,
+              500.0
+            ],
+            [
+              -350.0,
+              -350.0
+            ]
+          ]
+        ]
+      },
+      "params": {
+        "height": 0.25,
+        "z": -0.25,
+        "material": "sand"
+      },
+      "evidence_ids": [],
+      "evidence_class": "C",
+      "confidence": 0.15,
+      "review_status": "needs_review",
+      "date_start": -604,
+      "date_end": -562,
+      "notes": "Neutral context slab only. No claim of ancient topography.",
+      "provenance": [],
+      "properties": {}
+    },
+    {
+      "id": "EUPHRATES-SCHEMATIC",
+      "name": "Schematic Euphrates course",
+      "template": "water",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              245.0,
+              -350.0
+            ],
+            [
+              310.0,
+              -350.0
+            ],
+            [
+              302.0,
+              500.0
+            ],
+            [
+              252.0,
+              500.0
+            ],
+            [
+              245.0,
+              -350.0
+            ]
+          ]
+        ]
+      },
+      "params": {
+        "height": 0.08,
+        "z": 0.02,
+        "material": "water"
+      },
+      "evidence_ids": [
+        "EVID-SCHEMATIC-PLACEMENT"
+      ],
+      "evidence_class": "C",
+      "confidence": 0.2,
+      "review_status": "needs_review",
+      "date_start": -604,
+      "date_end": -562,
+      "notes": "River alignment is a preview placeholder.",
+      "provenance": [
+        {
+          "claim_id": "EVID-SCHEMATIC-PLACEMENT",
+          "source_id": "SRC-SCHEMATIC-DEMO",
+          "source_title": "Schematic Demo Declaration",
+          "source_url": "",
+          "source_sha256_at_claim_creation": "e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3",
+          "source_sha256_registered": "e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3",
+          "locator": "items 1 and 5",
+          "quotation": "",
+          "claim": "All local coordinates and relative placements in the starter are schematic placeholders.",
+          "evidence_class": "C",
+          "confidence": 0.25,
+          "review_status": "needs_review"
+        }
+      ],
+      "properties": {}
+    },
+    {
+      "id": "ETEMENANKI-VARIANT-DEMO",
+      "name": "Etemenanki interpretive variant",
+      "template": "ziggurat",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.0,
+          -25.0
+        ]
+      },
+      "params": {
+        "material": "mudbrick",
+        "stage_count": 7,
+        "base_size": 91.5,
+        "stage_sizes": [
+          91.5,
+          72,
+          58,
+          46,
+          35,
+          25,
+          17
+        ],
+        "stage_heights": [
+          12,
+          10,
+          9,
+          8,
+          7,
+          6,
+          5
+        ],
+        "summit_shrine": {
+          "width": 14,
+          "length": 12,
+          "height": 7,
+          "material": "plaster"
+        },
+        "stairs": {
+          "steps": 24,
+          "length": 58,
+          "width": 11,
+          "height": 12
+        },
+        "rotation_degrees": 0
+      },
+      "evidence_ids": [
+        "EVID-ETEM-BASE",
+        "EVID-ETEM-CORE",
+        "EVID-ETEM-HEIGHT",
+        "EVID-SCHEMATIC-PLACEMENT"
+      ],
+      "evidence_class": "C",
+      "confidence": 0.25,
+      "review_status": "needs_review",
+      "date_start": -604,
+      "date_end": -562,
+      "notes": "Preview combines measured lower dimensions with explicitly interpretive upper massing.",
+      "provenance": [
+        {
+          "claim_id": "EVID-ETEM-BASE",
+          "source_id": "SRC-PEDERSEN-2023",
+          "source_title": "The Tower of Babylon Stele Found in Babylon",
+          "source_url": "https://www.cambridge.org/core/journals/iraq/article/tower-of-babylon-stele-found-in-babylon/A712F186B2FA1965854911081620467B",
+          "source_sha256_at_claim_creation": "",
+          "source_sha256_registered": "",
+          "locator": "article discussion and reconstruction plan",
+          "quotation": "",
+          "claim": "The lower footprint is reconstructed as approximately 91.5 metres square.",
+          "evidence_class": "B",
+          "confidence": 0.9,
+          "review_status": "needs_review"
+        },
+        {
+          "claim_id": "EVID-ETEM-CORE",
+          "source_id": "SRC-PEDERSEN-2023",
+          "source_title": "The Tower of Babylon Stele Found in Babylon",
+          "source_url": "https://www.cambridge.org/core/journals/iraq/article/tower-of-babylon-stele-found-in-babylon/A712F186B2FA1965854911081620467B",
+          "source_sha256_at_claim_creation": "",
+          "source_sha256_registered": "",
+          "locator": "article reconstruction discussion",
+          "quotation": "",
+          "claim": "The lower structure is interpreted as a roughly 60 metre core with a mantle of approximately 15 metres on each side.",
+          "evidence_class": "B",
+          "confidence": 0.82,
+          "review_status": "needs_review"
+        },
+        {
+          "claim_id": "EVID-ETEM-HEIGHT",
+          "source_id": "SRC-PEDERSEN-2023",
+          "source_title": "The Tower of Babylon Stele Found in Babylon",
+          "source_url": "https://www.cambridge.org/core/journals/iraq/article/tower-of-babylon-stele-found-in-babylon/A712F186B2FA1965854911081620467B",
+          "source_sha256_at_claim_creation": "",
+          "source_sha256_registered": "",
+          "locator": "article 3D reconstruction discussion",
+          "quotation": "",
+          "claim": "One reconstruction interprets the tower as approximately 90 metres high.",
+          "evidence_class": "B",
+          "confidence": 0.62,
+          "review_status": "needs_review"
+        },
+        {
+          "claim_id": "EVID-SCHEMATIC-PLACEMENT",
+          "source_id": "SRC-SCHEMATIC-DEMO",
+          "source_title": "Schematic Demo Declaration",
+          "source_url": "",
+          "source_sha256_at_claim_creation": "e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3",
+          "source_sha256_registered": "e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3",
+          "locator": "items 1 and 5",
+          "quotation": "",
+          "claim": "All local coordinates and relative placements in the starter are schematic placeholders.",
+          "evidence_class": "C",
+          "confidence": 0.25,
+          "review_status": "needs_review"
+        }
+      ],
+      "properties": {}
+    },
+    {
+      "id": "PROCESSIONAL-WAY-DEMO",
+      "name": "Processional Way preview",
+      "template": "processional",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            45.0,
+            -230.0
+          ],
+          [
+            45.0,
+            365.0
+          ]
+        ]
+      },
+      "params": {
+        "width": 20,
+        "height": 0.18,
+        "z": 0.05,
+        "material": "road"
+      },
+      "evidence_ids": [
+        "EVID-PROCESSIONAL-WIDTH",
+        "EVID-SCHEMATIC-PLACEMENT"
+      ],
+      "evidence_class": "C",
+      "confidence": 0.25,
+      "review_status": "needs_review",
+      "date_start": -604,
+      "date_end": -562,
+      "notes": "Width and local alignment need exact plan-level confirmation.",
+      "provenance": [
+        {
+          "claim_id": "EVID-PROCESSIONAL-WIDTH",
+          "source_id": "SRC-PEDERSEN-ISHTAR",
+          "source_title": "The Ishtar Gate Area in Babylon: From Excavation to Digital Reconstruction",
+          "source_url": "https://www.uu.se/en/department/archaeology-and-ancient-history/research/research-projects/the-babylon-project",
+          "source_sha256_at_claim_creation": "",
+          "source_sha256_registered": "",
+          "locator": "digital model and plan discussion; verify exact measured segment",
+          "quotation": "",
+          "claim": "The monumental section is represented in the starter at approximately 20 metres wide.",
+          "evidence_class": "B",
+          "confidence": 0.7,
+          "review_status": "needs_review"
+        },
+        {
+          "claim_id": "EVID-SCHEMATIC-PLACEMENT",
+          "source_id": "SRC-SCHEMATIC-DEMO",
+          "source_title": "Schematic Demo Declaration",
+          "source_url": "",
+          "source_sha256_at_claim_creation": "e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3",
+          "source_sha256_registered": "e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3",
+          "locator": "items 1 and 5",
+          "quotation": "",
+          "claim": "All local coordinates and relative placements in the starter are schematic placeholders.",
+          "evidence_class": "C",
+          "confidence": 0.25,
+          "review_status": "needs_review"
+        }
+      ],
+      "properties": {}
+    },
+    {
+      "id": "ISHTAR-GATE-DEMO",
+      "name": "Ishtar Gate preview",
+      "template": "gate",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          45.0,
+          165.0
+        ]
+      },
+      "params": {
+        "front_width": 28,
+        "front_depth": 13,
+        "main_width": 22,
+        "main_depth": 33,
+        "passage_width": 5.5,
+        "separation": 14,
+        "height": 17,
+        "material": "blue_glaze"
+      },
+      "evidence_ids": [
+        "EVID-ISHTAR-DIMENSIONS",
+        "EVID-ISHTAR-MATERIAL",
+        "EVID-SCHEMATIC-PLACEMENT"
+      ],
+      "evidence_class": "C",
+      "confidence": 0.25,
+      "review_status": "needs_review",
+      "date_start": -604,
+      "date_end": -562,
+      "notes": "Simplified volumetric gate. Decorative animal placement is not generated by this starter.",
+      "provenance": [
+        {
+          "claim_id": "EVID-ISHTAR-DIMENSIONS",
+          "source_id": "SRC-PEDERSEN-ISHTAR",
+          "source_title": "The Ishtar Gate Area in Babylon: From Excavation to Digital Reconstruction",
+          "source_url": "https://www.uu.se/en/department/archaeology-and-ancient-history/research/research-projects/the-babylon-project",
+          "source_sha256_at_claim_creation": "",
+          "source_sha256_registered": "",
+          "locator": "digital reconstruction publication; verify exact figure",
+          "quotation": "",
+          "claim": "Published digital reconstruction work constrains the gate complex to an overall length around 50 metres, with distinct front and main gate masses.",
+          "evidence_class": "B",
+          "confidence": 0.82,
+          "review_status": "needs_review"
+        },
+        {
+          "claim_id": "EVID-ISHTAR-MATERIAL",
+          "source_id": "SRC-KOLDEWEY-1914",
+          "source_title": "The Excavations at Babylon",
+          "source_url": "https://www.gutenberg.org/ebooks/57597",
+          "source_sha256_at_claim_creation": "",
+          "source_sha256_registered": "",
+          "locator": "Ishtar Gate excavation discussion and plates",
+          "quotation": "",
+          "claim": "The ceremonial facade used glazed baked brick with moulded animal figures.",
+          "evidence_class": "B",
+          "confidence": 0.86,
+          "review_status": "needs_review"
+        },
+        {
+          "claim_id": "EVID-SCHEMATIC-PLACEMENT",
+          "source_id": "SRC-SCHEMATIC-DEMO",
+          "source_title": "Schematic Demo Declaration",
+          "source_url": "",
+          "source_sha256_at_claim_creation": "e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3",
+          "source_sha256_registered": "e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3",
+          "locator": "items 1 and 5",
+          "quotation": "",
+          "claim": "All local coordinates and relative placements in the starter are schematic placeholders.",
+          "evidence_class": "C",
+          "confidence": 0.25,
+          "review_status": "needs_review"
+        }
+      ],
+      "properties": {}
+    },
+    {
+      "id": "INNER-WALL-DEMO",
+      "name": "Schematic inner wall",
+      "template": "city_wall",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -285.0,
+            -270.0
+          ],
+          [
+            215.0,
+            -270.0
+          ],
+          [
+            215.0,
+            420.0
+          ],
+          [
+            -285.0,
+            420.0
+          ],
+          [
+            -285.0,
+            -270.0
+          ]
+        ]
+      },
+      "params": {
+        "width": 8,
+        "height": 12,
+        "material": "mudbrick",
+        "cyclic": true
+      },
+      "evidence_ids": [
+        "EVID-WALL-COMPARATIVE"
+      ],
+      "evidence_class": "C",
+      "confidence": 0.18,
+      "review_status": "needs_review",
+      "date_start": -604,
+      "date_end": -562,
+      "notes": "Preview circuit only.",
+      "provenance": [
+        {
+          "claim_id": "EVID-WALL-COMPARATIVE",
+          "source_id": "SRC-SCHEMATIC-DEMO",
+          "source_title": "Schematic Demo Declaration",
+          "source_url": "",
+          "source_sha256_at_claim_creation": "e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3",
+          "source_sha256_registered": "e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3",
+          "locator": "items 4",
+          "quotation": "",
+          "claim": "The wall circuit, thickness, height, and gate relationships in the starter are schematic placeholders.",
+          "evidence_class": "C",
+          "confidence": 0.18,
+          "review_status": "needs_review"
+        }
+      ],
+      "properties": {}
+    },
+    {
+      "id": "PALACE-MASS-DEMO",
+      "name": "Schematic palace mass",
+      "template": "palace",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.0,
+              70.0
+            ],
+            [
+              205.0,
+              70.0
+            ],
+            [
+              205.0,
+              150.0
+            ],
+            [
+              78.0,
+              150.0
+            ],
+            [
+              78.0,
+              70.0
+            ]
+          ]
+        ]
+      },
+      "params": {
+        "height": 9,
+        "material": "plaster"
+      },
+      "evidence_ids": [
+        "EVID-SCHEMATIC-PLACEMENT"
+      ],
+      "evidence_class": "C",
+      "confidence": 0.2,
+      "review_status": "needs_review",
+      "date_start": -604,
+      "date_end": -562,
+      "notes": "Single mass for pipeline demonstration, not a palace plan.",
+      "provenance": [
+        {
+          "claim_id": "EVID-SCHEMATIC-PLACEMENT",
+          "source_id": "SRC-SCHEMATIC-DEMO",
+          "source_title": "Schematic Demo Declaration",
+          "source_url": "",
+          "source_sha256_at_claim_creation": "e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3",
+          "source_sha256_registered": "e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3",
+          "locator": "items 1 and 5",
+          "quotation": "",
+          "claim": "All local coordinates and relative placements in the starter are schematic placeholders.",
+          "evidence_class": "C",
+          "confidence": 0.25,
+          "review_status": "needs_review"
+        }
+      ],
+      "properties": {}
+    },
+    {
+      "id": "RESIDENTIAL-WEST-DEMO",
+      "name": "Schematic western residential district",
+      "template": "residential_cluster",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -270.0,
+              -245.0
+            ],
+            [
+              -145.0,
+              -245.0
+            ],
+            [
+              -145.0,
+              390.0
+            ],
+            [
+              -270.0,
+              390.0
+            ],
+            [
+              -270.0,
+              -245.0
+            ]
+          ]
+        ]
+      },
+      "params": {
+        "count": 65,
+        "seed": 57001,
+        "material": "mudbrick",
+        "width_range": [
+          6,
+          15
+        ],
+        "depth_range": [
+          7,
+          18
+        ],
+        "height_range": [
+          3.5,
+          7.5
+        ],
+        "spacing": 1.7
+      },
+      "evidence_ids": [
+        "EVID-HOUSE-COMPARATIVE"
+      ],
+      "evidence_class": "C",
+      "confidence": 0.2,
+      "review_status": "needs_review",
+      "date_start": -604,
+      "date_end": -562,
+      "notes": "Procedural urban texture only.",
+      "provenance": [
+        {
+          "claim_id": "EVID-HOUSE-COMPARATIVE",
+          "source_id": "SRC-SCHEMATIC-DEMO",
+          "source_title": "Schematic Demo Declaration",
+          "source_url": "",
+          "source_sha256_at_claim_creation": "e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3",
+          "source_sha256_registered": "e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3",
+          "locator": "items 2",
+          "quotation": "",
+          "claim": "Procedural house footprints, density, orientation, and height are placeholders rather than excavated building plans.",
+          "evidence_class": "C",
+          "confidence": 0.2,
+          "review_status": "needs_review"
+        }
+      ],
+      "properties": {}
+    },
+    {
+      "id": "RESIDENTIAL-CENTRAL-DEMO",
+      "name": "Schematic central residential district",
+      "template": "residential_cluster",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -40.0,
+              -245.0
+            ],
+            [
+              15.0,
+              -245.0
+            ],
+            [
+              15.0,
+              390.0
+            ],
+            [
+              -40.0,
+              390.0
+            ],
+            [
+              -40.0,
+              -245.0
+            ]
+          ]
+        ]
+      },
+      "params": {
+        "count": 58,
+        "seed": 57002,
+        "material": "mudbrick",
+        "width_range": [
+          6,
+          14
+        ],
+        "depth_range": [
+          7,
+          16
+        ],
+        "height_range": [
+          3.5,
+          7
+        ],
+        "spacing": 1.5
+      },
+      "evidence_ids": [
+        "EVID-HOUSE-COMPARATIVE"
+      ],
+      "evidence_class": "C",
+      "confidence": 0.2,
+      "review_status": "needs_review",
+      "date_start": -604,
+      "date_end": -562,
+      "notes": "Procedural urban texture only.",
+      "provenance": [
+        {
+          "claim_id": "EVID-HOUSE-COMPARATIVE",
+          "source_id": "SRC-SCHEMATIC-DEMO",
+          "source_title": "Schematic Demo Declaration",
+          "source_url": "",
+          "source_sha256_at_claim_creation": "e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3",
+          "source_sha256_registered": "e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3",
+          "locator": "items 2",
+          "quotation": "",
+          "claim": "Procedural house footprints, density, orientation, and height are placeholders rather than excavated building plans.",
+          "evidence_class": "C",
+          "confidence": 0.2,
+          "review_status": "needs_review"
+        }
+      ],
+      "properties": {}
+    },
+    {
+      "id": "RESIDENTIAL-EAST-DEMO",
+      "name": "Schematic eastern residential district",
+      "template": "residential_cluster",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              75.0,
+              -245.0
+            ],
+            [
+              205.0,
+              -245.0
+            ],
+            [
+              205.0,
+              50.0
+            ],
+            [
+              75.0,
+              50.0
+            ],
+            [
+              75.0,
+              -245.0
+            ]
+          ]
+        ]
+      },
+      "params": {
+        "count": 45,
+        "seed": 57003,
+        "material": "mudbrick",
+        "width_range": [
+          6,
+          14
+        ],
+        "depth_range": [
+          7,
+          17
+        ],
+        "height_range": [
+          3.5,
+          7.2
+        ],
+        "spacing": 1.6
+      },
+      "evidence_ids": [
+        "EVID-HOUSE-COMPARATIVE"
+      ],
+      "evidence_class": "C",
+      "confidence": 0.2,
+      "review_status": "needs_review",
+      "date_start": -604,
+      "date_end": -562,
+      "notes": "Procedural urban texture only.",
+      "provenance": [
+        {
+          "claim_id": "EVID-HOUSE-COMPARATIVE",
+          "source_id": "SRC-SCHEMATIC-DEMO",
+          "source_title": "Schematic Demo Declaration",
+          "source_url": "",
+          "source_sha256_at_claim_creation": "e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3",
+          "source_sha256_registered": "e4bde830936a8641f7b7a1eefd6e2617c9b4b2114c71c459ae941a49a8ec6ef3",
+          "locator": "items 2",
+          "quotation": "",
+          "claim": "Procedural house footprints, density, orientation, and height are placeholders rather than excavated building plans.",
+          "evidence_class": "C",
+          "confidence": 0.2,
+          "review_status": "needs_review"
+        }
+      ],
+      "properties": {}
+    }
+  ],
+  "excluded_features": []
+}

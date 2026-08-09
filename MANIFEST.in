@@ -1,0 +1,27 @@
+include .env.example
+include .agents/plugins/marketplace.json
+include LICENSE
+include PRIVACY.md
+include SECURITY.md
+include TERMS.md
+include THIRD_PARTY_NOTICES.md
+include Makefile
+include install_linux.sh
+include run_babylon_demo.sh
+
+graft docs
+graft example_outputs
+graft plugins/archaeoforge
+graft projects/babylon_570_bce
+graft tests
+
+prune projects/babylon_570_bce/.archaeoforge
+prune projects/babylon_570_bce/outputs
+recursive-exclude projects/babylon_570_bce .env .env.* *.key *.pem
+
+global-exclude __pycache__
+global-exclude .DS_Store
+global-exclude *.py[cod]
+global-exclude *.sqlite3
+global-exclude *.sqlite3-shm
+global-exclude *.sqlite3-wal

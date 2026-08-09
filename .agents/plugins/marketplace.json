@@ -1,0 +1,20 @@
+{
+  "name": "archaeoforge",
+  "interface": {
+    "displayName": "ArchaeoForge"
+  },
+  "plugins": [
+    {
+      "name": "archaeoforge",
+      "source": {
+        "source": "local",
+        "path": "./plugins/archaeoforge"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
