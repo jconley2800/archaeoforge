@@ -9,7 +9,7 @@ from types import SimpleNamespace
 import pytest
 from PIL import Image
 from pydantic import ValidationError
-from typer.testing import CliRunner
+from typer.main import get_command
 
 from archaeoforge.cli import _run_image_finish_stage, app
 from archaeoforge.compile_scene import compile_scene
@@ -1075,8 +1075,8 @@ def test_orchestrated_api_finish_runs_after_render(project_factory, monkeypatch)
 
 @pytest.mark.parametrize("command", ["finish", "prepare-finish"])
 def test_finish_commands_expose_historical_scene_mode(command):
-    result = CliRunner().invoke(app, [command, "--help"], env={"COLUMNS": "180"})
+    cli_command = get_command(app).commands[command]
+    mode_option = next(parameter for parameter in cli_command.params if parameter.name == "mode")
 
-    assert result.exit_code == 0
-    assert "--mode" in result.stdout
-    assert "historical_scene" in result.stdout
+    assert "--mode" in mode_option.opts
+    assert set(mode_option.type.choices) == {"precise_object_edit", "historical_scene"}

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 import pytest
@@ -14,6 +15,12 @@ from archaeoforge.db import connect, set_claim_status
 from archaeoforge.models import ProjectConfig, ReviewStatus
 from archaeoforge.project import ProjectPaths, load_config
 from archaeoforge.report import export_chatgpt_handoff, generate_report
+
+_ANSI_ESCAPE_RE = re.compile(r"\x1b\[[0-?]*[ -/]*[@-~]")
+
+
+def _plain_cli_output(value: str) -> str:
+    return " ".join(_ANSI_ESCAPE_RE.sub("", value).split())
 
 
 def test_report_escapes_malicious_source_title(project_factory):
@@ -165,7 +172,7 @@ def test_init_overwrite_requires_both_explicit_flags(tmp_path: Path):
 
     missing_force = runner.invoke(app, ["init", str(root), "--overwrite-existing"])
     assert missing_force.exit_code == 2
-    assert "requires --force" in missing_force.output
+    assert "requires --force" in _plain_cli_output(missing_force.output)
     assert config_path.read_text(encoding="utf-8") == "do-not-replace\n"
 
     overwrite = runner.invoke(
