@@ -203,3 +203,248 @@ These limitations are stated so the verification record does not imply execution
 
 - A live public OpenAI Image API call or Responses API geometry audit; those paths remained covered by
   mocked API tests because no network call was required for these contract and provenance corrections.
+
+## 2026-08-09 — Babylon spatial-correction and supporting-reference pass
+
+### Root cause reproduced
+
+- The Babylon starter places Etemenanki and the Ishtar Gate only about 242 m apart, while both features
+  and their provenance explicitly mark all relative placement as schematic and `needs_review`.
+- The compiled preview manifest preserves that uncertainty correctly. The historical-scene wrapper,
+  however, unconditionally instructed the image editor to preserve the base render's broad layout and
+  relative named-monument positions. The project prompt repeated “preserve its broad relationships.”
+- The first researched candidate therefore treated a non-evidentiary placeholder as a fixed anchor;
+  the later road-alignment pass changed only the road and stairs and inherited the same compressed
+  Gate-Etemenanki relationship.
+
+### Corrected
+
+- The initial correction introduced a broad, evidence-status-derived mutability policy. The later
+  Giza stagger regression showed that coupling was unsafe: archaeological uncertainty does not imply
+  permission for image generation to regularize or relocate the selected presentation geometry.
+  That policy is superseded by the explicit protected-anchor contract documented below.
+- Historical requests can now bind up to four ordered supporting references by repeated
+  `--reference-image`. Path, role, image index, SHA-256, dimensions, and format are revalidated at
+  registration and written into provenance. This closes the prior unbound “Image 2” gap.
+- Babylon's canonical prompt now places the single Ishtar Gate in the northern palace zone, directly
+  across the Processional Way, with Etemenanki roughly 0.8–0.85 km south-southwest in its own precinct.
+  It also treats the river alignment as mutable and specifies the T-shaped southern ziggurat approach.
+- Pedersén's Babylon Centre plan crop and an attributed explanatory orientation diagram were retained
+  as project assets and hash-bound into the targeted stair refinements.
+
+### Executed and passed
+
+- Full host/live-Blender-aware test collection: 107 tests passed.
+- Focused image-finishing tests, including Babylon prompt regression, hash-bound supporting
+  references, changed-reference rejection, and precise-mode reference rejection.
+- `.venv/bin/ruff check src tests` and `git diff --check`.
+- Babylon preview validation: 0 errors, 4 existing `SOURCE_EXTERNAL_ONLY` warnings, 10 eligible features.
+- Live built-in GPT Image 2 historical-scene generation from the bound beauty render, followed by
+  full-frame visual inspection. Rejected candidates were not published as the final result when they
+  duplicated a blue gate or misoriented the ziggurat stairs.
+- Registered review-required intermediates preserve the derivation chain from `beauty.png` through the
+  spatial correction and plan-assisted stair correction.
+- Final registered image: `outputs/renders/babylon-570-bce-stair-rotation-v11.png`, SHA-256
+  `27cd46bd9f7078a8f64721871d9a3c9c478e72035a5c9a0f8124d7fcb9b3cc45`, inspected at 1536 x 864.
+  The provider's 1672 x 941 same-aspect candidate was explicitly normalized with Lanczos; provenance
+  records the transform and therefore keeps manual review required.
+
+### Review status and limits
+
+- No reviewer, acceptance recommendation, or evidence approval was recorded. The final and its
+  intermediates remain non-authoritative and `manual_review_required: true`.
+- Strict geometry audit was intentionally skipped because it is inapplicable to `historical_scene`.
+- The deliberately schematic GeoJSON and Blender beauty render were not altered or re-rendered. The
+  correction belongs to the non-authoritative presentation layer; georeferencing the starter would
+  violate its evidence-control purpose.
+- The final visibly separates the single northern Ishtar Gate from Etemenanki and aligns the gate with
+  the road. The low, facade-hugging lateral stair pair reads as the plan's T crossbar, but precise
+  stair elevations, parapets, ziggurat upper stages, and summit treatment remain interpretive and need
+  a named historical-plausibility review.
+
+## 2026-08-10 — Giza waterfront correction
+
+### Corrected
+
+- Added the 2024 peer-reviewed Ahramat Branch/Giza Inlet study and AERA's 2013–2014
+  excavated-basin field report to the Giza preview source catalog.
+- Added four `needs_review` waterfront claims, refined the existing PNAS Khufu-branch claim,
+  and kept exact 2500 BCE shorelines, channel widths, depths, and docking arrangements explicit
+  uncertainties.
+- Added a connected Giza-inlet implementation proxy and three non-identical valley-temple water-edge
+  guides. A first highly concave polygon rendered as fragmented patches, so the live-rendered guide
+  was replaced with stable line-width and convex-polygon proxies without strengthening the claim.
+- Replaced the historical-scene instruction that pushed water beyond the crop with an explicit visible
+  waterfront: dry valley temples beside restrained inlet and harbor-basin water, a dry Sphinx enclosure,
+  and the wider branch and floodplain beyond.
+
+### Executed and passed
+
+- Preserved the prior generated SQLite database as
+  `.archaeoforge/project.sqlite3.pre-waterfront-20260810`, rebuilt the active database from the updated
+  CSV inputs, and imported 18 sources and 20 claims.
+- Preview validation: 0 errors, 17 expected `SOURCE_EXTERNAL_ONLY` warnings, 27 eligible features.
+- Preview compilation: 27 compiled features, 20 claims, 18 sources; input fingerprint
+  `78f5e769d38c8f21a283ce120d8111cc8091e4958d6a0572bc5854927920c269`.
+- Live Blender 5.2 render completed with beauty, depth, diffuse, normal, and Cryptomatte outputs;
+  the render log recorded the auto-framed camera and no ArchaeoForge error.
+- Prepared and hash-checked historical-scene request
+  `image_finish_request_waterfront_v2.json`, binding the fresh beauty render, current preview manifest,
+  revised prompt, and the earlier finish as a supporting reference.
+- Generated and visually inspected the full-frame built-in GPT Image 2 candidate. It retains exactly
+  three main pyramids, the subsidiary groups, covered causeways, valley temples, and a dry Sphinx
+  enclosure while bringing connected water to the lower temple fronts.
+- Registration correctly rejected the provider's native 1672 by 941 dimensions. Compatible 16:9
+  normalization was then explicitly requested and recorded as Lanczos 1536 by 864.
+- Final registered image: `outputs/renders/giza-2500-bce-waterfront-v2.png`, SHA-256
+  `dbd8d113304f983a2440abc0c35d527b28e1ceee9fce2b8bbf7bfb3b33a45331`.
+
+### Review status and limits
+
+- The project remains a preview with draft/needs-review evidence and external-source warnings.
+- The registered image is a non-authoritative derived presentation layer. No named reviewer,
+  recommendation, evidence approval, or strict geometry audit was recorded; manual historical-
+  plausibility review remains required.
+- The visible bank line, channel width, quay treatment, boat placement, seasonal water level, and
+  simultaneous pristine completion remain interpretive.
+
+## 2026-08-10 — Giza evidence-led late Fourth Dynasty pass
+
+### Corrected and enriched
+
+- Replaced the simultaneous all-white completion treatment with a coherent approximately 2500 BCE
+  transition under the Egyptian Ministry chronology: maintained Khufu and Khafre complexes alongside
+  Menkaure's granite lower casing, rough unfinished blocks, and whitewashed-mudbrick completion.
+- Added source-bound distinctions for Khafre's granite basal band, valley-temple materials and plain
+  covered causeway; Khufu's basalt temple pavement and relief fabric; Menkaure's subsidiary forms;
+  the unfinished Sphinx Temple; the early Eastern and Western cemeteries; Heit el-Ghurab; the Wall of
+  the Crow; and restrained royal-cult activity.
+- Added approximate, explicitly proxy-only guide geometry for the two early mastaba fields, the final-
+  phase workers' settlement, Wall of the Crow, and Sphinx Temple. The final presentation also includes
+  hard limestone quarry terraces, a narrow floodplain, sparse boats, people, animals, and settlement
+  activity where direct evidence or conservative Fourth Dynasty comparanda support them.
+- Corrected the rendered casing from decorative random crack patterns to tight horizontal courses,
+  reduced the waterfront from a dark marine bay to a calmer silty inlet, and separated Menkaure's
+  causeway from the workers' settlement wall.
+
+### Executed and passed
+
+- Preserved the preceding database as `.archaeoforge/project.sqlite3.pre-history-20260810`, rebuilt
+  the active database from CSV, and imported 27 sources and 33 claims.
+- Preview validation: 0 errors, 26 expected `SOURCE_EXTERNAL_ONLY` warnings, 32 eligible features.
+- Preview compilation: 32 compiled features, 33 claims, 27 sources; input fingerprint
+  `29473dd5d40a48c382b0fe708a98b0413bcdc0584f6ec579e656b37ed4c20bde`.
+- Live Blender 5.2 render completed with 1536 by 864 beauty, depth, diffuse, normal, and Cryptomatte
+  outputs. The evidence register was explicitly re-exported and contains all 33 claims, including the
+  previously omitted hydrology claims.
+- Prepared versioned hash-bound request `image_finish_request_historical_v3.json`, generated three
+  versioned candidates, inspected each full frame, and retained the earlier waterfront finish only as
+  a bound supporting reference.
+- Registration correctly rejected the provider's 1672 by 941 dimensions; explicit compatible Lanczos
+  normalization produced the 1536 by 864 registered output.
+- Final registered image: `outputs/renders/giza-2500-bce-historical-v3.png`, SHA-256
+  `c6f2bb18c085438b14167c3f6c8df7d053c7d55db1b0f22554854e6ec3db875f`.
+
+### Review status and limits
+
+- The result remains a preview. All new archaeological claims are `needs_review`, external web sources
+  have no local immutable copies, and exact chronology, causeway roofs, shoreline, settlement phase,
+  Sphinx appearance, boats, people, crops, and local coordinates remain explicit uncertainties.
+- The registered image is a non-authoritative presentation layer. No named reviewer, acceptance
+  recommendation, evidence approval, or strict geometry audit was recorded; provenance keeps
+  `manual_review_required: true`.
+
+## 2026-08-10 — historical protected-anchor contract and Giza stagger gate
+
+### Root cause reproduced
+
+- The compiled Giza manifest already placed the three principal pyramid centers at distinct
+  northeast-to-southwest offsets. The image-finishing wrapper nevertheless coupled preview evidence
+  status to presentation mutability, so the generator could regularize those selected positions.
+- `historical_scene` correctly skipped the strict pixel/geometry-preservation audit, but had no
+  narrower validation for protected spatial relationships. `manual_review_required: true` was
+  provenance metadata rather than a publication gate, so a visually plausible image with a collapsed
+  pyramid stagger could still reach `outputs/renders`.
+
+### Corrected
+
+- Historical finishing now requires a project-relative
+  `ai.historical_scene_spatial_contract`. Contract schema 1 names required `presence`,
+  `relative_layout`, `visible_stagger`, `topology`, `orientation`, and `scale_hierarchy`
+  relationships by stable constraint and manifest feature IDs. Evidence review status remains
+  independent of presentation-anchor protection.
+- Finish request schema 4 hash-binds the contract, semantic base-render requirements, successful
+  render receipt, and each protected feature's manifest template, geometry, parameters, review
+  status, and evidence IDs. Contract, receipt, beauty-image, template-semantic, or snapshot changes
+  make the request stale. Legacy historical schemas 1 through 3 cannot publish without preparing a
+  new receipt-bound request.
+- Historical prompts now begin with a `NON-NEGOTIABLE SPATIAL CONTRACT`. Proxy form, materials,
+  inhabitants, vegetation, and surface finish may change; protected placement, ordering, topology,
+  orientation, scale relationship, viewpoint, and crop may not. Supporting references cannot
+  override the contract.
+- Registration and the unattended API lane use a dedicated historical protected-anchor assessment,
+  separate from the inapplicable strict geometry audit. It must return every required constraint ID
+  exactly once, preserve viewpoint and crop, retain every protected feature, meet the confidence
+  threshold, and recommend acceptance.
+- A missing, incomplete, low-confidence, review, reject, or failed protected-anchor assessment now
+  stops before the canonical PNG or provenance sidecar is written. Interactive registration reports
+  `validation_blocked` and exits 2. A named `--spatial-recommendation accept` may substitute only
+  when automatic assessment is unavailable and covers the complete contract; a general
+  historical-plausibility acceptance cannot override the spatial gate.
+- Giza's contract explicitly protects the three principal pyramids as distinct features and requires
+  their selected Khufu-Khafre-Menkaure northeast-to-southwest stagger. The base scene now uses the
+  native planar `pyramid` template with limestone and granite materials, including separate lower
+  casing treatment where the selected reconstruction calls for it.
+
+### Regression coverage
+
+- Focused tests cover contract requirement and validation, binding of preview/`needs_review`
+  protected features, frontloaded prompt constraints, stale-contract rejection, exact assessment
+  coverage, low-confidence and failed-check rejection, named fallback review, publication ordering,
+  CLI exit 2, and the unattended historical API lane.
+- Project-level regression checks verify that the Giza contract binds all three principal pyramid
+  feature snapshots and contains the required visible-stagger relationship.
+
+## 2026-08-10 — semantic evidence render, Sphinx correction, and receipt gate
+
+### Corrected
+
+- Added native planar `pyramid` and identity-specific `sphinx` Blender templates so critical
+  landmarks begin image generation as recognizable evidence geometry rather than generic boxes or
+  stepped stand-ins. The Sphinx proxy contains one attached head, chest, continuous low lion body
+  with integrated hindquarters, paired forepaws, and an explicit east-facing direction.
+- Added conservative template recognizability classes and per-feature
+  `base_render_requirements`. A historical request now fails before generation when a protected
+  critical landmark is still only a generic envelope or does not meet its declared semantic level.
+- Added schema-1 `blender_result.json`. The schema-4 finish request and final provenance bind its
+  manifest hash and input fingerprint, beauty-image bytes and frame, and complete feature-template
+  semantic table. Historical Image 1 must be that fresh `beauty.png`; prior generated images remain
+  supporting references only.
+- Expanded Giza's contract to six checks covering the surveyed pyramid centers and visible stagger,
+  one complete Sphinx, east-facing orientation, scale hierarchy, and dry enclosure/causeway/temple/
+  water topology. A malformed earlier candidate was rejected with `validation_blocked` before
+  publication.
+
+### Executed and passed
+
+- Preview validation completed with 0 errors, 26 expected `SOURCE_EXTERNAL_ONLY` warnings, and
+  32/32 eligible features. The manifest contains 35 claims and 27 sources.
+- Blender 5.2 produced the 1536 by 864 beauty render plus depth, diffuse, normal, and Cryptomatte
+  passes. The receipt classifies the three main pyramids as `type_specific` and the Great Sphinx as
+  `identity_specific`.
+- The accepted candidate visually satisfies all six protected constraints. Compatible Lanczos
+  normalization from 1672 by 941 to 1536 by 864 is recorded. Final image:
+  `outputs/renders/giza-2500-bce-historical-sphinx-v7.png`, SHA-256
+  `da62a32cb533e22cb804f124c7ea4a244933d6edee37c312e944d785994aa5c9`.
+- The complete repository suite passes: 132 tests, Ruff, bytecode compilation, and
+  `git diff --check`.
+
+### Review status and limits
+
+- Automatic protected-anchor assessment was unavailable because `OPENAI_API_KEY` was unset. A
+  named manual review accepted only the complete visual spatial contract; provenance remains
+  `registered_review_required`, with historical plausibility set to `review`.
+- The project remains a preview. Its 26 archaeological sources are external-only rather than local
+  immutable snapshots, exact metric dimensions cannot be proven from raster pixels, and the visible
+  Sphinx enclosure remains a restrained schematic quarry setting rather than surveyed ditch
+  geometry.

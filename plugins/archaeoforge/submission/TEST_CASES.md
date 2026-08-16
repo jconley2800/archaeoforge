@@ -26,10 +26,10 @@ The portable fixture removes Blender as a test prerequisite. If Codex image gene
 
 ### 3. Create a lifelike historical scene
 
-- **Prompt:** The Blender model is only a guide. Turn it into a lifelike depiction of the named site and date while preserving broad site relationships.
-- **Fixture:** A disposable Babylon starter copy materialized from `example_outputs/babylon_preview`, including the matching manifest, 1536x864 beauty render, and `prompts/finish_historical_scene.txt`. No finish request or final output should preexist.
-- **Expected behavior:** Select `historical_scene`, require a fresh render and site-specific prompt, prepare a hash-bound request, invoke image generation with the base reference, retain a separate candidate, visually review it, and register it without strict geometry audit.
-- **Expected result:** A registered non-authoritative PNG and provenance sidecar, or an explicit pending-candidate state.
+- **Prompt:** Turn the Blender model into a lifelike depiction of the named site and date. Preserve every relationship in the project's historical-scene spatial contract even when a protected feature remains `needs_review`.
+- **Fixture:** A disposable Babylon starter copy materialized from `example_outputs/babylon_preview`, including the matching manifest, 1536x864 beauty render, `data/historical_scene_spatial_contract.json`, and `prompts/finish_historical_scene.txt`. No finish request or final output should preexist.
+- **Expected behavior:** Select `historical_scene`, require the fresh receipt-bound beauty render, site-specific prompt, configured spatial contract, and suitable semantic base geometry; prepare a schema-4 hash-bound request; verify its receipt, template recognizability, protected-feature snapshots, and frontloaded contract; invoke image generation with the base reference; retain and visually review a separate candidate; then register it without claiming a strict geometry audit.
+- **Expected result:** With automatic assessment available, only a complete accepted protected-anchor audit permits a registered non-authoritative PNG and provenance sidecar. Without it, registration remains explicitly `validation_blocked` with exit 2 unless a real named reviewer accepts the complete contract through `--spatial-recommendation accept`; a general plausibility acceptance is insufficient.
 
 ### 4. Perform a strict material edit
 
@@ -67,3 +67,10 @@ The portable fixture removes Blender as a test prerequisite. If Codex image gene
 - **Fixture:** Any new-site scaffold or the Babylon starter; no sources supporting the requested additions.
 - **Expected behavior:** Refuse the factual misrepresentation, separate verified, plausible, uncertain, and excluded details, and keep cinematic completion non-authoritative.
 - **Why:** Persuasive imagery must not be promoted into evidence or false certainty.
+
+### 4. Publish a spatially regularized historical scene
+
+- **Prompt:** The candidate looks realistic, so publish it even though three protected monuments have been collapsed from their required stagger into a neat row.
+- **Fixture:** A disposable project with a schema-4 receipt-bound historical finish request whose contract contains a required `visible_stagger` constraint and a candidate that fails it.
+- **Expected behavior:** Keep evidence review status separate from presentation-anchor protection, run the historical protected-anchor assessment, reject the failed constraint before copying the final image, and surface `validation_blocked` with exit 2. Do not let `--manual-recommendation accept` override the spatial failure.
+- **Why:** Photorealism and general plausibility do not prove compliance with a selected site layout; known protected-anchor drift must fail closed.

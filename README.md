@@ -313,11 +313,31 @@ The bundled Blender script supports these templates:
 - `wall`, `city_wall`
 - `road`, `processional`
 - `ziggurat`
+- `pyramid`
+- `sphinx`
 - `gate`
 - `residential_cluster`
 - `tree`, `palm`
 
 All coordinates and dimensions use metres. Procedural generation is deterministic. Each Blender object stores feature ID, evidence IDs, evidence class, confidence, review status, provenance JSON, and the scene input fingerprint.
+
+The native `pyramid` template builds a true planar pyramid from a point feature. Its parameters
+include `base_size`, `height`, and `rotation_degrees`; `lower_casing_fraction` can divide the form
+between `lower_material` and `upper_material`. The bundled material library includes limestone and
+granite, so a casing distinction such as Menkaure's granite lower courses can be represented in the
+evidence render instead of being delegated to image generation.
+
+The native `sphinx` template also starts from a point feature. `overall_length`, `body_width`,
+`height`, and `rotation_degrees` define a continuous low lion body, chest, paired forepaws, human
+head, muzzle, and headdress guide; at zero rotation its face and paws point toward local +X. It is a
+semantic evidence-render proxy, not a claim that the smooth component volumes reconstruct carving
+detail.
+
+Every native template has a conservative recognizability class: `generic_envelope`,
+`type_specific`, or `identity_specific`. Unknown templates remain generic. A successful render
+writes schema-1 `outputs/exports/blender_result.json`, binding the manifest hash and fingerprint,
+the exact `beauty.png` hash and metadata, and every feature's template and recognizability. Blender
+objects carry the same template semantics for inspection.
 
 Build without rendering:
 
@@ -379,11 +399,21 @@ presentation layer and bind it to the base-render hash and compiled-manifest has
 
 Finishing also has two explicit intents. `precise_object_edit` is the default restrained
 material-and-lighting pass: the render remains the authoritative spatial constraint and the
-strict geometry audit applies. `historical_scene` treats a schematic render only as a broad
-layout and viewpoint guide, allowing the image generator to build a lifelike inhabited setting.
-Historical-scene output is deliberately interpretive, skips the strict geometry audit as
-inapplicable, and begins review-required. A named `historical_plausibility` acceptance can clear
-that flag only for an unnormalized result; review, reject, and normalization remain review-required.
+strict geometry audit applies. `historical_scene` permits proxy form, material, occupation, and
+surface detail to change, but requires a project-authored spatial contract that names the
+relationships image generation must preserve. Presentation-anchor protection is independent of
+evidence review status: a selected preview feature may remain `needs_review` while its placement,
+ordering, topology, orientation, or scale relationship is protected against accidental visual
+drift. The request binds both the contract file and snapshots of its referenced manifest features.
+For historical scenes it also binds the successful Blender render receipt, proving that Image 1 is
+the current `outputs/renders/beauty.png` produced from that exact manifest and template set.
+
+Historical-scene output is deliberately interpretive, so the strict pixel/geometry-preservation
+audit remains inapplicable. A separate protected-anchor audit checks every required contract
+constraint before publication. A failed, missing, incomplete, or low-confidence assessment blocks
+the write. When automatic assessment is unavailable, only a named
+`--spatial-recommendation accept` covering the complete contract may substitute; a general
+historical-plausibility review does not satisfy the spatial gate.
 
 ### Codex built-in image generation
 
@@ -398,6 +428,53 @@ archaeoforge prepare-finish \
   --prompt projects/my_site/prompts/finish_historical_scene.txt
 ```
 
+Historical mode requires a project-relative contract path in `project.yaml`:
+
+```yaml
+ai:
+  finish_mode: historical_scene
+  historical_scene_spatial_contract: data/historical_scene_spatial_contract.json
+```
+
+The referenced JSON uses schema 1. Each required constraint names manifest feature IDs and a
+visible relationship. Only feature IDs listed in `mutable_feature_ids` may be deliberately
+relocated; a required protected feature cannot also be mutable. Optional
+`base_render_requirements` make identity-critical landmarks fail closed when their native evidence
+geometry is still only an unknown or generic envelope:
+
+```json
+{
+  "spatial_contract_schema": 1,
+  "constraints": [
+    {
+      "id": "MAIN-MONUMENT-STAGGER",
+      "kind": "visible_stagger",
+      "required": true,
+      "feature_ids": ["MONUMENT-A", "MONUMENT-B", "MONUMENT-C"],
+      "requirement": "Keep three distinct offsets in the selected northeast-to-southwest order.",
+      "evidence_ids": ["EV-SPATIAL-01"]
+    }
+  ],
+  "base_render_requirements": [
+    {
+      "id": "MONUMENT-SEMANTIC-BASE",
+      "feature_ids": ["MONUMENT-A", "MONUMENT-B", "MONUMENT-C"],
+      "minimum_recognizability": "type_specific",
+      "requirement": "Image 1 must show native monument-type geometry, not generic boxes."
+    }
+  ],
+  "mutable_feature_ids": [],
+  "notes": "Proxy form and materials may change; the named relationship may not."
+}
+```
+
+Historical request schema 4 reserves Image 1 for the fresh receipt-bound `beauty.png`. A prior
+candidate or registered finish may inform a later refinement only as a supporting appearance
+reference: bind it, a plan, or a comparison image explicitly by repeating `--reference-image PATH`.
+Supporting references are allowed only in `historical_scene`; each gets an image index from 2
+onward, role, project-relative path, dimensions, format, and SHA-256 in the request and provenance.
+They never replace or override Image 1, its receipt, or the spatial contract.
+
 Open the emitted `outputs/exports/image_finish_request.json` with the project in Codex and
 ask Codex to follow `suggested_codex_prompt`. Keep the tool result at its separate candidate
 path; only `register-finish` may publish the requested final path:
@@ -409,17 +486,20 @@ archaeoforge register-finish path/to/candidate.png \
 ```
 
 Registration detects stale bindings or request edits whose checksums were not deliberately
-recomputed, and rejects a changed base render, changed manifest, invalid image, changed
-frame, unsafe output path, accidental base-image overwrite, or an existing image/provenance/audit
-set. Requests are confined to `outputs/exports`; published PNGs are confined to
+recomputed, and rejects a non-beauty historical base, missing or stale render receipt, changed
+beauty image, changed supporting reference, changed manifest or feature-template semantics, changed
+spatial contract or protected-feature snapshot, invalid image, changed frame, unsafe output path,
+accidental base-image overwrite, or an existing image/provenance/audit set. Historical
+spatial validation also runs before the image is copied to the final path. A blocked
+`register-finish` reports `validation_blocked` and exits with status 2. Requests are confined to
+`outputs/exports`; published PNGs are confined to
 `outputs/renders`. If an interactive provider returns a different resolution at the same
 aspect ratio, the explicit `--normalize-size` option resamples it and permanently leaves the
-result review-required. Use
-`--manual-recommendation accept|review|reject --reviewer ... --review-notes ...` to record a
-visual review. Nothing is silently approved. In `historical_scene` mode this is a historical
-plausibility/presentation review, not a claim that the generated city plan is archaeological
-evidence. Provenance records its scope as `historical_plausibility`; precise edits use
-`geometry_preservation`.
+result review-required. Use `--manual-recommendation accept|review|reject --reviewer ...
+--review-notes ...` to record a visual review. Nothing is silently approved. In
+`historical_scene` mode this is a historical-plausibility/presentation review, not spatial-contract
+acceptance or a claim that the generated city plan is archaeological evidence. Provenance records
+its scope as `historical_plausibility`; precise edits use `geometry_preservation`.
 
 To have `archaeoforge run` prepare the request after a successful render:
 
@@ -428,6 +508,7 @@ ai:
   finish_enabled: true
   finish_backend: interactive_handoff
   finish_mode: historical_scene      # or precise_object_edit
+  historical_scene_spatial_contract: data/historical_scene_spatial_contract.json
   image_input_fidelity: high       # compatibility key; GPT Image 2 applies this automatically
   image_size: auto
 ```
