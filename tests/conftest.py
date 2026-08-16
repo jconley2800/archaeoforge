@@ -26,6 +26,7 @@ def project_factory(tmp_path: Path):
         for directory in ("sources", "data", "assets", "prompts", "outputs"):
             (root / directory).mkdir(parents=True, exist_ok=True)
         config = default_config("test-project", "Test Reconstruction", "Test Place", target_year, "test period")
+        config.ai.historical_scene_spatial_contract = "data/historical_scene_spatial_contract.json"
         write_config(config, root / "project.yaml")
         source_path = root / "sources" / "source.txt"
         source_path.write_text("Measured wall width is 4 metres.\n", encoding="utf-8")
@@ -89,6 +90,27 @@ def project_factory(tmp_path: Path):
             ],
         }
         (root / "data" / "features.geojson").write_text(json.dumps(features), encoding="utf-8")
+        spatial_contract = {
+            "spatial_contract_schema": 1,
+            "constraints": [
+                {
+                    "id": "WALL-1-RELATIVE-LAYOUT",
+                    "kind": "relative_layout",
+                    "required": True,
+                    "feature_ids": ["WALL-1"],
+                    "requirement": (
+                        "Preserve WALL-1 at its bound manifest position and orientation relative to the camera."
+                    ),
+                    "evidence_ids": ["EVID-TEST"],
+                }
+            ],
+            "mutable_feature_ids": [],
+            "notes": "Test fixture contract.",
+        }
+        (root / "data" / "historical_scene_spatial_contract.json").write_text(
+            json.dumps(spatial_contract),
+            encoding="utf-8",
+        )
         return project
 
     return factory

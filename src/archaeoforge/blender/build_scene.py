@@ -27,6 +27,7 @@ try:
     from archaeoforge.framing import solve_camera, spherical_direction
     from archaeoforge.object_index import build_object_index_map
     from archaeoforge.polyline import mitered_segment_polygons
+    from archaeoforge.template_semantics import template_recognizability
 except ImportError as exc:  # pragma: no cover - only reachable if the file is copied out
     raise RuntimeError(
         "build_scene.py must stay inside the archaeoforge package so that "
@@ -44,6 +45,8 @@ MATERIAL_COLORS = {
     "sand": (0.48, 0.30, 0.14, 1.0),
     "mudbrick": (0.42, 0.24, 0.10, 1.0),
     "plaster": (0.68, 0.57, 0.39, 1.0),
+    "limestone": (0.86, 0.80, 0.67, 1.0),
+    "granite": (0.34, 0.14, 0.105, 1.0),
     "baked_brick": (0.48, 0.19, 0.07, 1.0),
     "blue_glaze": (0.015, 0.09, 0.32, 1.0),
     "dark_bitumen": (0.025, 0.018, 0.012, 1.0),
@@ -98,7 +101,14 @@ def make_material(name: str, color: tuple[float, float, float, float], roughness
 
 
 def material_library(render_mode: str) -> dict[str, bpy.types.Material]:
-    materials = {name: make_material(name, color) for name, color in MATERIAL_COLORS.items()}
+    materials = {
+        name: make_material(
+            name,
+            color,
+            0.42 if name == "limestone" else (0.68 if name == "granite" else 0.72),
+        )
+        for name, color in MATERIAL_COLORS.items()
+    }
     for evidence_class, color in CLASS_COLORS.items():
         materials[f"evidence_{evidence_class}"] = make_material(f"evidence_{evidence_class}", color, 0.58)
     materials["default"] = materials["mudbrick"]
@@ -145,6 +155,83 @@ def create_cylinder(
     bpy.ops.mesh.primitive_cylinder_add(vertices=vertices, radius=radius, depth=depth, location=location)
     obj = bpy.context.active_object
     obj.name = name
+    add_material(obj, material)
+    return obj
+
+
+def create_ellipsoid(
+    name: str,
+    location: tuple[float, float, float],
+    dimensions: tuple[float, float, float],
+    material: bpy.types.Material,
+    rotation_z: float = 0.0,
+) -> bpy.types.Object:
+    """Create a smooth ellipsoid whose local long axis can follow a feature yaw."""
+    if any(dimension <= 0.0 for dimension in dimensions):
+        raise ValueError(f"{name} ellipsoid dimensions must all be positive.")
+    bpy.ops.mesh.primitive_uv_sphere_add(
+        segments=32,
+        ring_count=16,
+        location=location,
+        rotation=(0.0, 0.0, rotation_z),
+    )
+    obj = bpy.context.active_object
+    obj.name = name
+    obj.scale = tuple(dimension / 2.0 for dimension in dimensions)
+    bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
+    for polygon in obj.data.polygons:
+        polygon.use_smooth = True
+    add_material(obj, material)
+    return obj
+
+
+def create_pyramid_segment(
+    name: str,
+    location: tuple[float, float, float],
+    base_size: float,
+    top_size: float,
+    height: float,
+    material: bpy.types.Material,
+    rotation_z: float = 0.0,
+) -> bpy.types.Object:
+    """Create a true planar pyramid or truncated-pyramid segment."""
+    base_half = base_size / 2.0
+    vertices = [
+        (-base_half, -base_half, 0.0),
+        (base_half, -base_half, 0.0),
+        (base_half, base_half, 0.0),
+        (-base_half, base_half, 0.0),
+    ]
+    faces: list[tuple[int, ...]] = [(0, 3, 2, 1)]
+    if top_size <= 1e-6:
+        vertices.append((0.0, 0.0, height))
+        faces.extend(((0, 1, 4), (1, 2, 4), (2, 3, 4), (3, 0, 4)))
+    else:
+        top_half = top_size / 2.0
+        vertices.extend(
+            (
+                (-top_half, -top_half, height),
+                (top_half, -top_half, height),
+                (top_half, top_half, height),
+                (-top_half, top_half, height),
+            )
+        )
+        faces.extend(
+            (
+                (0, 1, 5, 4),
+                (1, 2, 6, 5),
+                (2, 3, 7, 6),
+                (3, 0, 4, 7),
+                (4, 5, 6, 7),
+            )
+        )
+    mesh = bpy.data.meshes.new(f"{name}_mesh")
+    mesh.from_pydata(vertices, [], faces)
+    mesh.update()
+    obj = bpy.data.objects.new(name, mesh)
+    obj.location = location
+    obj.rotation_euler.z = rotation_z
+    bpy.context.collection.objects.link(obj)
     add_material(obj, material)
     return obj
 
@@ -268,9 +355,13 @@ def deterministic_seed(feature_id: str, explicit: int | None = None) -> int:
 def tag_objects(objects: list[bpy.types.Object], feature: dict, object_index_map: dict[str, int]) -> None:
     provenance_json = json.dumps(feature.get("provenance", []), ensure_ascii=False)
     evidence_ids = ";".join(feature.get("evidence_ids", []))
+    template = str(feature.get("template", "building"))
+    recognizability = template_recognizability(template)
     for index, obj in enumerate(objects, start=1):
         obj["archaeoforge_feature_id"] = feature["id"]
         obj["archaeoforge_feature_part"] = index
+        obj["archaeoforge_template"] = template
+        obj["archaeoforge_template_recognizability"] = recognizability
         obj["archaeoforge_evidence_ids"] = evidence_ids
         obj["archaeoforge_evidence_class"] = feature.get("evidence_class", "D")
         obj["archaeoforge_confidence"] = float(feature.get("confidence", 0.0))
@@ -405,6 +496,159 @@ def build_ziggurat(feature: dict, materials: dict) -> list[bpy.types.Object]:
                         rotation_z=rotation,
                     )
                 )
+    return objects
+
+
+def build_pyramid(feature: dict, materials: dict) -> list[bpy.types.Object]:
+    params = feature.get("params", {})
+    base_material = choose_material(feature, materials)
+    base_size = float(params.get("base_size", params.get("base_width", 100.0)))
+    height = float(params.get("height", base_size * 0.636))
+    z0 = float(params.get("z", 0.0))
+    rotation = math.radians(float(params.get("rotation_degrees", 0.0)))
+    lower_fraction = float(params.get("lower_casing_fraction", 0.0))
+    if not 0.0 <= lower_fraction < 1.0:
+        raise ValueError(f"{feature['id']} lower_casing_fraction must be in [0, 1).")
+    upper_material = materials.get(str(params.get("upper_material", "")), base_material)
+    lower_material = materials.get(str(params.get("lower_material", "")), base_material)
+    objects: list[bpy.types.Object] = []
+    for _, point in geometry_parts(feature["geometry"]):
+        if not isinstance(point, list):
+            continue
+        x, y = float(point[0]), float(point[1])
+        if lower_fraction > 0.0:
+            lower_height = height * lower_fraction
+            shoulder_size = base_size * (1.0 - lower_fraction)
+            objects.append(
+                create_pyramid_segment(
+                    f"{feature['id']}_lower_casing",
+                    (x, y, z0),
+                    base_size,
+                    shoulder_size,
+                    lower_height,
+                    lower_material,
+                    rotation,
+                )
+            )
+            objects.append(
+                create_pyramid_segment(
+                    f"{feature['id']}_upper_casing",
+                    (x, y, z0 + lower_height),
+                    shoulder_size,
+                    0.0,
+                    height - lower_height,
+                    upper_material,
+                    rotation,
+                )
+            )
+        else:
+            objects.append(
+                create_pyramid_segment(
+                    f"{feature['id']}_casing",
+                    (x, y, z0),
+                    base_size,
+                    0.0,
+                    height,
+                    upper_material,
+                    rotation,
+                )
+            )
+    return objects
+
+
+def build_sphinx(feature: dict, materials: dict) -> list[bpy.types.Object]:
+    """Build a full-length, east-facing Sphinx guide from a Point feature.
+
+    The Point is the center of the complete sculpture footprint. At zero
+    ``rotation_degrees`` the head and forepaws face local +X, which is east in
+    an unrotated projected site coordinate system. Positive rotations follow
+    Blender's counter-clockwise +Z convention.
+
+    New manifests should use ``overall_length`` for the nose-to-rump envelope
+    and ``body_width`` for its lateral width. ``width`` and ``length`` remain
+    fallbacks, respectively, so an existing 73.5 m by 19 m box envelope can
+    switch templates without moving or transposing the sculpture.
+    """
+    params = feature.get("params", {})
+    material = choose_material(feature, materials)
+    overall_length = float(params.get("overall_length", params.get("width", 73.5)))
+    body_width = float(params.get("body_width", params.get("length", 19.0)))
+    height = float(params.get("height", 20.0))
+    z0 = float(params.get("z", 0.0))
+    rotation = math.radians(float(params.get("rotation_degrees", 0.0)))
+    if min(overall_length, body_width, height) <= 0.0:
+        raise ValueError(f"{feature['id']} sphinx overall_length, body_width, and height must be positive.")
+
+    cos_rotation = math.cos(rotation)
+    sin_rotation = math.sin(rotation)
+
+    def world_location(
+        origin_x: float,
+        origin_y: float,
+        local_x: float,
+        local_y: float,
+        local_z: float,
+    ) -> tuple[float, float, float]:
+        return (
+            origin_x + local_x * cos_rotation - local_y * sin_rotation,
+            origin_y + local_x * sin_rotation + local_y * cos_rotation,
+            z0 + local_z,
+        )
+
+    objects: list[bpy.types.Object] = []
+    for part_type, point in geometry_parts(feature["geometry"]):
+        if part_type != "Point" or not isinstance(point, list) or len(point) < 2:
+            raise ValueError(f"{feature['id']} sphinx template requires Point geometry.")
+        x, y = float(point[0]), float(point[1])
+        point_origin = (x, y)
+
+        def ellipsoid(
+            suffix: str,
+            local_location: tuple[float, float, float],
+            relative_dimensions: tuple[float, float, float],
+            origin: tuple[float, float] = point_origin,
+        ) -> None:
+            objects.append(
+                create_ellipsoid(
+                    f"{feature['id']}_{suffix}",
+                    world_location(*origin, *local_location),
+                    (
+                        overall_length * relative_dimensions[0],
+                        body_width * relative_dimensions[1],
+                        height * relative_dimensions[2],
+                    ),
+                    material,
+                    rotation_z=rotation,
+                )
+            )
+
+        # The overlapping volumes are intentionally schematic: together they preserve a
+        # recognizable lion/human silhouette while remaining a transparent geometry guide.
+        # One continuous, low torso reaches the western end of the footprint. A former
+        # separate round rump volume read as a second head or oversized tail in derived
+        # images, so the hindquarters are now carried by this elongated body silhouette.
+        ellipsoid("body", (-0.16 * overall_length, 0.0, 0.22 * height), (0.68, 0.86, 0.36))
+        ellipsoid("chest", (0.12 * overall_length, 0.0, 0.31 * height), (0.22, 0.72, 0.60))
+
+        for side, lateral_sign in (("north", 1.0), ("south", -1.0)):
+            ellipsoid(
+                f"forepaw_{side}",
+                (0.29 * overall_length, lateral_sign * 0.255 * body_width, 0.055 * height),
+                (0.42, 0.26, 0.11),
+            )
+
+        # A broad rear nemes volume and paired lappets make the human headdress legible
+        # independently of the head and muzzle, especially in an oblique wide shot.
+        ellipsoid("headdress", (0.145 * overall_length, 0.0, 0.735 * height), (0.16, 0.72, 0.45))
+        for side, lateral_sign in (("north", 1.0), ("south", -1.0)):
+            ellipsoid(
+                f"headdress_lappet_{side}",
+                (0.16 * overall_length, lateral_sign * 0.27 * body_width, 0.57 * height),
+                (0.12, 0.16, 0.34),
+            )
+        ellipsoid("head", (0.19 * overall_length, 0.0, 0.77 * height), (0.17, 0.50, 0.28))
+        ellipsoid("muzzle", (0.27 * overall_length, 0.0, 0.73 * height), (0.10, 0.32, 0.12))
+        ellipsoid("nose", (0.325 * overall_length, 0.0, 0.745 * height), (0.035, 0.18, 0.05))
     return objects
 
 
@@ -546,6 +790,10 @@ def build_feature(feature: dict, materials: dict) -> list[bpy.types.Object]:
         return build_line_feature(feature, materials, default_width=8.0, default_height=0.08)
     if template == "ziggurat":
         return build_ziggurat(feature, materials)
+    if template == "pyramid":
+        return build_pyramid(feature, materials)
+    if template == "sphinx":
+        return build_sphinx(feature, materials)
     if template == "gate":
         return build_gate(feature, materials)
     if template == "residential_cluster":

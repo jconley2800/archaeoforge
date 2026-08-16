@@ -10,22 +10,32 @@ import pytest
 from PIL import Image
 from pydantic import ValidationError
 from typer.main import get_command
+from typer.testing import CliRunner
 
 from archaeoforge.cli import _run_image_finish_stage, app
 from archaeoforge.compile_scene import compile_scene
 from archaeoforge.config import write_config
 from archaeoforge.image_finish import (
+    HistoricalSpatialValidationError,
     _finish_request_id,
     finish_render,
     prepare_finish_request,
     register_finished_render,
 )
-from archaeoforge.models import AIConfig, DriftAssessment, FinishMode
+from archaeoforge.models import (
+    AIConfig,
+    DriftAssessment,
+    FinishMode,
+    HistoricalSpatialAssessment,
+    HistoricalSpatialCheck,
+)
 from archaeoforge.openai_client import OFFICIAL_OPENAI_BASE_URL, new_official_openai_client
 from archaeoforge.project import load_config
+from archaeoforge.template_semantics import template_recognizability
 from archaeoforge.util import sha256_file
 
 _API_IMAGE_SIZE = (1024, 640)
+_TEST_SPATIAL_CONSTRAINT_ID = "WALL-1-RELATIVE-LAYOUT"
 
 
 def _png(path: Path, size: tuple[int, int] = (64, 32), color: str = "#806040") -> Path:
@@ -34,10 +44,44 @@ def _png(path: Path, size: tuple[int, int] = (64, 32), color: str = "#806040") -
     return path
 
 
+def _write_render_receipt(project, base: Path) -> None:
+    manifest = json.loads(project.scene_manifest.read_text(encoding="utf-8"))
+    with Image.open(base) as image:
+        beauty = {
+            "path": base.relative_to(project.root).as_posix(),
+            "sha256": sha256_file(base),
+            "width": image.width,
+            "height": image.height,
+            "format": image.format,
+        }
+    receipt = {
+        "render_receipt_schema": 1,
+        "command": ["test-blender"],
+        "log": "test",
+        "blend_file": "test.blend",
+        "rendered": True,
+        "manifest": {
+            "path": project.scene_manifest.relative_to(project.root).as_posix(),
+            "sha256": sha256_file(project.scene_manifest),
+            "input_fingerprint": manifest["input_fingerprint"],
+        },
+        "feature_templates": {
+            feature["id"]: {
+                "template": feature["template"],
+                "recognizability": template_recognizability(feature["template"]),
+            }
+            for feature in manifest["features"]
+        },
+        "beauty_image": beauty,
+    }
+    project.blender_result.write_text(json.dumps(receipt), encoding="utf-8")
+
+
 def _project_with_render(project_factory):
     project = project_factory()
     compile_scene(project, preview=True)
     base = _png(project.renders_dir / "beauty.png")
+    _write_render_receipt(project, base)
     return project, base
 
 
@@ -45,7 +89,26 @@ def _project_with_api_render(project_factory):
     project = project_factory()
     compile_scene(project, preview=True)
     base = _png(project.renders_dir / "beauty.png", size=_API_IMAGE_SIZE)
+    _write_render_receipt(project, base)
     return project, base
+
+
+def _accepting_spatial_assessment() -> HistoricalSpatialAssessment:
+    return HistoricalSpatialAssessment(
+        viewpoint_and_crop_preserved=True,
+        all_protected_features_present=True,
+        checks=[
+            HistoricalSpatialCheck(
+                constraint_id=_TEST_SPATIAL_CONSTRAINT_ID,
+                passed=True,
+                confidence=0.99,
+                observation="WALL-1 remains at the bound relative placement.",
+                detected_changes=[],
+            )
+        ],
+        detected_changes=[],
+        recommendation="accept",
+    )
 
 
 def test_project_dotenv_cannot_redirect_openai_credentials(project_factory, monkeypatch):
@@ -103,7 +166,7 @@ def test_prepare_finish_request_is_portable_hash_bound_and_stable(project_factor
     assert first["desired_output"]["height"] == 32
     assert first["generation"]["size"] == "64x32"
     assert first["generation"]["input_fidelity"] == "automatic_high"
-    assert first["finish_request_schema"] == 2
+    assert first["finish_request_schema"] == 4
     assert first["finish_mode"] == "precise_object_edit"
     assert first["manifest"]["input_fingerprint"]
     assert first["manifest"]["sha256"] == sha256_file(project.scene_manifest)
@@ -113,7 +176,7 @@ def test_prepare_finish_request_is_portable_hash_bound_and_stable(project_factor
     assert "preserve its camera and geometry" in first["suggested_codex_prompt"]
 
 
-def test_historical_scene_mode_is_hash_bound_and_uses_an_interpretive_handoff(project_factory):
+def test_historical_scene_hash_binds_and_frontloads_needs_review_spatial_contract(project_factory):
     project, base = _project_with_render(project_factory)
     request_path = project.exports_dir / "mode-bound-request.json"
     (project.prompts_dir / "finish.txt").write_text(
@@ -137,20 +200,212 @@ def test_historical_scene_mode_is_hash_bound_and_uses_an_interpretive_handoff(pr
     )
     historical = json.loads(request_path.read_text(encoding="utf-8"))
 
+    contract = historical["spatial_contract"]
+    protected = contract["protected_features"]
+    assert historical["finish_request_schema"] == 4
     assert historical["finish_mode"] == "historical_scene"
     assert historical["geometry_audit_enabled"] is False
+    assert historical["render_receipt"]["sha256"] == sha256_file(project.blender_result)
+    assert historical["render_receipt"]["beauty_image"]["sha256"] == sha256_file(base)
+    assert contract["path"] == "data/historical_scene_spatial_contract.json"
+    assert contract["sha256"] == sha256_file(project.root / "data" / "historical_scene_spatial_contract.json")
+    assert contract["constraints"][0]["id"] == _TEST_SPATIAL_CONSTRAINT_ID
+    assert contract["constraints"][0]["kind"] == "relative_layout"
+    assert contract["constraints"][0]["feature_ids"] == ["WALL-1"]
+    assert protected[0]["id"] == "WALL-1"
+    assert protected[0]["review_status"] == "needs_review"
+    assert protected[0]["geometry"] == {"type": "LineString", "coordinates": [[0, 0], [10, 0]]}
     assert historical["request_id"] != precise["request_id"]
     assert "Use case: historical-scene" in historical["prompt"]
-    assert "spatial and compositional guide" in historical["prompt"]
+    assert historical["prompt"].index("NON-NEGOTIABLE SPATIAL CONTRACT") < historical["prompt"].index(
+        "Primary request:"
+    )
+    assert "WALL-1-RELATIVE-LAYOUT" in historical["prompt"]
+    assert "evidence_status=needs_review" in historical["prompt"]
+    assert "Proxy form and materials may change" in historical["prompt"]
     assert "lifelike, inhabited historical" in historical["prompt"]
     assert "Test Place" in historical["prompt"]
     assert "test period" in historical["prompt"]
     assert "Preserve every geometric edge exactly" not in historical["prompt"]
     assert "Do not add, remove, relocate" not in historical["prompt"]
     assert "lifelike historical scene" in historical["suggested_codex_prompt"]
-    assert (
-        "preserving its viewpoint and broad named site relationships" in historical["suggested_codex_prompt"]
+    assert "NON-NEGOTIABLE SPATIAL CONTRACT" in historical["suggested_codex_prompt"]
+
+
+def test_historical_scene_requires_a_configured_spatial_contract(project_factory):
+    project, base = _project_with_render(project_factory)
+    config = load_config(project)
+    config.ai.historical_scene_spatial_contract = None
+    write_config(config, project.config)
+
+    with pytest.raises(ValueError, match="requires ai.historical_scene_spatial_contract"):
+        prepare_finish_request(
+            project,
+            base_image=base,
+            mode=FinishMode.historical_scene,
+        )
+
+
+def test_historical_scene_rejects_a_generated_candidate_as_the_spatial_base(project_factory):
+    project, _ = _project_with_render(project_factory)
+    candidate = _png(project.outputs_dir / "candidates" / "earlier-finish.png")
+
+    with pytest.raises(ValueError, match="must use the current outputs/renders/beauty.png"):
+        prepare_finish_request(project, base_image=candidate, mode=FinishMode.historical_scene)
+
+
+def test_historical_scene_rejects_a_stale_manifest_render_receipt(project_factory):
+    project, base = _project_with_render(project_factory)
+    manifest = json.loads(project.scene_manifest.read_text(encoding="utf-8"))
+    manifest["input_fingerprint"] = "recompiled-after-render"
+    project.scene_manifest.write_text(json.dumps(manifest), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="receipt was produced from a different manifest"):
+        prepare_finish_request(project, base_image=base, mode=FinishMode.historical_scene)
+
+
+def test_historical_scene_rejects_beauty_changed_after_render(project_factory):
+    project, base = _project_with_render(project_factory)
+    _png(base, color="#102030")
+
+    with pytest.raises(ValueError, match="beauty image changed after the recorded render"):
+        prepare_finish_request(project, base_image=base, mode=FinishMode.historical_scene)
+
+
+def test_historical_scene_rejects_a_protected_generic_landmark_base(project_factory):
+    project, base = _project_with_render(project_factory)
+    contract_path = project.root / "data" / "historical_scene_spatial_contract.json"
+    contract = json.loads(contract_path.read_text(encoding="utf-8"))
+    contract["base_render_requirements"] = [
+        {
+            "id": "WALL-SEMANTIC-BASE",
+            "feature_ids": ["WALL-1"],
+            "minimum_recognizability": "identity_specific",
+            "requirement": "The protected landmark must have an identity-specific native mesh.",
+        }
+    ]
+    contract_path.write_text(json.dumps(contract), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="base render is not semantically ready.*WALL-1.*type_specific"):
+        prepare_finish_request(project, base_image=base, mode=FinishMode.historical_scene)
+
+
+def test_historical_scene_binds_a_satisfied_base_render_requirement(project_factory):
+    project, base = _project_with_render(project_factory)
+    contract_path = project.root / "data" / "historical_scene_spatial_contract.json"
+    contract = json.loads(contract_path.read_text(encoding="utf-8"))
+    contract["base_render_requirements"] = [
+        {
+            "id": "WALL-TYPE-BASE",
+            "feature_ids": ["WALL-1"],
+            "minimum_recognizability": "type_specific",
+            "requirement": "The protected wall must retain a recognizable linear wall form.",
+        }
+    ]
+    contract_path.write_text(json.dumps(contract), encoding="utf-8")
+
+    request_path = prepare_finish_request(project, base_image=base, mode=FinishMode.historical_scene)
+    request = json.loads(request_path.read_text(encoding="utf-8"))
+    assert request["spatial_contract"]["base_render_requirements"] == contract["base_render_requirements"]
+    assert "Protected semantic base-render requirements already satisfied" in request["prompt"]
+    assert "WALL-TYPE-BASE" in request["prompt"]
+
+
+def test_historical_request_hash_binds_supporting_reference_images(project_factory, monkeypatch):
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    project, base = _project_with_render(project_factory)
+    reference = _png(project.root / "assets" / "stair-plan.png", size=(32, 32), color="#203050")
+
+    request_path = prepare_finish_request(
+        project,
+        base_image=base,
+        mode=FinishMode.historical_scene,
+        reference_images=[reference],
     )
+    request = json.loads(request_path.read_text(encoding="utf-8"))
+
+    assert request["reference_images"] == [
+        {
+            "image_index": 2,
+            "role": "supporting_reference",
+            "path": "assets/stair-plan.png",
+            "sha256": sha256_file(reference),
+            "width": 32,
+            "height": 32,
+            "format": "PNG",
+        }
+    ]
+    assert "Image 2 is hash-bound" in request["prompt"]
+    assert "Image 2: assets/stair-plan.png" in request["suggested_codex_prompt"]
+    assert "do not use unbound iterative images" in request["suggested_codex_prompt"]
+
+    candidate = _png(project.renders_dir / "candidate.png")
+    result = register_finished_render(
+        project,
+        generated_image=candidate,
+        request_path=request_path,
+        spatial_recommendation="accept",
+        reviewer="Spatial reviewer",
+    )
+    record = json.loads(Path(result["provenance_record"]).read_text(encoding="utf-8"))
+    assert record["reference_images"] == request["reference_images"]
+    assert record["historical_spatial_review"]["recommendation"] == "accept"
+
+
+def test_register_rejects_a_changed_supporting_reference(project_factory):
+    project, base = _project_with_render(project_factory)
+    reference = _png(project.root / "assets" / "stair-plan.png", size=(32, 32), color="#203050")
+    request_path = prepare_finish_request(
+        project,
+        base_image=base,
+        mode=FinishMode.historical_scene,
+        reference_images=[reference],
+    )
+    _png(reference, size=(32, 32), color="#000000")
+    candidate = _png(project.renders_dir / "candidate.png")
+
+    with pytest.raises(ValueError, match="Supporting reference image changed"):
+        register_finished_render(
+            project,
+            generated_image=candidate,
+            request_path=request_path,
+        )
+
+
+def test_precise_finish_rejects_supporting_reference_images(project_factory):
+    project, base = _project_with_render(project_factory)
+    reference = _png(project.root / "assets" / "stair-plan.png", size=(32, 32))
+
+    with pytest.raises(ValueError, match="only for historical_scene"):
+        prepare_finish_request(
+            project,
+            base_image=base,
+            mode=FinishMode.precise_object_edit,
+            reference_images=[reference],
+        )
+
+
+def test_babylon_historical_prompt_overrides_schematic_gate_placement():
+    prompt_path = (
+        Path(__file__).parents[1]
+        / "projects"
+        / "babylon_570_bce"
+        / "prompts"
+        / "finish_historical_scene.txt"
+    )
+    prompt = prompt_path.read_text(encoding="utf-8")
+
+    assert "Class C, needs-review placeholders" in prompt
+    assert "roadway must enter the northern gatehouse" in prompt
+    assert "roughly 800-850 metres south-southwest" in prompt
+    assert "They are not adjacent" in prompt
+    assert "Exactly one visibly blue monumental portal complex" in prompt
+    assert "all three unobstructed lowest-stage approach flights in a T-shaped plan" in prompt
+    assert "one broad central staircase projects perpendicular to the exact midpoint" in prompt
+    assert "forming the T's straight crossbar" in prompt
+    assert "not become two diagonal fan arms" in prompt
+    assert "no duplicate blue gate" in prompt.lower()
+    assert "Preserve its broad relationships" not in prompt
 
 
 def test_prepare_finish_versions_around_existing_output_sidecars(project_factory):
@@ -227,7 +482,7 @@ def test_register_finish_writes_verified_image_and_provenance_without_api_key(
         "operation": "edit",
     }
     assert record["finish_mode"] == "precise_object_edit"
-    assert record["finish_record_schema"] == 2
+    assert record["finish_record_schema"] == 3
     assert record["authority"]["authoritative"] is False
     assert record["geometry_audit_status"] == "skipped"
     assert record["manual_review_required"] is True
@@ -257,14 +512,14 @@ def test_register_accepts_legacy_precise_request_without_a_mode(project_factory)
 @pytest.mark.parametrize(
     ("mutation", "message"),
     [
-        (lambda request: request.pop("finish_mode"), "schema 2 must explicitly carry finish_mode"),
+        (lambda request: request.pop("finish_mode"), "schema 4 must explicitly carry finish_mode"),
         (
             lambda request: request.__setitem__("finish_mode", "cinematic_fantasy"),
             "Unsupported finish mode",
         ),
     ],
 )
-def test_schema_2_requires_an_explicit_valid_finish_mode(
+def test_current_schema_requires_an_explicit_valid_finish_mode(
     project_factory,
     mutation,
     message,
@@ -294,7 +549,7 @@ def test_schema_1_rejects_a_finish_mode_even_with_a_recomputed_request_id(projec
         register_finished_render(project, generated_image=candidate, request_path=request_path)
 
 
-def test_schema_2_historical_request_rejects_enabled_strict_audit_policy(project_factory):
+def test_schema_3_historical_request_rejects_enabled_strict_audit_policy(project_factory):
     project, base = _project_with_render(project_factory)
     request_path = prepare_finish_request(
         project,
@@ -311,10 +566,11 @@ def test_schema_2_historical_request_rejects_enabled_strict_audit_policy(project
         register_finished_render(project, generated_image=candidate, request_path=request_path)
 
 
-def test_historical_scene_binds_no_strict_audit_and_named_accept_can_clear_review(
+def test_historical_scene_binds_no_strict_audit_and_named_accepts_can_clear_review(
     project_factory,
     monkeypatch,
 ):
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     project, base = _project_with_render(project_factory)
     request_path = prepare_finish_request(
         project,
@@ -326,12 +582,17 @@ def test_historical_scene_binds_no_strict_audit_and_named_accept_can_clear_revie
         "archaeoforge.image_finish.audit_geometry",
         lambda *_args, **_kwargs: pytest.fail("Historical scene mode must skip strict geometry audit."),
     )
+    monkeypatch.setattr(
+        "archaeoforge.image_finish.audit_historical_spatial_contract",
+        lambda *_args, **_kwargs: _accepting_spatial_assessment(),
+    )
 
     result = register_finished_render(
         project,
         generated_image=candidate,
         request_path=request_path,
         manual_recommendation="accept",
+        spatial_recommendation="accept",
         reviewer="Test reviewer",
     )
     record = json.loads(Path(result["provenance_record"]).read_text(encoding="utf-8"))
@@ -345,6 +606,8 @@ def test_historical_scene_binds_no_strict_audit_and_named_accept_can_clear_revie
     assert record["geometry_audit_invocation"]["policy_source"] == "finish_mode"
     assert record["manual_review"]["recommendation"] == "accept"
     assert record["manual_review"]["scope"] == "historical_plausibility"
+    assert record["historical_spatial_review"]["recommendation"] == "accept"
+    assert record["historical_spatial_audit_status"] == "manual_accept"
     assert "manual_geometry_review" not in record
     assert result["manual_review_required"] is False
 
@@ -370,7 +633,7 @@ def test_historical_scene_rejects_an_explicit_strict_geometry_audit(project_fact
 
 
 @pytest.mark.parametrize("recommendation", ["review", "reject"])
-def test_historical_scene_review_or_reject_remains_review_required(
+def test_historical_spatial_review_or_reject_blocks_publication(
     project_factory,
     recommendation,
 ):
@@ -382,17 +645,142 @@ def test_historical_scene_review_or_reject_remains_review_required(
     )
     candidate = _png(project.renders_dir / "candidate.png")
 
+    destination = project.renders_dir / "finished.png"
+
+    with pytest.raises(HistoricalSpatialValidationError, match=f"recommended {recommendation}"):
+        register_finished_render(
+            project,
+            generated_image=candidate,
+            request_path=request_path,
+            spatial_recommendation=recommendation,
+            reviewer="Test reviewer",
+        )
+
+    assert not destination.exists()
+    assert not destination.with_suffix(".provenance.json").exists()
+
+
+def test_historical_scene_missing_api_key_without_named_spatial_accept_blocks_publication(
+    project_factory,
+    monkeypatch,
+):
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    project, base = _project_with_render(project_factory)
+    request_path = prepare_finish_request(
+        project,
+        base_image=base,
+        mode=FinishMode.historical_scene,
+    )
+    candidate = _png(project.renders_dir / "candidate.png")
+    destination = project.renders_dir / "finished.png"
+
+    with pytest.raises(HistoricalSpatialValidationError, match="validation is incomplete"):
+        register_finished_render(
+            project,
+            generated_image=candidate,
+            request_path=request_path,
+        )
+
+    assert not destination.exists()
+    assert not destination.with_suffix(".provenance.json").exists()
+
+
+@pytest.mark.parametrize(
+    ("assessment", "message"),
+    [
+        (
+            HistoricalSpatialAssessment(
+                viewpoint_and_crop_preserved=True,
+                all_protected_features_present=True,
+                checks=[
+                    HistoricalSpatialCheck(
+                        constraint_id=_TEST_SPATIAL_CONSTRAINT_ID,
+                        passed=False,
+                        confidence=0.99,
+                        observation="WALL-1 moved.",
+                        detected_changes=["placement changed"],
+                    )
+                ],
+                detected_changes=["placement changed"],
+                recommendation="reject",
+            ),
+            "failed required constraints",
+        ),
+        (
+            HistoricalSpatialAssessment(
+                viewpoint_and_crop_preserved=True,
+                all_protected_features_present=True,
+                checks=[],
+                detected_changes=[],
+                recommendation="accept",
+            ),
+            "did not cover the exact required constraint set",
+        ),
+    ],
+)
+def test_failed_or_incomplete_historical_spatial_audit_blocks_before_publication(
+    project_factory,
+    monkeypatch,
+    assessment,
+    message,
+):
+    monkeypatch.setenv("OPENAI_API_KEY", "test-only")
+    project, base = _project_with_render(project_factory)
+    request_path = prepare_finish_request(
+        project,
+        base_image=base,
+        mode=FinishMode.historical_scene,
+    )
+    candidate = _png(project.renders_dir / "candidate.png")
+    destination = project.renders_dir / "finished.png"
+    monkeypatch.setattr(
+        "archaeoforge.image_finish.audit_historical_spatial_contract",
+        lambda *_args, **_kwargs: assessment,
+    )
+
+    with pytest.raises(HistoricalSpatialValidationError, match=message):
+        register_finished_render(
+            project,
+            generated_image=candidate,
+            request_path=request_path,
+        )
+
+    assert not destination.exists()
+    assert not destination.with_suffix(".provenance.json").exists()
+
+
+def test_passing_historical_spatial_audit_publishes_and_records_contract(
+    project_factory,
+    monkeypatch,
+):
+    monkeypatch.setenv("OPENAI_API_KEY", "test-only")
+    project, base = _project_with_render(project_factory)
+    request_path = prepare_finish_request(
+        project,
+        base_image=base,
+        mode=FinishMode.historical_scene,
+    )
+    candidate = _png(project.renders_dir / "candidate.png")
+    monkeypatch.setattr(
+        "archaeoforge.image_finish.audit_historical_spatial_contract",
+        lambda *_args, **_kwargs: _accepting_spatial_assessment(),
+    )
+
     result = register_finished_render(
         project,
         generated_image=candidate,
         request_path=request_path,
-        manual_recommendation=recommendation,
-        reviewer="Test reviewer",
     )
     record = json.loads(Path(result["provenance_record"]).read_text(encoding="utf-8"))
+    request = json.loads(request_path.read_text(encoding="utf-8"))
 
-    assert record["manual_review"]["scope"] == "historical_plausibility"
-    assert result["manual_review_required"] is True
+    assert Path(result["finished_image"]).exists()
+    assert record["render_receipt"] == request["render_receipt"]
+    assert record["render_receipt"]["sha256"] == sha256_file(project.blender_result)
+    assert record["historical_spatial_contract"]["constraints"][0]["id"] == (_TEST_SPATIAL_CONSTRAINT_ID)
+    assert record["historical_spatial_audit"]["recommendation"] == "accept"
+    assert record["historical_spatial_audit_status"] == "complete"
+    assert result["historical_spatial_audit"]["checks"][0]["passed"] is True
 
 
 def test_register_finish_records_missing_audit_key_instead_of_orphaning_image(
@@ -433,6 +821,55 @@ def test_register_finish_rejects_a_tampered_request(project_factory):
 
     with pytest.raises(ValueError, match="changed after it was prepared"):
         register_finished_render(project, generated_image=candidate, request_path=request_path, audit=False)
+
+
+def test_register_finish_rejects_a_tampered_bound_spatial_contract(project_factory):
+    project, base = _project_with_render(project_factory)
+    request_path = prepare_finish_request(
+        project,
+        base_image=base,
+        mode=FinishMode.historical_scene,
+    )
+    request = json.loads(request_path.read_text(encoding="utf-8"))
+    request["spatial_contract"]["constraints"][0]["requirement"] = "Allow the wall to move."
+    request_path.write_text(json.dumps(request), encoding="utf-8")
+    candidate = _png(project.renders_dir / "candidate.png")
+
+    with pytest.raises(ValueError, match="changed after it was prepared"):
+        register_finished_render(
+            project,
+            generated_image=candidate,
+            request_path=request_path,
+            spatial_recommendation="accept",
+            reviewer="Spatial reviewer",
+        )
+
+    assert not (project.renders_dir / "finished.png").exists()
+
+
+def test_register_finish_rejects_a_stale_spatial_contract(project_factory):
+    project, base = _project_with_render(project_factory)
+    request_path = prepare_finish_request(
+        project,
+        base_image=base,
+        mode=FinishMode.historical_scene,
+    )
+    contract_path = project.root / "data" / "historical_scene_spatial_contract.json"
+    contract = json.loads(contract_path.read_text(encoding="utf-8"))
+    contract["notes"] = "Changed after request preparation."
+    contract_path.write_text(json.dumps(contract), encoding="utf-8")
+    candidate = _png(project.renders_dir / "candidate.png")
+
+    with pytest.raises(ValueError, match="spatial contract.*changed after"):
+        register_finished_render(
+            project,
+            generated_image=candidate,
+            request_path=request_path,
+            spatial_recommendation="accept",
+            reviewer="Spatial reviewer",
+        )
+
+    assert not (project.renders_dir / "finished.png").exists()
 
 
 def test_register_finish_rejects_a_tampered_finish_mode(project_factory):
@@ -525,7 +962,11 @@ def test_register_finish_can_normalize_same_aspect_output_and_record_manual_reje
     assert record["manual_review_required"] is True
 
 
-def test_normalized_finish_remains_review_required_even_after_manual_accept(project_factory):
+def test_normalized_finish_remains_review_required_even_after_manual_accept(
+    project_factory,
+    monkeypatch,
+):
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     project, base = _project_with_render(project_factory)
     request_path = prepare_finish_request(
         project,
@@ -540,6 +981,7 @@ def test_normalized_finish_remains_review_required_even_after_manual_accept(proj
         request_path=request_path,
         normalize_size=True,
         manual_recommendation="accept",
+        spatial_recommendation="accept",
         reviewer="Historical reviewer",
     )
 
@@ -767,7 +1209,7 @@ def test_finish_render_uses_base_dimensions_and_records_api_result(
     record = json.loads(Path(result["provenance_record"]).read_text(encoding="utf-8"))
     assert record["generation"]["provider"] == "openai_api"
     assert record["generation"]["request"]["input_fidelity"] == "automatic_high"
-    assert record["finish_record_schema"] == 2
+    assert record["finish_record_schema"] == 3
     assert record["generation"]["api_response"]["usage"] == {"total_tokens": 7}
     assert record["geometry_audit_status"] == "skipped"
 
@@ -802,18 +1244,28 @@ def test_historical_scene_api_finish_uses_mode_prompt_and_skips_strict_audit(
         "archaeoforge.image_finish.audit_geometry",
         lambda *_args, **_kwargs: pytest.fail("Historical scene mode must skip strict geometry audit."),
     )
+    monkeypatch.setattr(
+        "archaeoforge.image_finish.audit_historical_spatial_contract",
+        lambda *_args, **_kwargs: _accepting_spatial_assessment(),
+    )
 
     result = finish_render(project, base_image=base)
     record = json.loads(Path(result["provenance_record"]).read_text(encoding="utf-8"))
 
     assert "Use case: historical-scene" in calls[0]["prompt"]
-    assert "spatial and compositional guide" in calls[0]["prompt"]
+    assert "NON-NEGOTIABLE SPATIAL CONTRACT" in calls[0]["prompt"]
+    assert _TEST_SPATIAL_CONSTRAINT_ID in calls[0]["prompt"]
+    assert "evidence_status=needs_review" in calls[0]["prompt"]
     assert record["finish_mode"] == "historical_scene"
     assert record["geometry_audit_status"] == "skipped"
     assert "not applicable to historical_scene" in record["geometry_audit_reason"]
     assert record["geometry_audit_invocation"]["requested"] is False
     assert record["geometry_audit_invocation"]["effective"] is False
     assert record["geometry_audit_invocation"]["policy_source"] == "finish_mode"
+    assert record["render_receipt"]["sha256"] == sha256_file(project.blender_result)
+    assert record["render_receipt"]["beauty_image"]["sha256"] == sha256_file(base)
+    assert record["historical_spatial_audit_status"] == "complete"
+    assert record["historical_spatial_audit"]["recommendation"] == "accept"
     assert result["manual_review_required"] is True
 
 
@@ -962,6 +1414,43 @@ def test_finish_render_revalidates_base_before_publication(project_factory, monk
     assert not (project.renders_dir / "finished.png").exists()
 
 
+def test_historical_api_finish_revalidates_render_receipt_before_publication(
+    project_factory,
+    monkeypatch,
+):
+    project, base = _project_with_api_render(project_factory)
+    config = load_config(project)
+    config.ai.finish_mode = FinishMode.historical_scene
+    write_config(config, project.config)
+    monkeypatch.setenv("OPENAI_API_KEY", "test-only")
+
+    encoded = io.BytesIO()
+    Image.new("RGB", _API_IMAGE_SIZE, "#506070").save(encoded, format="PNG")
+
+    def edit(**_kwargs):
+        receipt = json.loads(project.blender_result.read_text(encoding="utf-8"))
+        receipt["log"] = "receipt changed while the Image API request was running"
+        project.blender_result.write_text(json.dumps(receipt), encoding="utf-8")
+        return SimpleNamespace(
+            data=[SimpleNamespace(b64_json=base64.b64encode(encoded.getvalue()).decode("ascii"))]
+        )
+
+    monkeypatch.setattr(
+        "archaeoforge.image_finish._client",
+        lambda _project: SimpleNamespace(images=SimpleNamespace(edit=edit)),
+    )
+    monkeypatch.setattr(
+        "archaeoforge.image_finish.audit_historical_spatial_contract",
+        lambda *_args, **_kwargs: _accepting_spatial_assessment(),
+    )
+
+    with pytest.raises(ValueError, match="render receipt changed while the Image API finish was running"):
+        finish_render(project, base_image=base)
+
+    assert not (project.renders_dir / "finished.png").exists()
+    assert not (project.renders_dir / "finished.provenance.json").exists()
+
+
 def test_finish_render_cannot_publish_outside_renders(project_factory, monkeypatch):
     project, base = _project_with_api_render(project_factory)
     config_before = project.config.read_bytes()
@@ -1071,6 +1560,37 @@ def test_orchestrated_api_finish_runs_after_render(project_factory, monkeypatch)
 
     assert result == {"finished_image": "finished.png"}
     assert calls == [(project, beauty, FinishMode.historical_scene)]
+
+
+def test_register_finish_cli_exits_2_when_historical_spatial_validation_is_pending(
+    project_factory,
+    monkeypatch,
+):
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    project, base = _project_with_render(project_factory)
+    request_path = prepare_finish_request(
+        project,
+        base_image=base,
+        mode=FinishMode.historical_scene,
+    )
+    candidate = _png(project.renders_dir / "candidate.png")
+
+    result = CliRunner().invoke(
+        app,
+        [
+            "register-finish",
+            str(candidate),
+            "--project",
+            str(project.root),
+            "--request",
+            str(request_path),
+        ],
+    )
+
+    assert result.exit_code == 2
+    assert "validation_blocked" in result.stdout
+    assert not (project.renders_dir / "finished.png").exists()
+    assert not (project.renders_dir / "finished.provenance.json").exists()
 
 
 @pytest.mark.parametrize("command", ["finish", "prepare-finish"])

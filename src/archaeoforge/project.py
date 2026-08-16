@@ -41,6 +41,8 @@ class ProjectPaths:
     @property
     def scene_manifest(self) -> Path: return self.exports_dir / "scene_manifest.json"
     @property
+    def blender_result(self) -> Path: return self.exports_dir / "blender_result.json"
+    @property
     def validation_report(self) -> Path: return self.reports_dir / "validation.json"
     @property
     def html_report(self) -> Path: return self.reports_dir / "index.html"

@@ -50,6 +50,90 @@ class FinishMode(str, Enum):  # noqa: UP042 - Typer and serialized config rely o
     historical_scene = "historical_scene"
 
 
+class HistoricalBaseRenderRequirement(ConfigModel):
+    """Minimum semantic information a protected feature must carry before finishing.
+
+    Spatially correct boxes are useful early reconstruction guides, but they are
+    underdetermined inputs for identity-critical monuments. Projects can therefore
+    require a native type- or identity-specific template before a historical-scene
+    request is prepared, without claiming that the proxy's small details are evidence.
+    """
+
+    id: str = Field(min_length=1, pattern=r"^[A-Za-z0-9][A-Za-z0-9_.-]*$")
+    feature_ids: list[str] = Field(min_length=1)
+    minimum_recognizability: Literal["type_specific", "identity_specific"]
+    requirement: str = Field(min_length=1)
+
+    @model_validator(mode="after")
+    def unique_features(self) -> HistoricalBaseRenderRequirement:
+        if len(self.feature_ids) != len(set(self.feature_ids)):
+            raise ValueError("base-render requirement feature_ids must be unique")
+        return self
+
+
+class HistoricalSpatialConstraint(ConfigModel):
+    """A visual relationship that a historical-scene finish must preserve.
+
+    This is deliberately independent of archaeological review status. A selected
+    preview reconstruction can remain ``needs_review`` while its placement is still
+    protected from accidental image-generation drift.
+    """
+
+    id: str = Field(min_length=1, pattern=r"^[A-Za-z0-9][A-Za-z0-9_.-]*$")
+    kind: Literal[
+        "relative_layout",
+        "visible_stagger",
+        "presence",
+        "topology",
+        "orientation",
+        "scale_hierarchy",
+    ]
+    required: bool = True
+    feature_ids: list[str] = Field(min_length=1)
+    requirement: str = Field(min_length=1)
+    evidence_ids: list[str] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def unique_references(self) -> HistoricalSpatialConstraint:
+        if len(self.feature_ids) != len(set(self.feature_ids)):
+            raise ValueError("constraint feature_ids must be unique")
+        if len(self.evidence_ids) != len(set(self.evidence_ids)):
+            raise ValueError("constraint evidence_ids must be unique")
+        return self
+
+
+class HistoricalSpatialContract(ConfigModel):
+    """Project-authored protected anchors for interpretive historical finishing."""
+
+    spatial_contract_schema: Literal[1] = 1
+    constraints: list[HistoricalSpatialConstraint] = Field(min_length=1)
+    base_render_requirements: list[HistoricalBaseRenderRequirement] = Field(default_factory=list)
+    mutable_feature_ids: list[str] = Field(default_factory=list)
+    notes: str = ""
+
+    @model_validator(mode="after")
+    def unique_contract_members(self) -> HistoricalSpatialContract:
+        constraint_ids = [constraint.id for constraint in self.constraints]
+        if len(constraint_ids) != len(set(constraint_ids)):
+            raise ValueError("spatial constraint ids must be unique")
+        requirement_ids = [requirement.id for requirement in self.base_render_requirements]
+        if len(requirement_ids) != len(set(requirement_ids)):
+            raise ValueError("base-render requirement ids must be unique")
+        if len(self.mutable_feature_ids) != len(set(self.mutable_feature_ids)):
+            raise ValueError("mutable_feature_ids must be unique")
+        protected = {
+            feature_id
+            for constraint in self.constraints
+            if constraint.required
+            for feature_id in constraint.feature_ids
+        }
+        overlap = protected.intersection(self.mutable_feature_ids)
+        if overlap:
+            joined = ", ".join(sorted(overlap))
+            raise ValueError(f"required protected features cannot also be mutable: {joined}")
+        return self
+
+
 class ProjectIdentity(ConfigModel):
     id: str
     title: str
@@ -100,6 +184,7 @@ class AIConfig(ConfigModel):
     finish_backend: Literal["interactive_handoff", "openai_api"] = "interactive_handoff"
     finish_mode: FinishMode = FinishMode.precise_object_edit
     geometry_audit_enabled: bool = True
+    historical_scene_spatial_contract: str | None = None
 
     @field_validator("image_size")
     @classmethod
@@ -286,5 +371,21 @@ class DriftAssessment(BaseModel):
     camera_preserved: bool
     major_silhouettes_preserved: bool
     object_placement_preserved: bool
+    detected_changes: list[str] = Field(default_factory=list)
+    recommendation: Literal["accept", "review", "reject"]
+
+
+class HistoricalSpatialCheck(BaseModel):
+    constraint_id: str
+    passed: bool
+    confidence: float = Field(ge=0.0, le=1.0)
+    observation: str
+    detected_changes: list[str] = Field(default_factory=list)
+
+
+class HistoricalSpatialAssessment(BaseModel):
+    viewpoint_and_crop_preserved: bool
+    all_protected_features_present: bool
+    checks: list[HistoricalSpatialCheck] = Field(default_factory=list)
     detected_changes: list[str] = Field(default_factory=list)
     recommendation: Literal["accept", "review", "reject"]

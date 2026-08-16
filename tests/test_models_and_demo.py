@@ -9,10 +9,10 @@ from pydantic import ValidationError
 
 from archaeoforge.compile_scene import compile_scene
 from archaeoforge.config import default_config
-from archaeoforge.db import connect, import_claim_catalog, import_source_catalog
+from archaeoforge.db import connect, import_claim_catalog, import_source_catalog, list_claims, upsert_claim
 from archaeoforge.extract import _normalise_draft
 from archaeoforge.ingest import ingest_project
-from archaeoforge.models import EvidenceClaimDraft, EvidenceClass
+from archaeoforge.models import EvidenceClaim, EvidenceClaimDraft, EvidenceClass, ReviewStatus
 from archaeoforge.project import resolve_project
 from archaeoforge.report import export_chatgpt_handoff, generate_report
 from archaeoforge.validate import validate_project
@@ -36,6 +36,50 @@ def test_ai_class_a_claim_is_downgraded_pending_human_review():
 def test_historical_year_zero_is_rejected():
     with pytest.raises(ValidationError, match="no year zero"):
         default_config("x", "x", "x", 0, "year zero")
+
+
+def _revised_test_claim(status: ReviewStatus) -> EvidenceClaim:
+    return EvidenceClaim(
+        id="EVID-TEST",
+        source_id="SRC-TEST",
+        subject="wall",
+        property="width",
+        claim="The revised wall width is 4.1 metres.",
+        value_text="4.1 m",
+        value_number=4.1,
+        unit="m",
+        locator="page 1",
+        quotation="Measured wall width is 4 metres.",
+        evidence_basis="textual",
+        evidence_class=EvidenceClass.A,
+        confidence=0.94,
+        date_start=-600,
+        date_end=-500,
+        review_status=status,
+        created_by="test",
+    )
+
+
+def test_reimport_updates_an_unapproved_claim_with_the_same_stable_id(project_factory):
+    project = project_factory()
+    connection = connect(project)
+    try:
+        assert upsert_claim(connection, _revised_test_claim(ReviewStatus.needs_review)) is True
+        claim = next(row for row in list_claims(connection) if row["id"] == "EVID-TEST")
+    finally:
+        connection.close()
+    assert claim["claim"] == "The revised wall width is 4.1 metres."
+    assert claim["value_number"] == 4.1
+
+
+def test_reimport_refuses_to_rewrite_an_approved_claim(project_factory):
+    project = project_factory(claim_status=ReviewStatus.approved)
+    connection = connect(project)
+    try:
+        with pytest.raises(ValueError, match="Refusing to replace approved claim EVID-TEST"):
+            upsert_claim(connection, _revised_test_claim(ReviewStatus.needs_review))
+    finally:
+        connection.close()
 
 
 def test_babylon_preview_runs_end_to_end(tmp_path):

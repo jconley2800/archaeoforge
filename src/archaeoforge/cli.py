@@ -26,7 +26,12 @@ from .db import (
 )
 from .extract import extract_project
 from .georef import run_georeference
-from .image_finish import finish_render, prepare_finish_request, register_finished_render
+from .image_finish import (
+    HistoricalSpatialValidationError,
+    finish_render,
+    prepare_finish_request,
+    register_finished_render,
+)
 from .ingest import ingest_project
 from .models import FinishMode, ReviewStatus
 from .openai_client import project_openai_api_key
@@ -353,8 +358,8 @@ def finish(
     force: Annotated[bool, typer.Option("--force", help="Replace an explicit existing output.")] = False,
 ) -> None:
     p = _project(project)
-    _json(
-        finish_render(
+    try:
+        result = finish_render(
             p,
             base_image=base_image.expanduser().resolve(),
             destination=output.expanduser().resolve() if output else None,
@@ -363,16 +368,26 @@ def finish(
             overwrite=force,
             mode=mode,
         )
-    )
+    except HistoricalSpatialValidationError as exc:
+        _json({"status": "validation_blocked", "reason": str(exc)})
+        raise typer.Exit(code=2) from exc
+    _json(result)
 
 
 @app.command("prepare-finish")
 def prepare_finish(
-    base_image: Annotated[Path, typer.Argument(help="Authoritative Blender beauty render")],
+    base_image: Annotated[Path, typer.Argument(help="Base or edit-target image")],
     project: Annotated[Path, typer.Option("--project", "-p")] = Path("."),
     output: Annotated[Path | None, typer.Option("--output", "-o", help="Requested final PNG path")] = None,
     prompt: Annotated[Path | None, typer.Option("--prompt")] = None,
     request: Annotated[Path | None, typer.Option("--request", help="Finish-request JSON path")] = None,
+    reference_image: Annotated[
+        list[Path] | None,
+        typer.Option(
+            "--reference-image",
+            help="Hash-bind an additional historical-scene supporting image; repeat as needed.",
+        ),
+    ] = None,
     mode: Annotated[
         FinishMode | None,
         typer.Option("--mode", help="Override ai.finish_mode."),
@@ -392,6 +407,7 @@ def prepare_finish(
         request_path=request.expanduser().resolve() if request else None,
         overwrite_request=force,
         mode=mode,
+        reference_images=[path.expanduser().resolve() for path in reference_image or []],
     )
     _json({"status": "ready_for_interactive_generation", "request": str(request_path)})
 
@@ -420,13 +436,20 @@ def register_finish(
         str | None,
         typer.Option("--manual-recommendation", help="Record accept, review, or reject."),
     ] = None,
+    spatial_recommendation: Annotated[
+        str | None,
+        typer.Option(
+            "--spatial-recommendation",
+            help="Record accept, review, or reject for the complete historical spatial contract.",
+        ),
+    ] = None,
     reviewer: Annotated[str, typer.Option("--reviewer")] = "",
     review_notes: Annotated[str, typer.Option("--review-notes")] = "",
 ) -> None:
     """Verify an interactive result and record its non-authoritative provenance."""
     p = _project(project)
-    _json(
-        register_finished_render(
+    try:
+        result = register_finished_render(
             p,
             generated_image=generated_image.expanduser().resolve(),
             request_path=request.expanduser().resolve() if request else None,
@@ -437,10 +460,14 @@ def register_finish(
             overwrite=force,
             normalize_size=normalize_size,
             manual_recommendation=manual_recommendation,
+            spatial_recommendation=spatial_recommendation,
             reviewer=reviewer,
             review_notes=review_notes,
         )
-    )
+    except HistoricalSpatialValidationError as exc:
+        _json({"status": "validation_blocked", "reason": str(exc)})
+        raise typer.Exit(code=2) from exc
+    _json(result)
 
 
 @app.command()

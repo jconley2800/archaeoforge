@@ -176,6 +176,62 @@ def upsert_claim(connection: sqlite3.Connection, claim: EvidenceClaim) -> bool:
     fingerprint = claim_fingerprint(claim)
     source_row = connection.execute("SELECT sha256 FROM sources WHERE id = ?", (claim.source_id,)).fetchone()
     source_sha = claim.source_sha256_at_creation or (source_row["sha256"] if source_row else "")
+    existing = connection.execute(
+        "SELECT fingerprint, review_status FROM claims WHERE id = ?",
+        (claim.id,),
+    ).fetchone()
+    if existing is not None:
+        if existing["fingerprint"] == fingerprint:
+            return False
+        if existing["review_status"] == ReviewStatus.approved.value:
+            raise ValueError(
+                f"Refusing to replace approved claim {claim.id}; create a new claim id and review it instead."
+            )
+        duplicate = connection.execute(
+            "SELECT id FROM claims WHERE fingerprint = ? AND id != ?",
+            (fingerprint, claim.id),
+        ).fetchone()
+        if duplicate is not None:
+            raise ValueError(f"Updated claim {claim.id} duplicates existing claim {duplicate['id']}.")
+        cursor = connection.execute(
+            """
+            UPDATE claims SET
+                source_id = ?, subject = ?, property_name = ?, claim = ?, value_text = ?,
+                value_number = ?, unit = ?, locator = ?, quotation = ?, evidence_basis = ?,
+                evidence_class = ?, confidence = ?, date_start = ?, date_end = ?, uncertainty = ?,
+                alternative_group = ?, tags_json = ?, review_status = ?, created_by = ?,
+                model_used = ?, response_id = ?, source_sha256_at_creation = ?, fingerprint = ?
+            WHERE id = ?
+            """,
+            (
+                claim.source_id,
+                claim.subject,
+                claim.property,
+                claim.claim,
+                claim.value_text,
+                claim.value_number,
+                claim.unit,
+                claim.locator,
+                claim.quotation,
+                claim.evidence_basis,
+                claim.evidence_class.value,
+                claim.confidence,
+                claim.date_start,
+                claim.date_end,
+                claim.uncertainty,
+                claim.alternative_group,
+                json_dumps(claim.tags),
+                claim.review_status.value,
+                claim.created_by,
+                claim.model_used,
+                claim.response_id,
+                source_sha,
+                fingerprint,
+                claim.id,
+            ),
+        )
+        connection.commit()
+        return cursor.rowcount > 0
     cursor = connection.execute(
         """
         INSERT INTO claims(

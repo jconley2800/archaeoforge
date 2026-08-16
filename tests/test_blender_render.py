@@ -217,6 +217,82 @@ def test_object_indices_are_distinct_and_the_map_is_persisted(scratch_root):
 
 
 @requires_blender
+def test_sphinx_template_builds_an_east_facing_full_length_guide(scratch_root):
+    manifest = _manifest(save_blend=True)
+    manifest["features"] = [
+        {
+            "id": "SPHINX",
+            "template": "sphinx",
+            "evidence_class": "C",
+            "confidence": 0.65,
+            "review_status": "needs_review",
+            "evidence_ids": ["EVID-SPHINX"],
+            "provenance": [],
+            # These are the legacy box-envelope names. The native template must retain
+            # 73.5 m east-west by 19 m north-south without transposing the footprint.
+            "params": {
+                "material": "limestone",
+                "width": 73.5,
+                "length": 19.0,
+                "height": 20.0,
+                "rotation_degrees": 0.0,
+            },
+            "geometry": {"type": "Point", "coordinates": [100.0, -50.0]},
+        }
+    ]
+    _run(scratch_root, manifest, render=False)
+
+    blend_path = scratch_root / "outputs" / f"{scratch_root.name}.blend"
+    probe = (
+        "import bpy,json; "
+        "objects={obj.name:{'location':[round(v,4) for v in obj.location],"
+        "'dimensions':[round(v,4) for v in obj.dimensions],"
+        "'feature_part':obj['archaeoforge_feature_part'],"
+        "'template':obj['archaeoforge_template'],"
+        "'recognizability':obj['archaeoforge_template_recognizability']} for obj in bpy.data.objects "
+        "if obj.get('archaeoforge_feature_id')=='SPHINX'}; "
+        "print('ARCHAEOFORGE_SPHINX_PROBE '+json.dumps(objects,sort_keys=True))"
+    )
+    completed = subprocess.run(
+        [BLENDER, "--background", str(blend_path), "--python-exit-code", "1", "--python-expr", probe],
+        capture_output=True,
+        text=True,
+        timeout=180,
+    )
+    assert completed.returncode == 0, completed.stdout[-4000:] + completed.stderr[-4000:]
+    line = next(line for line in completed.stdout.splitlines() if line.startswith("ARCHAEOFORGE_SPHINX_PROBE "))
+    objects = json.loads(line.removeprefix("ARCHAEOFORGE_SPHINX_PROBE "))
+
+    assert set(objects) == {
+        "SPHINX_body",
+        "SPHINX_chest",
+        "SPHINX_forepaw_north",
+        "SPHINX_forepaw_south",
+        "SPHINX_headdress",
+        "SPHINX_headdress_lappet_north",
+        "SPHINX_headdress_lappet_south",
+        "SPHINX_head",
+        "SPHINX_muzzle",
+        "SPHINX_nose",
+    }
+    assert objects["SPHINX_nose"]["location"][0] > objects["SPHINX_muzzle"]["location"][0]
+    assert objects["SPHINX_muzzle"]["location"][0] > objects["SPHINX_head"]["location"][0]
+    assert objects["SPHINX_head"]["location"][0] > objects["SPHINX_body"]["location"][0]
+    assert objects["SPHINX_forepaw_north"]["location"][1] > -50.0
+    assert objects["SPHINX_forepaw_south"]["location"][1] < -50.0
+    assert objects["SPHINX_body"]["dimensions"] == pytest.approx([49.98, 16.34, 7.2], abs=0.01)
+    west_edge = objects["SPHINX_body"]["location"][0] - objects["SPHINX_body"]["dimensions"][0] / 2
+    east_edge = (
+        objects["SPHINX_forepaw_north"]["location"][0]
+        + objects["SPHINX_forepaw_north"]["dimensions"][0] / 2
+    )
+    assert (west_edge, east_edge) == pytest.approx((63.25, 136.75), abs=0.01)
+    assert sorted(item["feature_part"] for item in objects.values()) == list(range(1, 11))
+    assert {item["template"] for item in objects.values()} == {"sphinx"}
+    assert {item["recognizability"] for item in objects.values()} == {"identity_specific"}
+
+
+@requires_blender
 def test_unavailable_colour_management_look_is_reported(scratch_root):
     output = _run(scratch_root, _manifest(look="Definitely Not A Look"))
     assert "colour-management look" in output
