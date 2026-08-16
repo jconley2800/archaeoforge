@@ -1,0 +1,47 @@
+Use case: precise-object-edit
+
+Image 1 is the sole edit target. Perform a preservation-first high-resolution artifact cleanup and detail pass. This is retouching, not a redesign or a new reconstruction.
+
+Immutable composition and monuments
+
+Preserve the exact 16:9 crop, camera, perspective, late-afternoon light, haze, exposure, palette, and every broad or medium-scale silhouette and position. Preserve Etemenanki exactly: its location, compact square footprint, all stage widths and setbacks, exactly seven visible levels, six earthen stages, single blue summit level and colour, every stair flight, tread, parapet, landing, door, and ground contact. Preserve the western Euphrates, all wall circuits and road centre-lines, the palace enclosure, exactly one Ishtar Gate in its current northern position and scale, the Processional Way through its central portal, and the long Gate-ziggurat separation. Do not add, remove, move, resize, recolour, or redesign any monument, road, river, wall circuit, district, or large building mass.
+
+Scene-wide physical-collision cleanup
+
+- Remove every tree, palm trunk, crown, branch, shrub, or reed that passes through a roof, wall, stair, road, awning, cart, boat, person, or another tree. When vegetation conflicts with architecture, preserve the architecture and remove or sparsely relocate only the offending plant into a visible ground bed, courtyard, lane edge, or riverbank soil patch.
+- Give every retained palm one continuous visible trunk rooted in ground. Remove duplicated crowns, floating foliage, trunks that end inside roofs, and tangled dark vegetation blobs. Keep inner-city planting sparse and subordinate to dense housing; retain the established greener riverbank without expanding it.
+- Separate adjacent buildings, walls, vegetation, stalls, people, and props with credible visible ground or a narrow lane. No intersecting meshes, fused silhouettes, floating elements, or objects embedded in masonry.
+
+Remove generated texture artifacts
+
+- Remove all large curling, embossed, glyph-like, pseudo-writing, pictogram, spiral, loop, scribble, fingerprint, or carpet-like patterns from roads, packed-earth ground, courtyards, roofs, walls, banners, and water.
+- Replace only those artifacts with restrained period-appropriate surface detail: matte packed earth, subtle wheel ruts and foot wear, irregular mud plaster, quiet brick seams, minor erosion, dust, and sparse ordinary roof clutter.
+- Do not turn the removed marks into script, murals, signs, decorative paving, banners, reliefs, or explanatory symbols.
+
+Architecture and streets
+
+- Repair locally malformed ordinary buildings as distinct low rectilinear mudbrick courtyard units with vertical walls, planar flat roofs, straight parapets, mostly blank street facades, sparse coherent doors and windows, and no melted or ribbon-like edges. Preserve every block's existing footprint, height class, density, and lane pattern.
+- Preserve every wall path, height, corner, buttress rhythm, and opening while cleaning wavy coping, inconsistent thickness, melted merlons, raw stubs, and houses or trees fused into wall faces. Road crossings remain plain secondary mudbrick openings, not new blue monuments.
+- Keep the Processional Way on its exact existing centre-line and through the exact Ishtar Gate portal. Remove pale stacked or ribbon-like facade fragments intruding into the road, stabilize its perspective taper, and keep ordinary houses cleanly set back from its edges. Do not reroute, globally straighten, widen, fork, duplicate, or extend blue ceremonial walls southward.
+- Keep the Ishtar Gate's exact position, dimensions, towers, blue extent, and one connected double-gate form. Clean the central portal into one readable traversable opening; remove ghost arches, nested slivers, or detached gate-like blue fragments without changing the Gate silhouette.
+- Make palace and residential roof ranges rectilinear and grounded. Reduce repeated identical smoke columns to a few thin, subtle plumes rooted in identifiable courtyards or hearths; no smoke may emerge from Gate towers, walls, roofs without a source, or open roads.
+
+People, animals, stalls, carts, and boats
+
+- Retain the approximate crowd, animal, market, cart, and boat density and distribution, but redraw only malformed instances as separate, proportionate small figures and objects. People at equal depth share a consistent scale; figures become monotonically smaller with distance; each has a complete body, feet on ground, and one attached contact shadow. Remove fused pairs, stretched black-stick bodies, detached limbs, floating marks, and unidentifiable blobs.
+- Each stall has grounded straight posts and one restrained taut reed-cloth canopy attached to a real structure. Remove mass-repeated sail shapes, floating cloth, merged canopies, and banner-like pseudo-writing.
+- Each cart has a rigid body, plausible shafts, and complete round wheels touching the ground. Repair fused frames, missing or floating wheels, and carts merged with people or walls.
+- Keep boats in their current river areas and approximate scale. Give each retained craft a coherent modest hull and waterline; no hull, mast, passenger, palm, or rope may fuse with the bank, another boat, or the water surface.
+- In the extreme lower-right quarter, remove oversized pale or grey paired spheres, loops, and tank-like rooftop blobs. If a small storage detail is needed, replace them only with several matte ceramic jars at correct human scale.
+
+Ziggurat precinct micro-cleanup
+
+Preserve the approved ziggurat geometry and stair arrangement exactly. Clear only intersecting palms, stalls, buildings, carts, and malformed figures from the stair volumes and their immediate ground contact. Repair the blue summit's tiny jagged or melted surface details into crisp masonry within its existing silhouette, without changing its dimensions, stage count, roofline height, blue colour, openings, or ornament layout. Replace only the precinct's swirl-texture artifacts with restrained packed earth and subtle wear.
+
+Lighting and grounding
+
+Keep the established sun direction and exposure. Repair detached, doubled, scribbled, or impossible local shadows so every shadow belongs to one caster, touches its feet or base, follows the same light direction, and softens consistently with distance. Do not relight the scene or change atmospheric depth.
+
+Reject any edit that changes the ziggurat, its seven-level count, blue summit, stairs, Ishtar Gate, Gate-road alignment, Gate-ziggurat separation, river, wall circuits, palace footprint, street layout, crop, camera, illumination, or overall city density. No new monuments, gates, avenues, walls, house rows, palm groves, crowds, smoke columns, text, symbols, labels, border, logo, or watermark.
+
+Return the same photorealistic historical-documentary frame at exactly 1536 by 864 pixels. The result remains interpretive, non-authoritative, and manual-review-required.

@@ -1,0 +1,31 @@
+Identity and moment
+Create a lifelike interpretive reconstruction of Babylon at approximately 570 BCE, during the late reign of Nebuchadnezzar II. Treat the visible monument phases as a late-reign proxy rather than claiming every surviving architectural surface is exactly dated to 570 BCE. The hot late-afternoon dry-season light, dust, and haze are illustrative visual completion, not evidence claims.
+
+Reference role
+Use the supplied Blender image only as a broad spatial and compositional guide, not as the target style and not as measured archaeological geometry. Replace its blocks, display slab, and studio background with a coherent life-size inhabited city while retaining the oblique aerial viewpoint, crop, and broad scale hierarchy.
+
+Fixed broad anchors
+Keep the Euphrates along the right edge of the composition, while recognizing that its exact 570 BCE alignment is reconstructed. Keep the walled urban core central; a single blue Ishtar Gate beside the palace district; the north-south Processional Way passing through that gate; Etemenanki west/left of the avenue; palace courtyards between the ceremonial route and river; dense ordinary housing around the monuments; and the flat alluvial plain continuing to the horizon. Retain exactly one blue monumental gate. Any foreground wall crossing must be plain mudbrick and visually secondary, never a duplicate Ishtar Gate.
+
+Ordinary built fabric
+Fill the city with dense, low, mostly one-storey mud-plastered courtyard houses and workshops. Use sun-dried mudbrick, tall nearly blank street walls, indirect entrances, occasional restrained zigzag facades, and flat mud roofs over reed mats and palm or poplar beams. Show mostly narrow packed-earth residential lanes, with only selective baked-brick thresholds, drains, wall bases, and paving near wealthy or monumental buildings. Use earth-toned plaster, occasional pale lime-gypsum coating, reddish or buff baked brick, black bitumen at water-contact surfaces, modest awnings and roof activity, storage jars, and sober irregular wear. Do not turn the ordinary city into stone architecture or a pristine theme park.
+
+Monuments
+Render the single Ishtar Gate as a believable roofed double-gate complex approximately 50 metres long, with a smaller northern gate mass and larger southern gate mass forming one connected monument, a passage about 4.6 to 5.5 metres wide, and restrained reconstructed heights. Concentrate deep cobalt-blue glazed baked brick here, with orderly moulded aurochs and mushhushshu dragons in cream, yellow, white, black, and muted red accents. North of it, show the best-attested monumental Processional Way segment at roughly 180 metres long and 20 metres across: a central pale limestone-slab roadway with reddish side bands and blue glazed-brick parapet walls carrying repeated nearly life-size striding lions. Blue glaze must remain exceptional.
+
+Depict Etemenanki as an interpretive Mesopotamian ziggurat with an approximately 91.5-metre-square base, roughly 60-metre mudbrick core, thick baked-brick mantle, three broad southern approach stairs, progressively smaller terraces, and a restrained blue-glazed upper sanctuary. An overall height around 90 to 91 metres is plausible, but terrace count, individual heights, upper stairs, and shrine form are disputed: keep the upper silhouette sober and avoid excessive ornament. It must not resemble an Egyptian pyramid or fantasy tower. Depict the Southern Palace as a large baked- and mudbrick court complex with high enclosure walls, many internal courtyards, selective glazed royal facades, and timber-roofed ranges rather than a single monolithic block. Keep ordinary and monumental materials distinct.
+
+Environment
+Extend the rectangular model into a physically plausible hot, dry Mesopotamian alluvial landscape. Show irrigation channels, barley plots, date cultivation, reeds, and modest greenery concentrated beside water and beyond the dense inner core. Keep inner residential quarters crowded rather than filled with orchards. Use warm natural earth colors, sun-baked surfaces, physically plausible long shadows, dusty golden atmosphere, subtle heat haze, and atmospheric depth. Keep the Euphrates active but not a modern harbor.
+
+Daily life
+Populate the functioning prosperous city at believable scale with small groups of residents, workers, merchants, priests, guards, water carriers, residential craftspeople, and porters handling barley, dates, sesame, oil jars, sacks, baskets, and storage vessels. Dress ordinary people mainly in plain rectangular wool wraps and simple jerkin- or tunic-like silhouettes in cream, tan, and brown, with only sparse muted dyed accents; exact cuts and drapes are interpretive. Use pack donkeys, a few sheep or goats, cattle only sparingly, and at most one unobtrusive service cart on a wide route. Include modest non-iconic river cargo craft and quays; boats are securely appropriate, but exact hull construction and rigging are uncertain, so avoid elaborate or modern dhow-like silhouettes. People and animals provide scale without becoming the main subject.
+
+Uncertainty rules
+Treat the river course, city wall circuit and height, ordinary district plan and density, palace upper storeys, Etemenanki upper stages, roofs, clothing cuts, boat forms, weather, and crowd placement as restrained visual completion. Preserve broad compositional anchors without implying survey precision. Do not include the Hanging Gardens: their location at Babylon is not archaeologically or epigraphically confirmed.
+
+Negative constraints
+No second blue ceremonial gate; no Hanging Gardens, waterfalls, lush fantasy terraces, pervasive inner-city orchards, Egyptian pyramids or motifs, Greek or Roman columns, domes, minarets, medieval Islamic architecture, modern Middle Eastern costume, modern objects, modern boats, mass camel caravans, war-chariot spectacle, asphalt roads, glass, steel, oversized statues, fantasy megastructures, ruins, excavation trenches, excessive tropical vegetation, text, labels, borders, logos, or watermarks.
+
+Output
+Produce a high-end photorealistic historical-documentary frame, cinematic 16:9 at 1536 by 864 pixels. It must read as a full-scale inhabited ancient city, never a miniature, diorama, game map, painting, polished CGI asset, or archaeological proof.

@@ -1,0 +1,32 @@
+Use case: historical-scene targeted monument correction
+
+Image 1 is the registered, review-required v15 Babylon illustration and the sole edit target.
+
+Change exactly one architectural feature: rebuild only Etemenanki's upper stepped mass so the ziggurat has exactly seven clearly distinguishable levels in total, counting from the lowest monumental stage to the blue summit.
+
+Required seven-level count
+
+- Level 1 is the existing large lowest earthen stage reached by the three monumental stairs.
+- Levels 2, 3, 4, 5, and 6 are five successively smaller, centred earthen mudbrick stages.
+- Level 7 is the single small summit shrine and uppermost stage, finished in the existing rich lapis/cobalt blue glazed brick.
+- The final visible count must therefore be six earthen levels plus one blue uppermost level: exactly seven, not six and not eight.
+
+Insert one additional genuine earthen stage directly below the blue summit. It must read as a full architectural level with its own vertical wall face, clear setback, and walkable terrace ledge--not as a thin moulding, stripe, parapet, decorative band, or duplicate roofline. Re-proportion and vertically redistribute only the existing upper stages as needed so all seven levels remain evenly stepped, centred, and coherent.
+
+Preserve the compact monument proportions
+
+Keep the existing approximately square 91.5-metre base footprint and roughly 90-metre total-height reading. Do not widen or lengthen the lowest stage, add a podium or apron, make the base squat, or make the tower excessively taller. Each stage must be centred on the stage below, with consistent setbacks and no bulges, cantilevers, twists, leaning, or off-centre blocks.
+
+Preserve the blue summit rule
+
+Keep only level 7 blue. Preserve the blue glazed exterior of the single highest summit shrine, with the terrace and all six levels below it earthen. Do not create a second blue tier, blue band, or blue staircase.
+
+Freeze all lower geometry and the city
+
+Do not alter the entire lowest stage or the three-stair assembly: preserve every stair footprint, tread, riser, parapet, landing, wall junction, door, and ground contact exactly as Image 1. Preserve Etemenanki's position and orientation.
+
+Outside the upper ziggurat stages, preserve Image 1 exactly: identical 16:9 crop, oblique aerial camera, lighting, haze, shadows, and colour; western Euphrates, boats, palms, city walls, palace blocks, houses, markets, people, animals, and vegetation; the single blue Ishtar Gate far north; the Processional Way centred through its portal; and the long urban separation between Gate and ziggurat.
+
+No widened base; no altered stairs; no sixth-level result; no eighth level; no paper-thin fake tier; no floating or overlapping stage; no blue lower level; no duplicate Gate; no change to the river, road, city, camera, or lighting; no text, labels, numbers, border, logo, or watermark.
+
+Return the same photorealistic historical-documentary Babylon frame at 1536 by 864 pixels. The result remains interpretive, non-authoritative, and manual-review-required.

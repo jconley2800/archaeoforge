@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="864" viewBox="0 0 1536 864">
+  <rect width="1536" height="864" fill="#f4efe2"/>
+  <g stroke="#c8c0ac" stroke-width="1" opacity="0.65">
+    <path d="M100 0V864M200 0V864M300 0V864M400 0V864M500 0V864M600 0V864M700 0V864M800 0V864M900 0V864M1000 0V864M1100 0V864M1200 0V864M1300 0V864M1400 0V864M1500 0V864"/>
+    <path d="M0 100H1536M0 200H1536M0 300H1536M0 400H1536M0 500H1536M0 600H1536M0 700H1536M0 800H1536"/>
+  </g>
+
+  <text x="36" y="46" font-family="sans-serif" font-size="28" font-weight="700" fill="#27231c">SCREEN-SPACE COMPOSITION GUIDE ONLY — 1536 × 864</text>
+  <text x="36" y="78" font-family="sans-serif" font-size="19" fill="#514a3b">Do not copy colours, labels, grid, or diagram style into the historical image.</text>
+
+  <g font-family="sans-serif" font-size="16" fill="#655e50" opacity="0.8">
+    <text x="104" y="22">x100</text><text x="304" y="22">x300</text><text x="504" y="22">x500</text><text x="704" y="22">x700</text>
+    <text x="904" y="22">x900</text><text x="1090" y="22">x1100</text><text x="1290" y="22">x1300</text><text x="1468" y="22">x1500</text>
+    <text x="4" y="204">y200</text><text x="4" y="404">y400</text><text x="4" y="604">y600</text><text x="4" y="804">y800</text>
+  </g>
+
+  <path d="M250 -40 C310 120 430 245 590 370 C700 455 775 555 870 680 C935 765 1025 830 1110 910"
+        fill="none" stroke="#5aaee6" stroke-width="250" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+  <path d="M250 -40 C310 120 430 245 590 370 C700 455 775 555 870 680 C935 765 1025 830 1110 910"
+        fill="none" stroke="#086ea8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#086ea8">
+    <path d="M450 250 l-23 -9 12 21 -21 12 25 3z"/>
+    <path d="M710 470 l-24 -6 15 19 -18 15 25 -1z"/>
+    <path d="M980 790 l-24 2 20 14 -13 20 23 -10z"/>
+  </g>
+
+  <g opacity="0.92">
+    <rect x="745" y="662" width="250" height="36" rx="5" fill="#704523" stroke="#2f2116" stroke-width="5"/>
+    <g fill="#4e3422" stroke="#241810" stroke-width="2">
+      <ellipse cx="785" cy="710" rx="11" ry="31"/>
+      <ellipse cx="820" cy="710" rx="11" ry="31"/>
+      <ellipse cx="855" cy="710" rx="11" ry="31"/>
+      <ellipse cx="890" cy="710" rx="11" ry="31"/>
+      <ellipse cx="925" cy="710" rx="11" ry="31"/>
+      <ellipse cx="960" cy="710" rx="11" ry="31"/>
+    </g>
+    <circle cx="870" cy="680" r="11" fill="#fff" stroke="#d31f26" stroke-width="6"/>
+    <text x="735" y="758" font-family="sans-serif" font-size="23" font-weight="700" fill="#4e3422">ONE BRIDGE midpoint (870,680)</text>
+    <text x="774" y="786" font-family="sans-serif" font-size="18" fill="#4e3422">below-left of Etemenanki; six piers</text>
+  </g>
+
+  <g stroke="#c76b1e" stroke-width="7" fill="#e7b77b" fill-opacity="0.7">
+    <rect x="910" y="420" width="260" height="100"/>
+    <rect x="945" y="370" width="190" height="50"/>
+    <rect x="980" y="325" width="120" height="45"/>
+    <rect x="1012" y="288" width="56" height="37" fill="#2869b4"/>
+  </g>
+  <circle cx="1040" cy="470" r="12" fill="#fff" stroke="#d31f26" stroke-width="6"/>
+  <text x="1140" y="445" font-family="sans-serif" font-size="23" font-weight="700" fill="#9c4b11">ETEMENANKI</text>
+  <text x="1140" y="473" font-family="sans-serif" font-size="18" fill="#9c4b11">ground centre (1040,470)</text>
+  <text x="1140" y="500" font-family="sans-serif" font-size="18" fill="#9c4b11">7 levels; blue summit</text>
+
+  <g fill="#1c58a6" stroke="#0c3262" stroke-width="4">
+    <rect x="1324" y="126" width="54" height="68"/>
+    <rect x="1308" y="139" width="20" height="55"/>
+    <rect x="1374" y="139" width="20" height="55"/>
+  </g>
+  <text x="1244" y="218" font-family="sans-serif" font-size="20" font-weight="700" fill="#1c58a6">ONE NORTHERN ISHTAR GATE</text>
+
+  <g stroke="#d31f26" stroke-width="14" stroke-linecap="round" opacity="0.95">
+    <path d="M170 495L620 635"/>
+    <path d="M620 495L170 635"/>
+  </g>
+  <text x="180" y="660" font-family="sans-serif" font-size="26" font-weight="700" fill="#d31f26">REMOVE THE OLD FAR-LEFT BRIDGE</text>
+
+  <g font-family="sans-serif" font-size="22" font-weight="700">
+    <text x="85" y="350" fill="#456b32">WESTERN BABYLON — URBAN</text>
+    <text x="1010" y="620" fill="#704523">EASTERN CORE</text>
+    <text x="905" y="826" fill="#086ea8">DOWNSTREAM CURVES EAST / RIGHT</text>
+  </g>
+
+  <g transform="translate(1460 95)" stroke="#202020" fill="#202020">
+    <path d="M0 65V0" stroke-width="5"/>
+    <path d="M0 0L-12 23H12Z"/>
+    <text x="-10" y="88" font-family="sans-serif" font-size="20" stroke="none">N</text>
+  </g>
+</svg>

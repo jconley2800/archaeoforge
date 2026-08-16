@@ -1,0 +1,45 @@
+Use case: historical-scene targeted monument rebuild
+
+Reference roles
+
+Image 1 is the registered, review-required v7 Babylon illustration and the sole edit target. It is deliberately chosen from before the failed stair-edit chain. Preserve its corrected Babylon city, Ishtar Gate, Processional Way, river, camera, and atmosphere. Image 2 is the user-supplied ziggurat structure and is the governing visual reference for Etemenanki's compact overall proportions and clearly constructed three-stair approach. Use Image 2 for silhouette, proportion, stair massing, and stair legibility only. Do not copy its transparent background, peach colour, low-detail model appearance, crenellation pattern, exact upper-stage count, or surface decoration.
+
+Primary request
+
+Delete and completely rebuild only Etemenanki, including its full tower mass and monumental stair assembly. Do not preserve, patch, stretch, or trace Image 1's existing ziggurat geometry. Do not inherit the widened podium or deformed stairs from any later version. Construct one coherent monument from clean, straight architectural geometry.
+
+Overall ziggurat proportions
+
+- Make the tower compact, tall, and square in plan rather than broad and squat. Use the project's interpretive reconstruction target of approximately 91.5 metres square at the lowest tower stage and approximately 90 metres total height. In three dimensions, the lowest tower width and total tower height should therefore read as roughly equal, allowing only normal perspective foreshortening.
+- The lowest stage itself is the tower base. Do not add an oversized rectangular podium, giant apron, broad raised slab, or extra platform beneath or around it. Keep the surrounding precinct courtyard visually separate at ground level.
+- Match Image 2's compact stepped silhouette: a strong vertical monument with evenly receding, centred stages. Each upper stage remains centred on the one below and narrows consistently. No stage may bulge, shear, cantilever, twist, sag, or become an off-centre terrace.
+- Keep the rebuilt tower within the compact footprint occupied by Image 1's ziggurat and make it visibly narrower than the rejected v12 tower. Preserve open courtyard space around it.
+- Use sober sun-dried and baked mudbrick construction with restrained recessed facade articulation. Add a small, centred, rectangular summit shrine in a pale earthen or lime-plastered finish. No blue summit and no fantasy ornament.
+
+Three-stair assembly
+
+- Build exactly three straight monumental stair flights on the lowest south/front facade, matching Image 2's clean structural reading.
+- One long central staircase projects perpendicular from the exact midpoint of the south facade into the foreground and rises to one rectangular shared landing at the first-stage level.
+- A west/left lateral staircase lies directly against and parallel to the same south facade, beginning at the west/left end and rising inward to that shared centre landing.
+- An east/right lateral staircase mirrors it exactly, beginning at the east/right end and rising inward to the same landing.
+- The plan is a precise capital T: the central flight is the stem; the two lateral flights together form the crossbar. The side flights are sideways along the facade, not two more forward-projecting prongs.
+- All three flights have the same constant usable width. Their stringers and parapet edges are straight, their slopes are planar, and their risers are parallel, evenly spaced, rectangular, and continuous from foot to landing.
+- The left and right flights must be mirror-symmetrical in the monument's geometry. Perspective may foreshorten the farther flight, but it must remain visibly complete and recognizable as a real staircase.
+- Join all three flights cleanly at the modest rectangular landing. No gaps, overlaps, melted junctions, branching halfway up, crossed stairs, curved runs, warped triangular treads, pinched widths, broken parapets, or stairs embedded in solid walls.
+- Stop the external monumental stairs at the first-stage landing. Do not add exterior flights to higher stages or other facades.
+
+Scale and placement
+
+Keep Etemenanki in Image 1's existing location and precinct. Preserve believable human scale: doors, risers, parapets, and nearby people must agree. The rebuilt monument must not expand into adjacent streets, houses, walls, vegetation, or the ceremonial route.
+
+Freeze the rest of Babylon
+
+Outside Etemenanki and the small patch of courtyard directly occupied by its replacement, preserve Image 1 exactly: identical 16:9 crop and oblique aerial camera; western Euphrates; all boats, palms, walls, houses, palace blocks, markets, people, animals, haze, shadows, and colour; the single blue Ishtar Gate far to the north beside the palace zone; the Processional Way centred through the Gate; and the long urban separation between Gate and ziggurat. Do not move, duplicate, resize, recolour, or redesign any non-ziggurat feature.
+
+Negative constraints
+
+No wide podium; no giant base slab; no squat pyramid; no deformed stairs; no ramps substituted for stairs; no uneven or melting risers; no splayed, bent, curved, crossed, or asymmetrical flights; no missing lateral flight; no three parallel forward stairs; no stairs on upper stages; no floating stages; no duplicate Ishtar Gate; no change to the Gate-road alignment or Gate-ziggurat separation; no blue summit shrine; no modern or fantasy architecture; no text, labels, map graphics, border, logo, or watermark.
+
+Output
+
+Return the same photorealistic historical-documentary Babylon frame at 1536 by 864 pixels. The completed scene remains an interpretive, non-authoritative presentation image requiring manual review.

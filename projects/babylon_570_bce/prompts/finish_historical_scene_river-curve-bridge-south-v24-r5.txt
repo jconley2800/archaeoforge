@@ -1,0 +1,69 @@
+Use case: historical-scene
+
+Goal
+
+Create one photorealistic historical-documentary aerial view of inhabited Babylon at approximately 570 BCE. The decisive correction is spatial: the Euphrates bridge is immediately southwest of Etemenanki, clearly south as well as west, and the river curves east/right downstream.
+
+Reference roles and authority
+
+Image 1 is the sole edit target. It is a flat, project-authored, non-evidentiary 1536 by 864 composition control, not a picture of Babylon. Transform the entire canvas into a lifelike city. Preserve only its river silhouette, bridge bar position, ziggurat location block, northern Gate location block, and 16:9 frame. The beige areas mean inhabited urban land. Do not preserve or reproduce any flat colour, primitive shape, hard vector edge, or diagram styling.
+
+Image 2 is the registered V23 presentation image. It alone governs the desired photorealistic appearance: warm late-afternoon light, dry-season haze, material palette, urban density, ordinary houses, people, boats, western and eastern city character, Etemenanki's accepted architectural form, and the single northern Ishtar Gate. Its bridge position, river path, camera framing, and relative monument coordinates are explicitly rejected and must not be copied.
+
+Image 3 is the user's schematic Babylon plan. It governs only the broad topology among Etemenanki, the bridge, the downstream river bend, Esagila, and the two urban banks. Do not copy its labels, lines, colours, scale bar, Greek theatre, cartographic styling, or phase-mixed buildings.
+
+All pixels remain interpretive and non-authoritative. The metric relationship below is a source-led, needs-review working estimate derived from a Pedersen plan, not an approved project evidence claim. Image 3 does not authenticate it.
+
+Controlling screen composition
+
+North is screen top, south bottom, west left, and east right. This is screen-space composition, not a rectified survey plan. Match Image 1's controlling shapes within approximately 50 pixels in the final 1536 by 864 image.
+
+Render one broad Euphrates channel exactly where Image 1 shows the blue ribbon. It enters at the upper-left, passes west of the central eastern-bank monuments, and bends continuously east/right in the lower half. At and below the bridge, the river-centre x coordinate must increase continuously as screen y increases. Its centre exits the lower edge around x=1050 to x=1150. It must not bend back left, split, vanish, form an S-turn below the bridge, or read as an exterior moat.
+
+Render exactly one low west-east bridge at Image 1's dark bridge bar, with midpoint approximately x=870, y=680. Etemenanki's ground-footprint centre is approximately x=1040, y=470. Therefore the bridge must be visibly below-left and close to Etemenanki: about 170 pixels west and 210 pixels south in this final screen composition. The bridge midpoint must never be level with or north of Etemenanki, and it must not drift to the far-left half of the frame.
+
+Image 1 contains no old far-left bridge. Do not import Image 2's old bridge, piers, approaches, bridgehead, or crossing location. There must be no remnant or duplicate bridge anywhere else. Convert the obsolete crossing area from Image 2 into coherent urban bank, water, and ordinary city fabric.
+
+Etemenanki occupies Image 1's stepped brown location block. The single Ishtar Gate occupies the small blue block in the far northern background, with its Processional Way following the thin brown north-south anchor. These blocks control location only; replace them completely with the accepted lifelike architecture from Image 2.
+
+River, bridge, and roads
+
+The Euphrates divides substantial inhabited western Babylon on the left/west bank from the eastern monumental core on the right/east bank. Keep extensive urban fabric on both banks. Do not show countryside immediately opposite Etemenanki; fields and orchards belong only beyond the distant city walls.
+
+The bridge midpoint follows the needs-review working estimate of about 170 metres west and 210 metres south of Etemenanki's centre, roughly 270 metres southwest at approximately S39 degrees W. Its eastern approach reaches the southwest edge of the Etemenanki precinct and continues east along or immediately outside the precinct's south wall. Etemenanki lies north/northeast of the crossing; the generalized Esagila zone lies south/southeast. The road must not enter the ziggurat stairs or forecourt.
+
+Make the deck, eastern landing, and east-west road one continuous traversable route. Use no monumental bridgehead gate. If a minor wall opening is needed, make it a plain unobtrusive brown mudbrick passage aligned with the road, never blue or Ishtar-like.
+
+Show the approximately 570 BCE pre-Nabonidus working reconstruction: a low straight deck between two bank abutments on exactly six freestanding, massive, strongly battered baked-brick-and-dark-bitumen piers. The piers are elongated along the current, with pointed or convex cutwaters facing north/upstream and rounded downstream ends. Keep the total crossing near 123 to 126 metres and the travelled deck much narrower than the pier length. Complete the lost superstructure modestly as a low flat timber beam-and-plank roadway approximately 6 to 9 metres wide. This superstructure is interpretive.
+
+No arches, suspension cables, drawbridge, blocked causeway, Roman arcade, grand stone bridge, blue glaze, dragon relief, tower, modern engineering, later five-pier phase, or 21-metre-wide roadway.
+
+Monument invariants from Image 2
+
+Reconstruct Etemenanki with Image 2's accepted compact square mass and identity: exactly six earthen wall-faced stages plus one blue summit shrine, exactly seven visible architectural levels in total, the same broad footprint proportions, setbacks, relative heights, blue summit colour, facade articulation, and openings. Preserve the joined tripartite stair assembly: one central south-projecting stair and two lateral facade-hugging stairs. No widened base, added or missing tier, collapsed summit, deformed stair, Y-shaped diagonal branch, giant buttress, or new door.
+
+Render exactly one Ishtar Gate far north in the royal/palace zone, much smaller in perspective than Etemenanki. Preserve Image 2's Gate design and the Processional Way centred through its single traversable portal. Preserve the broad urban Gate-Etemenanki separation. No duplicate Gate, blue bridgehead, relocated Gate, or blue lion-lined avenue running to the ziggurat.
+
+City and daily life
+
+Translate Image 2's inhabited city character onto Image 1's beige urban land: dense low mud-plastered mudbrick courtyard houses, flat roofs, narrow packed-earth lanes, workshops, storage yards, river landings, markets, walls, and palace ranges. Western Babylon must be extensive but generalized and non-iconic, not a mirrored eastern monumental sector.
+
+Keep vegetation concentrated along the river, canals, courtyards, and cultivation edges. Every palm has one trunk rooted in visible soil; no trunk passes through a roof, wall, stair, cart, or person. Build distinct rectilinear houses with planar roofs and no fused parcels or melted walls.
+
+Show restrained bridge and river activity: modest non-iconic cargo craft, pedestrians, porters, pack donkeys, at most one service cart on the bridge, and workers handling sacks, baskets, barley, dates, sesame, and oil jars. Keep figures subordinate, distinct, complete, correctly scaled with depth, and grounded by coherent contact shadows.
+
+Light, water, and artifact guard
+
+Use Image 2's warm late-afternoon documentary illumination and dry-season haze as illustrative completion. Keep one coherent sun direction, exposure, reflection logic, and shadow direction. Make downstream flow subtle but readable with fine current seams, elongated reflections, and small wakes following the eastward bend from the upper-left toward the lower foreground. No upstream wakes, decorative swirls, rapids, surf, whitewater, or arrows.
+
+Use broad quiet matte packed-earth surfaces with low-contrast dusty variation, fine grain, and only a few short isolated ruts. Do not generate connected closed-loop lines, polygon cells, contour-map networks, cracked-mosaic tessellation, curls, spirals, fingerprints, pseudo-writing, cuneiform-like marks, murals, symbols, or decorative relief carpets.
+
+No interpenetrating trees and buildings; malformed people or animals; fused carts; missing wheels; floating awnings; duplicated palms; repeated smoke columns; melted rooflines; detached shadows; text; labels; compass; scale bar; map graphics; border; logo; or watermark.
+
+Final checks
+
+Before returning the image, confirm all of the following: one river matching Image 1's east-curving ribbon; one complete bridge matching Image 1's bar at approximately x=870, y=680; bridge visibly below-left of Etemenanki at approximately x=1040, y=470; exactly six freestanding piers; no old far-left bridge or approach; substantial city on both banks; exactly seven ziggurat levels with a blue summit and intact tripartite stairs; exactly one far-northern Ishtar Gate with the road centred through its portal; quiet natural ground with no connected loop pattern; and no diagram styling from Images 1 or 3.
+
+Output
+
+Return one coherent photorealistic historical-documentary frame at exactly 1536 by 864 pixels. It must read as a living Babylon divided by a working river, not as a map, miniature, game environment, studio model, or pristine CGI scene. The result remains interpretive, non-authoritative, and manual-review-required.

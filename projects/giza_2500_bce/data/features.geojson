@@ -1,0 +1,554 @@
+{
+  "type": "FeatureCollection",
+  "name": "Giza plateau approximately 2500 BCE evidence-led late Fourth Dynasty preview",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "TERRAIN-PLATEAU-GUIDE",
+        "name": "Clean limestone desert context",
+        "template": "terrain",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.30,
+        "date_start": -2600,
+        "date_end": -2470,
+        "evidence_ids": [],
+        "params": {"height": 0.35, "z": -0.35, "material": "sand"},
+        "notes": "Neutral presentation context only; not a reconstructed palaeotopographic surface."
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[[-900, -720], [1100, -720], [1100, 610], [-900, 610], [-900, -720]]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KHUFU-MAIN-PROXY",
+        "name": "Pyramid of Khufu smooth-form proxy",
+        "template": "pyramid",
+        "review_status": "needs_review",
+        "evidence_class": "B",
+        "confidence": 0.68,
+        "date_start": -2600,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-KHUFU-FORM", "EVID-KHUFU-BASE", "EVID-PYRAMID-CENTERS", "EVID-PLATEAU-LAYOUT"],
+        "params": {"material": "limestone", "upper_material": "limestone", "base_size": 230.363, "height": 146.5, "rotation_degrees": 0, "z": 0.0},
+        "notes": "True planar pyramid envelope at the selected survey-derived centre and elevation; casing course detail remains a finishing-layer interpretation."
+      },
+      "geometry": {"type": "Point", "coordinates": [0.000, 300.000]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KHAFRE-MAIN-PROXY",
+        "name": "Pyramid of Khafre smooth-form proxy",
+        "template": "pyramid",
+        "review_status": "needs_review",
+        "evidence_class": "B",
+        "confidence": 0.68,
+        "date_start": -2580,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-KHAFRE-FORM", "EVID-KHAFRE-BASE", "EVID-KHAFRE-GRANITE-BASE", "EVID-PYRAMID-CENTERS", "EVID-PLATEAU-LAYOUT"],
+        "params": {"material": "limestone", "upper_material": "limestone", "lower_material": "granite", "lower_casing_fraction": 0.02, "base_size": 215.3, "height": 143.5, "rotation_degrees": 0, "z": 10.1},
+        "notes": "True planar pyramid envelope on the higher selected survey-derived base elevation, with a narrow granite basal band represented conservatively."
+      },
+      "geometry": {"type": "Point", "coordinates": [-333.978, -54.411]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MENKAURE-MAIN-PROXY",
+        "name": "Pyramid of Menkaure smooth-form proxy",
+        "template": "pyramid",
+        "review_status": "needs_review",
+        "evidence_class": "B",
+        "confidence": 0.68,
+        "date_start": -2550,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-MENKAURE-FORM", "EVID-MENKAURE-BASE", "EVID-PYRAMID-CENTERS", "EVID-PLATEAU-LAYOUT"],
+        "params": {"material": "limestone", "upper_material": "limestone", "lower_material": "granite", "lower_casing_fraction": 0.25, "base_size": 105.55, "height": 65.0, "rotation_degrees": 0, "z": 12.7},
+        "notes": "True planar envelope with the documented reddish Aswan-granite lower quarter and pale limestone above; finishing must retain much rough-faced unfinished granite."
+      },
+      "geometry": {"type": "Point", "coordinates": [-573.513, -440.152]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KHUFU-QUEEN-NORTH",
+        "name": "Khufu queen pyramid north",
+        "template": "ziggurat",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.58,
+        "date_start": -2600,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-SUBSIDIARY-GROUPS", "EVID-PLATEAU-LAYOUT"],
+        "params": {"material": "plaster", "stage_count": 15, "base_size": 49, "recede_per_stage": 3.15, "stage_height": 2.0},
+        "notes": "Approximate subsidiary-pyramid mass and placement for preview."
+      },
+      "geometry": {"type": "Point", "coordinates": [158, 366]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KHUFU-QUEEN-CENTRAL",
+        "name": "Khufu queen pyramid central",
+        "template": "ziggurat",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.58,
+        "date_start": -2600,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-SUBSIDIARY-GROUPS", "EVID-PLATEAU-LAYOUT"],
+        "params": {"material": "plaster", "stage_count": 14, "base_size": 47, "recede_per_stage": 3.2, "stage_height": 2.0},
+        "notes": "Approximate subsidiary-pyramid mass and placement for preview."
+      },
+      "geometry": {"type": "Point", "coordinates": [158, 306]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KHUFU-QUEEN-SOUTH",
+        "name": "Khufu queen pyramid south",
+        "template": "ziggurat",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.58,
+        "date_start": -2600,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-SUBSIDIARY-GROUPS", "EVID-PLATEAU-LAYOUT"],
+        "params": {"material": "plaster", "stage_count": 14, "base_size": 46, "recede_per_stage": 3.15, "stage_height": 1.95},
+        "notes": "Approximate subsidiary-pyramid mass and placement for preview."
+      },
+      "geometry": {"type": "Point", "coordinates": [158, 248]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KHUFU-SATELLITE",
+        "name": "Khufu cult satellite pyramid",
+        "template": "ziggurat",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.52,
+        "date_start": -2600,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-SUBSIDIARY-GROUPS", "EVID-PLATEAU-LAYOUT"],
+        "params": {"material": "plaster", "stage_count": 8, "base_size": 21.75, "recede_per_stage": 2.45, "stage_height": 1.725},
+        "notes": "Approximate cult-pyramid envelope and guide placement."
+      },
+      "geometry": {"type": "Point", "coordinates": [150, 198]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KHAFRE-SATELLITE",
+        "name": "Khafre cult satellite pyramid",
+        "template": "ziggurat",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.52,
+        "date_start": -2580,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-SUBSIDIARY-GROUPS", "EVID-PLATEAU-LAYOUT"],
+        "params": {"material": "plaster", "stage_count": 8, "base_size": 21, "recede_per_stage": 2.3, "stage_height": 1.6},
+        "notes": "Approximate cult-pyramid envelope immediately south of the Khafre complex."
+      },
+      "geometry": {"type": "Point", "coordinates": [-334, -184]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MENKAURE-QUEEN-EAST",
+        "name": "Menkaure queen pyramid east",
+        "template": "ziggurat",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.58,
+        "date_start": -2550,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-SUBSIDIARY-GROUPS", "EVID-MENKAURE-SUBSIDIARY-FORMS", "EVID-PLATEAU-LAYOUT"],
+        "params": {"material": "plaster", "stage_count": 14, "base_size": 44, "recede_per_stage": 3.05, "stage_height": 2.0},
+        "notes": "Approximate G III-a mass; finish as a true small pyramid with at least partial reddish granite casing."
+      },
+      "geometry": {"type": "Point", "coordinates": [-514, -526]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MENKAURE-QUEEN-CENTRAL",
+        "name": "Menkaure queen pyramid central",
+        "template": "ziggurat",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.50,
+        "date_start": -2550,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-SUBSIDIARY-GROUPS", "EVID-MENKAURE-SUBSIDIARY-FORMS", "EVID-PLATEAU-LAYOUT"],
+        "params": {"material": "plaster", "stage_count": 10, "base_size": 31.5, "recede_per_stage": 2.85, "stage_height": 2.0},
+        "notes": "Approximate G III-b guide. Preserve a recently built uncased stepped-core appearance rather than smoothing it into a finished white pyramid."
+      },
+      "geometry": {"type": "Point", "coordinates": [-574, -526]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MENKAURE-QUEEN-WEST",
+        "name": "Menkaure queen pyramid west",
+        "template": "ziggurat",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.50,
+        "date_start": -2550,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-SUBSIDIARY-GROUPS", "EVID-MENKAURE-SUBSIDIARY-FORMS", "EVID-PLATEAU-LAYOUT"],
+        "params": {"material": "plaster", "stage_count": 10, "base_size": 31.5, "recede_per_stage": 2.85, "stage_height": 2.0},
+        "notes": "Approximate G III-c guide. Preserve a recently built uncased stepped-core appearance rather than smoothing it into a finished white pyramid."
+      },
+      "geometry": {"type": "Point", "coordinates": [-634, -526]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KHUFU-PYRAMID-TEMPLE",
+        "name": "Khufu pyramid temple envelope",
+        "template": "temple",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.48,
+        "date_start": -2600,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-COMPLEX-LAYOUT", "EVID-KHUFU-TEMPLE-FABRIC", "EVID-PLATEAU-LAYOUT"],
+        "params": {"height": 7.5, "z": 0, "material": "plaster"},
+        "notes": "Schematic temple envelope; finish with a black basalt court, limestone walls with restrained painted relief, enclosure fabric, and sealed boat-pit surfaces."
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[[116, 260], [180, 260], [180, 340], [116, 340], [116, 260]]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KHAFRE-PYRAMID-TEMPLE",
+        "name": "Khafre pyramid temple envelope",
+        "template": "temple",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.52,
+        "date_start": -2580,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-COMPLEX-LAYOUT", "EVID-PLATEAU-LAYOUT"],
+        "params": {"height": 8.5, "z": 0, "material": "plaster"},
+        "notes": "Schematic complete temple envelope; not an excavated wall plan."
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[[-226, -100], [-142, -100], [-142, -8], [-226, -8], [-226, -100]]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MENKAURE-PYRAMID-TEMPLE",
+        "name": "Menkaure pyramid temple envelope",
+        "template": "temple",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.42,
+        "date_start": -2550,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-COMPLEX-LAYOUT", "EVID-MENKAURE-FORM", "EVID-MENKAURE-TEMPLES-MUDBRICK", "EVID-PLATEAU-LAYOUT"],
+        "params": {"height": 7, "z": 0, "material": "plaster"},
+        "notes": "Schematic envelope. Finish as freshly whitewashed mudbrick completing unfinished megalithic limestone and granite work, not as a uniform polished-stone temple."
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[[-521, -476], [-458, -476], [-458, -404], [-521, -404], [-521, -476]]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KHUFU-CAUSEWAY-GUIDE",
+        "name": "Khufu causeway guide",
+        "template": "processional",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.44,
+        "date_start": -2600,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-COMPLEX-LAYOUT", "EVID-CAUSEWAY-COVERED", "EVID-PLATEAU-LAYOUT"],
+        "params": {"width": 11, "height": 0.45, "z": 0.08, "material": "road"},
+        "notes": "Approximately 825 m east-northeast guide; complete roofing is conjectural."
+      },
+      "geometry": {"type": "LineString", "coordinates": [[180, 300], [950, 405]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KHAFRE-CAUSEWAY-GUIDE",
+        "name": "Khafre causeway guide",
+        "template": "processional",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.66,
+        "date_start": -2580,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-COMPLEX-LAYOUT", "EVID-CAUSEWAY-COVERED", "EVID-KHAFRE-CAUSEWAY-FABRIC", "EVID-SPHINX-RELATIONSHIP", "EVID-SPHINX-DITCH-TOPOLOGY", "EVID-PLATEAU-LAYOUT"],
+        "params": {"width": 11, "height": 0.45, "z": 0.08, "material": "road"},
+        "notes": "Approximately 494 m straight guide; finish as a narrow covered white-limestone corridor with plain walls, not a broad decorated highway."
+      },
+      "geometry": {"type": "LineString", "coordinates": [[-142, -54], [340, -160]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MENKAURE-CAUSEWAY-GUIDE",
+        "name": "Menkaure causeway guide",
+        "template": "processional",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.36,
+        "date_start": -2550,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-COMPLEX-LAYOUT", "EVID-CAUSEWAY-COVERED", "EVID-MENKAURE-FORM", "EVID-MENKAURE-TEMPLES-MUDBRICK", "EVID-PLATEAU-LAYOUT"],
+        "params": {"width": 10, "height": 0.45, "z": 0.08, "material": "road"},
+        "notes": "Approximately 600 m guide. Finish as a restrained plastered or whitewashed mudbrick corridor on a stone foundation; exact roof profile is reconstructed."
+      },
+      "geometry": {"type": "LineString", "coordinates": [[-458, -440], [125, -565]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KHUFU-VALLEY-TEMPLE-GUIDE",
+        "name": "Khufu valley temple envelope",
+        "template": "temple",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.30,
+        "date_start": -2600,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-COMPLEX-LAYOUT", "EVID-VALLEY-HYDROLOGY", "EVID-PLATEAU-LAYOUT"],
+        "params": {"height": 7, "z": 0, "material": "plaster"},
+        "notes": "Lost valley temple represented only as a sober envelope at the eastern desert edge."
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[[950, 365], [1030, 365], [1030, 445], [950, 445], [950, 365]]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KHAFRE-VALLEY-TEMPLE-GUIDE",
+        "name": "Khafre valley temple envelope",
+        "template": "temple",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.62,
+        "date_start": -2580,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-COMPLEX-LAYOUT", "EVID-SPHINX-RELATIONSHIP", "EVID-KHAFRE-VALLEY-MATERIALS", "EVID-VALLEY-HYDROLOGY", "EVID-PLATEAU-LAYOUT"],
+        "params": {"height": 9, "z": 0, "material": "plaster"},
+        "notes": "Simplified envelope retaining the broad relation to the Sphinx and causeway. Finish as austere massive limestone encased in reddish granite, with pale alabaster paving."
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[[340, -205], [415, -205], [415, -125], [340, -125], [340, -205]]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MENKAURE-VALLEY-TEMPLE-GUIDE",
+        "name": "Menkaure valley temple envelope",
+        "template": "temple",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.44,
+        "date_start": -2550,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-COMPLEX-LAYOUT", "EVID-MENKAURE-FORM", "EVID-MENKAURE-TEMPLES-MUDBRICK", "EVID-VALLEY-HYDROLOGY", "EVID-PLATEAU-LAYOUT"],
+        "params": {"height": 7, "z": 0, "material": "plaster"},
+        "notes": "Schematic envelope. Finish as a functional whitewashed-mudbrick temple over and around unfinished colossal limestone foundation work."
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[[125, -610], [205, -610], [205, -530], [125, -530], [125, -610]]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "GIZA-INLET-CONNECTOR-WATER-GUIDE",
+        "name": "Schematic connected Giza inlet watercourse",
+        "template": "canal",
+        "category": "water",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.30,
+        "date_start": -2600,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-VALLEY-HYDROLOGY", "EVID-GIZA-INLET-ALIGNMENT", "EVID-KHENTKAWES-BASIN-WATER", "EVID-MENKAURE-BASIN-CONNECTION"],
+        "params": {"width": 80, "height": 0.08, "z": 0.02, "material": "water", "miter_limit": 2.0},
+        "notes": "Connected watercourse implementation proxy only. The canal template supplies a stable rendered width and is not a claim for uniform engineered canal walls. Centreline, width, bends, water level, season, and simultaneous shoreline are needs-review rendering devices."
+      },
+      "geometry": {"type": "LineString", "coordinates": [[1070, 405], [900, 280], [700, 100], [560, -50], [500, -165], [560, -300], [500, -430], [320, -570]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KHUFU-HARBOR-WATER-GUIDE",
+        "name": "Schematic Khufu branch-side harbor edge",
+        "template": "water",
+        "category": "water",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.36,
+        "date_start": -2600,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-VALLEY-HYDROLOGY", "EVID-GIZA-INLET-ALIGNMENT"],
+        "params": {"height": 0.08, "z": 0.02, "material": "water"},
+        "notes": "Simple convex implementation guide touching the outer side of the lost Khufu valley-temple envelope; not an excavated shoreline or quay plan."
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[[1032, 365], [1120, 350], [1120, 460], [1032, 445], [1032, 365]]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KHAFRE-HARBOR-WATER-GUIDE",
+        "name": "Schematic Khafre inlet harbor edge",
+        "template": "water",
+        "category": "water",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.38,
+        "date_start": -2580,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-VALLEY-HYDROLOGY", "EVID-GIZA-INLET-ALIGNMENT", "EVID-KHENTKAWES-BASIN-WATER"],
+        "params": {"height": 0.08, "z": 0.02, "material": "water"},
+        "notes": "Simple convex implementation guide touching the outer side of the Khafre valley-temple envelope while keeping the Sphinx enclosure dry; not a surveyed basin outline."
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[[417, -205], [540, -230], [550, -100], [417, -125], [417, -205]]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "MENKAURE-HARBOR-WATER-GUIDE",
+        "name": "Schematic Menkaure inlet harbor edge",
+        "template": "water",
+        "category": "water",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.30,
+        "date_start": -2550,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-VALLEY-HYDROLOGY", "EVID-GIZA-INLET-ALIGNMENT", "EVID-KHENTKAWES-BASIN-WATER", "EVID-MENKAURE-BASIN-CONNECTION"],
+        "params": {"height": 0.08, "z": 0.02, "material": "water"},
+        "notes": "Simple convex implementation guide touching the outer side of the Menkaure valley-temple envelope. Its connection to the excavated Khentkawes basin is explicitly inferential and not a surveyed channel."
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[[207, -610], [380, -640], [360, -500], [207, -530], [207, -610]]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KHUFU-WESTERN-CEMETERY-GUIDE",
+        "name": "Early organized Western Cemetery mastaba field guide",
+        "template": "residential_cluster",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.55,
+        "date_start": -2600,
+        "date_end": -2400,
+        "evidence_ids": ["EVID-WESTERN-CEMETERY", "EVID-PLATEAU-LAYOUT"],
+        "params": {"count": 42, "width_range": [14, 23], "depth_range": [20, 34], "height_range": [3.5, 6.5], "spacing": 5.5, "z": 0, "seed": 25001, "material": "plaster"},
+        "notes": "Approximate region and low-mass implementation proxy only. Historical finishing must replace random boxes with a sparse orthogonal early Fourth Dynasty field of rectangular mastabas, not the full later necropolis."
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[[-390, 180], [-145, 180], [-145, 520], [-390, 520], [-390, 180]]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "KHUFU-EASTERN-CEMETERY-GUIDE",
+        "name": "Early Eastern Cemetery royal-family mastaba field guide",
+        "template": "residential_cluster",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.55,
+        "date_start": -2600,
+        "date_end": -2400,
+        "evidence_ids": ["EVID-EASTERN-CEMETERY", "EVID-PLATEAU-LAYOUT"],
+        "params": {"count": 24, "width_range": [13, 22], "depth_range": [18, 32], "height_range": [3.5, 6], "spacing": 5, "z": 0, "seed": 25002, "material": "plaster"},
+        "notes": "Approximate region and low-mass implementation proxy only. Finish as orderly early royal-family mastabas and lanes beyond Khufu's north-south queens' line, leaving the causeway clear."
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[[205, 350], [380, 350], [380, 520], [205, 520], [205, 350]]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "HEIT-EL-GHURAB-SETTLEMENT-GUIDE",
+        "name": "Heit el-Ghurab final-phase settlement guide",
+        "template": "residential_cluster",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.52,
+        "date_start": -2580,
+        "date_end": -2490,
+        "evidence_ids": ["EVID-HEG-SETTLEMENT", "EVID-WALL-CROW", "EVID-PLATEAU-LAYOUT"],
+        "params": {"count": 58, "width_range": [8, 18], "depth_range": [10, 25], "height_range": [3.5, 6.5], "spacing": 2.5, "z": 0, "seed": 25003, "material": "mudbrick"},
+        "notes": "Schematic guide displaced within the local preview to avoid waterfront overlap. Finish as a dense but low, planned mudbrick and fieldstone service settlement in its final active or early demobilization phase, not a modern city."
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[[580, -650], [850, -650], [850, -435], [580, -435], [580, -650]]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "WALL-OF-THE-CROW-GUIDE",
+        "name": "Wall of the Crow alignment guide",
+        "template": "city_wall",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.58,
+        "date_start": -2575,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-WALL-CROW", "EVID-HEG-SETTLEMENT", "EVID-PLATEAU-LAYOUT"],
+        "params": {"width": 10, "height": 10, "z": 0, "material": "plaster", "miter_limit": 2.0},
+        "notes": "Approximate 200 m local alignment at the settlement's northwestern edge. Preserve undressed massive masonry and a single monumental gateway; exact placement and function remain needs-review."
+      },
+      "geometry": {"type": "LineString", "coordinates": [[570, -420], [770, -420]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "SPHINX-TEMPLE-GUIDE",
+        "name": "Sphinx Temple unfinished envelope guide",
+        "template": "temple",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.60,
+        "date_start": -2580,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-SPHINX-RELATIONSHIP", "EVID-SPHINX-DITCH-TOPOLOGY", "EVID-SPHINX-TEMPLE-UNFINISHED", "EVID-PLATEAU-LAYOUT"],
+        "params": {"height": 6.5, "z": 0, "material": "plaster"},
+        "notes": "Schematic envelope between the Sphinx enclosure and Khafre Valley Temple. Finish as raw megalithic limestone core walls with restrained granite pillar fabric and visibly incomplete exterior casing."
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[[312, -145], [338, -145], [338, -85], [312, -85], [312, -145]]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "SPHINX-ENVELOPE-GUIDE",
+        "name": "Great Sphinx semantic geometry guide",
+        "template": "sphinx",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.65,
+        "date_start": -2580,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-SPHINX-FORM", "EVID-SPHINX-ORIENTATION", "EVID-SPHINX-RELATIONSHIP", "EVID-SPHINX-DITCH-TOPOLOGY", "EVID-SPHINX-TEMPLE-UNFINISHED", "EVID-PLATEAU-LAYOUT"],
+        "params": {"overall_length": 73.5, "body_width": 19, "height": 20, "z": 0, "rotation_degrees": 0, "material": "limestone"},
+        "notes": "Identity-specific initial-render guide. At rotation 0 the attached head and paired forepaws face +X/east and the rump lies west, within the evidence-backed 73.5 by 19 by 20 metre envelope. The component proportions and smooth proxy anatomy are illustrative, not a surveyed sculptural reconstruction. Finish with restrained Khafre-era features; omit a conspicuous beard and bright speculative paint."
+      },
+      "geometry": {"type": "Point", "coordinates": [255, -112]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "SPHINX-ENCLOSURE-GUIDE",
+        "name": "Great Sphinx enclosure guide",
+        "template": "platform",
+        "review_status": "needs_review",
+        "evidence_class": "C",
+        "confidence": 0.40,
+        "date_start": -2580,
+        "date_end": -2470,
+        "evidence_ids": ["EVID-SPHINX-RELATIONSHIP", "EVID-SPHINX-DITCH-TOPOLOGY", "EVID-PLATEAU-LAYOUT"],
+        "params": {"height": 0.03, "z": 0.25, "material": "limestone"},
+        "notes": "Broad dry enclosure-floor topology guide only, reshaped to remain north of and separate from the Khafre causeway. Its exact rock-cut walls, depth, profile, and original clearance state require detailed survey geometry."
+      },
+      "geometry": {"type": "Polygon", "coordinates": [[[205, -123], [310, -146], [310, -77], [205, -77], [205, -123]]]}
+    }
+  ]
+}

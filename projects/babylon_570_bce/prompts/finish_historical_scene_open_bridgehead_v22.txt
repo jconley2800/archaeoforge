@@ -1,0 +1,33 @@
+Use case: historical-scene
+
+Reference roles
+
+Image 1 is the sole edit target: the registered V20 Babylon river-and-bridge interpretation. Preserve its complete composition, river, western city, bridge, ziggurat, Ishtar Gate, camera, and light. Image 2 is a supporting reference only for the quiet matte packed-earth surface treatment seen in its forecourt and roads. Do not copy Image 2's older river framing, missing bridge, city extent, object positions, vegetation, buildings, or composition.
+
+Make only two localized corrections to Image 1.
+
+Correction 1: remove the uncertain bridgehead building
+
+Completely remove the small towered or gateway-like building at the bridge's eastern/right-bank end, including every south-facing portal, tower, shoulder, buttress, and closed wall mass that obstructs or confuses the bridge axis. Do not replace it with another gatehouse or freestanding building.
+
+Finish the bridge with a plain low baked-brick-and-dark-bitumen eastern abutment integrated into the river embankment. The flat bridge deck must continue in one clear straight east-west line across the abutment and become an unobstructed open packed-earth/brick-paved road on the east bank. Show a continuous road surface from the bridge deck onto land and eastward along the south side of Etemenanki's precinct. No wall, tree, stair, tower, doorway, market stall, or person may block the threshold. A simple open gap through the low river wall is acceptable; a visible building portal is not.
+
+Keep the bridge's existing west-east axis, location southwest of Etemenanki, length, width, low flat deck, six freestanding supports, west abutment, pedestrians, shadows, and western-city connection exactly unchanged. Do not add arches, cables, blue glaze, a monumental gate, a midspan tower, or a solid causeway.
+
+Correction 2: restore quiet packed earth
+
+Use Image 2 only as the visual standard for ordinary ground texture. Erase every connected closed-loop, polygon, contour-map, cracked-mosaic, fingerprint, spiral, curl, embossed network, pseudo-cuneiform, pseudo-writing, glyph, pictogram, or decorative carpet pattern from the Etemenanki forecourt, market areas, bridge approaches, streets, roads, lanes, courtyards, and open packed-earth ground.
+
+At normal full-frame viewing size, these surfaces must read as broad continuous areas of smooth matte dust and compacted earth, not as outlined cells or tessellation. Use soft low-contrast mottling, fine grain, subtle foot wear, faint tonal patches, and only a few short isolated shallow cart ruts. No line may join into a closed shape or repeating network. Preserve legitimate straight architectural edges, stair treads, wall brick joints, bridge masonry, and restrained paving seams immediately at thresholds.
+
+Fixed invariants
+
+Freeze Image 1's exact 16:9 crop, camera, perspective, horizon, late-afternoon illumination, haze, colour, exposure, and shadow direction. Freeze the continuous Euphrates flowing from upper-left background to lower-left foreground, coherent downstream wakes, all boats, both banks, substantial western Babylon, western defensive fabric, bridge piers and deck except the eastern abutment transition, eastern city, palace, walls, road centre-lines, houses, markets, people, animals, trees, fields, and smoke.
+
+Freeze Etemenanki's exact location, compact square footprint, stairs, openings, facade articulation, six earthen stages plus one blue summit shrine, exactly seven visible levels, all setbacks, heights, colours, and shadows. Freeze exactly one Ishtar Gate far north with the Processional Way centred through its portal and the long Gate-Etemenanki separation unchanged.
+
+Do not add, remove, move, resize, recolour, or redesign any object outside the former eastern bridgehead footprint and its few metres of road transition. Do not introduce tree-building intersections, fused figures, malformed boats or carts, floating awnings, duplicated walls or houses, pseudo-writing, text, labels, arrows, border, logo, or watermark.
+
+Output
+
+Return the same photorealistic historical-documentary aerial frame at exactly 1536 by 864 pixels, with an unmistakable open east-west bridge-to-road connection and visually quiet artifact-free packed-earth ground. The result is interpretive, non-authoritative, and manual-review-required.

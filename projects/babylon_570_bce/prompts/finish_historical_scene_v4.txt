@@ -1,0 +1,33 @@
+Identity and moment
+Create a lifelike interpretive reconstruction of Babylon at approximately 570 BCE, during the late reign of Nebuchadnezzar II. Treat the visible monument phases as a late-reign proxy rather than claiming every architectural surface is exactly dated to 570 BCE. Late-afternoon dry-season light, dust, and haze are illustrative completion rather than evidence.
+
+Reference role
+Image 1 is the ArchaeoForge Blender render and broad spatial guide. Image 2, when supplied, is the current v3 presentation image to edit. Preserve Image 2's photorealistic city, camera, crop, road, river, palace, houses, population, landscape, and lighting. Correct only the Ishtar Gate alignment and Etemenanki's lower staircase arrangement. Do not reproduce the block-model style of Image 1.
+
+Fixed broad anchors
+Retain the same oblique aerial viewpoint and 16:9 crop. Keep the Euphrates at right, the walled city central, the Processional Way on its existing straight axis, Etemenanki west/left of the avenue, the Southern Palace between the road and river, and dense low housing around them. Preserve exactly one blue Ishtar Gate.
+
+Ordinary built fabric
+Preserve the dense, low, mostly one-storey mud-plastered courtyard houses and workshops already shown. Keep narrow packed-earth residential lanes, flat mud-and-reed roofs, earth-toned plaster, selective baked brick and bitumen, restrained wear, and believable human scale. Do not redesign or repave the ordinary city.
+
+Monuments
+Correct the Ishtar Gate so it physically straddles the Processional Way. Move and rotate the existing single blue gate as necessary: the exact centerline of its central passage must coincide with the exact centerline of the straight roadway; the gate's façades must cross the roadway at a right angle; and the pale-and-red paved road must be visibly continuous as it enters the front opening, passes through the roofed gate complex, and emerges on the same straight axis behind it. The gate must never sit beside the road, connect through a side plaza, face obliquely away from it, or force the road to bend. Keep it as one connected roofed double-gate complex approximately 50 metres long, with restrained reconstructed height, deep cobalt-blue glazed brick, and orderly moulded aurochs and mushhushshu dragons. Keep the blue lion-lined monumental Processional Way north of the gate and keep all blue glaze exceptional.
+
+Correct Etemenanki's lower approach to the excavated three-stair concept on its south/front face. Remove the oversized diagonal stairways currently climbing the ziggurat's separate side faces. Build one broad central staircase projecting straight outward perpendicular from the middle of the south face toward the foreground, plus two narrower lateral staircases that hug that same south face and rise inward from the west and east ends to meet the central first-terrace landing. All three belong to one compact, symmetrical south-face approach. Do not place stairs on the east or west side faces, do not wrap stairs around corners, do not continue monumental exterior flights up the higher terraces, and do not create ramps. Preserve the approximately 91.5-metre-square base, mudbrick core, baked-brick mantle, progressively smaller sober terraces, and restrained blue upper sanctuary. Upper-stage circulation remains uncertain and must not be invented visibly.
+
+Preserve the Southern Palace as a large baked- and mudbrick courtyard complex with selective glazed façades. Do not add Greek or Roman columns; use recessed door bays and brick pilasters where vertical articulation is needed.
+
+Environment
+Preserve the hot, dry alluvial setting, irrigation channels, distant barley plots, palms and reeds concentrated near water, warm earth colors, long shadows, subtle heat haze, and active but non-modern Euphrates. Keep the dense inner residential core free of fantasy orchards.
+
+Daily life
+Preserve the sober population and river activity: people in plain wool wraps and simple tunic-like garments, porters, water carriers, pack donkeys, small livestock, and modest non-iconic cargo craft. Keep all figures subordinate to the architecture.
+
+Uncertainty rules
+The three lower stairs are evidence-led in arrangement, but their precise elevations, parapets, and appearance remain reconstructed. Etemenanki's upper stages, the gate's full elevation, river course, wall height, palace upper storeys, roofs, clothing, boats, weather, and crowd placement remain interpretive. Do not make added detail look archaeologically measured.
+
+Negative constraints
+No off-axis or roadside Ishtar Gate; no bent Processional Way; no second blue gate; no stairs wrapping around Etemenanki; no upper-stage staircase spectacle; no Hanging Gardens, waterfalls, Egyptian motifs, Greek or Roman columns, domes, minarets, modern objects, modern boats, camels, fantasy structures, ruins, excavation trenches, text, labels, borders, logos, or watermarks.
+
+Output
+Produce a high-end photorealistic historical-documentary frame, cinematic 16:9 at 1536 by 864 pixels. Preserve the existing v3 image everywhere except the two requested geometric corrections. It must remain an interpretive, non-authoritative presentation image, not archaeological proof.

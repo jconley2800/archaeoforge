@@ -1,0 +1,29 @@
+Use case: historical-scene
+
+Identity and reference role
+
+Image 1 is the sole edit target: the registered V20 interpretation of Babylon at approximately 570 BCE. It has the accepted corrected composition—a north-to-south Euphrates running through the city, substantial western Babylon on the far bank, one low east-west bridge southwest of Etemenanki, the seven-level ziggurat with a blue summit, and one northern Ishtar Gate aligned with the Processional Way. Preserve that composition exactly. Make only the two localized repairs below. The result remains interpretive, non-authoritative, and manual-review-required.
+
+Repair 1: eastern bridgehead alignment
+
+Rebuild only the small plain brown gateway at the bridge's eastern/right-bank end so that the bridge roadway enters a centered west-facing portal, passes straight through the gateway on the same east-west axis, and visibly exits eastward into a connected road along the south side of the Etemenanki precinct. The bridge deck must meet the opening cleanly at its threshold, not strike or merge into a side wall, buttress, tower shoulder, river wall, or closed facade. The gateway's west and east portals are opposite one another and aligned with the deck; do not give it a dominant south-facing portal toward the camera. Keep it a restrained warm-brown baked-brick/mudbrick river-wall gate, never blue, glazed, Ishtar-like, arched in a Roman style, or enlarged into a monument.
+
+Preserve the bridge's exact present location, east-west axis, low flat deck, six freestanding supports between the two banks, abutments, width, length, pedestrians, shadows, and relationship to the western city and Etemenanki. Preserve the continuous river channel and all boats. Change no other bridge geometry.
+
+Repair 2: accidental ground patterns
+
+Remove every large curling, looping, spiral, scribbled, fingerprint-like, contour-map-like, embossed, pseudo-cuneiform, pseudo-writing, glyph, pictogram, or carpet pattern from the Etemenanki forecourt, market ground, bridge approaches, roads, lanes, courtyards, and other ordinary packed-earth surfaces. These are image-generation artifacts, not decoration.
+
+Replace only those marks with quiet matte packed earth at the same brightness and colour: fine dust, subtle foot wear, sparse short straight or gently irregular cart ruts, small natural tonal variation, and restrained paving seams only where an existing architectural edge requires them. Do not replace the marks with any script, symbols, decorative paving, murals, relief panels, concentric rings, swirls, or repeated motifs. Preserve legitimate Etemenanki facade recesses, stair treads, wall brick joints, bridge masonry, roof edges, shadows, figures, stalls, carts, animals, and vegetation.
+
+Fixed invariants
+
+Freeze the exact 16:9 crop, camera, perspective, horizon, late-afternoon light, haze, colour, shadow direction, and exposure. Freeze the north-to-south Euphrates from upper-left background to lower-left foreground, its downstream wakes, both urban banks, extensive western city, western wall fabric, all bridge supports and deck outside the eastern gateway, eastern city, palace zone, wall paths, roads, houses, markets, people, boats, palms, and fields.
+
+Freeze Etemenanki's exact position, compact square footprint, stair assembly, openings, facade articulation, six earthen stages plus one blue summit shrine, exactly seven visible levels, all setbacks, heights, colours, and shadows. Freeze exactly one Ishtar Gate in its present far-northern position and scale, with the Processional Way passing through its central portal and the long Gate-Etemenanki separation unchanged.
+
+Do not add, remove, duplicate, relocate, resize, recolour, or redesign any monument, district, waterway, wall, road, building mass, bridge support, boat, or tree outside the small eastern bridgehead repair. Do not introduce new vegetation-building intersections, fused people, malformed carts, floating awnings, repeated smoke columns, pseudo-writing, text, labels, arrows, border, logo, or watermark.
+
+Output
+
+Return the same coherent photorealistic historical-documentary aerial frame at exactly 1536 by 864 pixels, with a clean axial eastern bridgehead and sober artifact-free packed-earth ground. No diorama, game-map, model, or pristine CGI appearance.

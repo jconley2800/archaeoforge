@@ -1,0 +1,31 @@
+Use case: historical-scene targeted architectural correction
+
+Reference roles
+
+Image 1 is the registered, review-required v11 Babylon illustration and the only edit target. Image 2 is the user-supplied ziggurat reference structure. Use Image 2 only for the three-stair assembly's clearly modeled geometry: deep stair volumes, continuous visible risers, solid parapet edges, the shared centre landing, and the way all three flights remain separately legible. Do not copy Image 2's transparent or isolated background, peach colour, model-like rendering, ornament, upper-stage count, stage proportions, summit form, or overall ziggurat design.
+
+Single correction
+
+Change only Etemenanki's monumental stair assembly on the lowest south/front facade. The v11 side flights are wrong because they read as shallow horizontal terrace bands. Remove those flattened bands and replace them with two unmistakable, full-height, functional lateral staircases like the visible side flights in Image 2.
+
+Required stair geometry
+
+- Preserve the existing long central staircase: it projects outward from the midpoint of the south/front facade into the foreground and rises to a centred shared landing.
+- From the west/left end of that same facade, build a substantial lateral staircase that lies directly against and parallel to the facade and rises inward toward the shared centre landing.
+- Mirror it from the east/right end: a second substantial lateral staircase lies directly against and parallel to the same facade and rises inward toward that landing.
+- Keep the source-led capital-T plan: central flight perpendicular to the facade, two lateral flights sideways along the facade. Do not turn the three flights into parallel forward-projecting stairs.
+- Match Image 2's visual clarity and physical mass. Each lateral flight must have a clearly sloping upper run, many individually readable stair risers, deep wedge-like structural volume, and solid side/parapet edges. They must look climbable, steep, and monumental--not painted lines, ledges, ramps, stacked terraces, or low horizontal strips.
+- The centre landing must visibly join all three flights. In this three-quarter aerial view, keep enough foreshortening and relief that both left and right lateral staircases can be recognized immediately, even though the farther one is partly occluded by perspective.
+- Do not continue any external monumental staircase above the first-stage landing.
+
+Freeze everything else
+
+Preserve Image 1's exact 16:9 crop, camera, city composition, and lighting. Preserve the single blue Ishtar Gate far north, the Processional Way passing through its portal, the long urban separation between that gate and Etemenanki, the western river, and all walls, palace blocks, houses, streets, vegetation, boats, people, animals, dust, and colour. Preserve Etemenanki's footprint, height, stepped massing, upper stages, summit shrine, material, facade treatment, and position. Change no architecture except the lowest south/front three-stair assembly and only the tiny figures or ground details directly displaced by the new stair volumes.
+
+Negative constraints
+
+No flattened side stairs; no terrace-band substitutes; no ramps without risers; no omitted or hidden lateral flight; no three parallel forward-projecting stairs; no staircase on another facade; no upper-stage external flights; no duplicate Ishtar Gate; no blue ziggurat summit; no change to the Gate-road alignment or Gate-ziggurat distance; no map graphics, labels, text, border, logo, or watermark.
+
+Output
+
+Return the same photorealistic historical-documentary frame at 1536 by 864 pixels. The result remains an interpretive, non-authoritative presentation image requiring manual review.

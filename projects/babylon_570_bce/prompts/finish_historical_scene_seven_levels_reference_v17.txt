@@ -1,0 +1,27 @@
+Use case: historical-scene precise stage-count correction
+
+Image 1 is the registered v15 Babylon illustration and the sole edit target. Image 2 is the user-supplied ziggurat structure and governs only the final count and stacked silhouette of seven architectural levels. Do not copy Image 2's background, colour, materials, ornament, stairs, or rendering style.
+
+Image 1 currently reads as six levels. Add exactly one--and only one--new earthen architectural stage immediately beneath the existing blue summit shrine. Do not split, duplicate, subdivide, or add bands to any other stage.
+
+The finished ziggurat must have exactly seven visible wall-faced architectural levels total:
+
+1. The existing large lowest earthen stage with the monumental stair landing.
+2. One centred earthen stage.
+3. One centred earthen stage.
+4. One centred earthen stage.
+5. One centred earthen stage.
+6. One centred earthen stage newly inserted beneath the summit.
+7. The existing single blue glazed summit shrine at the very top.
+
+This means exactly six earthen wall-faced stages plus exactly one blue wall-faced summit level. Crenellations, parapets, terrace paving, ledges, decorative bands, and rooflines do not count as levels and must not be enlarged to resemble levels. Match Image 2's clear seven-part stepped stack, while retaining Image 1's photorealistic Babylon materials and camera.
+
+Keep the original compact base width and approximately 90-metre overall-height reading. Fit the new stage by slightly redistributing the heights and setbacks of the upper earthen stages; do not widen the base, add a podium, or make the monument excessively tall. All seven levels remain centred, rectangular, and evenly receding.
+
+Preserve the complete lowest stage and all three stairs from Image 1 exactly: footprints, slopes, treads, risers, parapets, landing, wall junctions, doors, and ground contact. Preserve the blue finish only on level 7; every lower level and every stair remains earthen.
+
+Freeze the entire scene outside the upper ziggurat stack: identical crop, camera, lighting, city, river, boats, walls, houses, palace, people, vegetation, single Ishtar Gate, Processional Way through its portal, and Gate-ziggurat separation.
+
+Reject the result if it shows six levels, eight levels, more than six earthen stage faces, a paper-thin fake tier, a widened base, altered stairs, a second blue level, text, labels, numbers, border, logo, or watermark.
+
+Return the same photorealistic 1536 by 864 historical-documentary frame. The result remains interpretive, non-authoritative, and manual-review-required.

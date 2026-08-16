@@ -1,0 +1,77 @@
+Use case: historical-scene
+
+Identity and moment
+
+Depict Babylon as a functioning imperial city at approximately 570 BCE, during the late reign of Nebuchadnezzar II. Retain the warm late-afternoon documentary light and dry-season haze from Image 1 as illustrative visual completion, not as a known weather event.
+
+Reference roles
+
+Image 1 is the sole edit target and governs the accepted architecture, materials, population, atmosphere, photographic style, and all details not explicitly changed below. Its current bridge and downstream river course are wrong: the bridge is much too far west and insufficiently south, reading almost level with Etemenanki rather than clearly southwest, and the river bends left/west downstream. Remove that bridge and replace that part of the channel rather than preserving or duplicating them.
+
+Image 2 is a user-supplied schematic plan used only for the topological relationship among Etemenanki, the bridge, the river bend, Esagila, and the two urban banks. North is at the top of Image 2. Do not copy its labels, lines, colours, symbols, scale bar, cartographic styling, Greek theatre, or phase-mixed buildings. It is not authoritative evidence and must not appear in the finished image.
+
+Image 3 is an ArchaeoForge-authored, non-evidentiary 1536 by 864 composition guide. Its single blue river silhouette and single brown bridge bar are the controlling final screen layout and override Image 1's wrong bridge and channel. Its stepped ziggurat block and small northern Gate block are location anchors only. Match Image 3 within about 50 to 60 pixels, but copy none of its flat colours, simple lines, or graphic styling. Image 1 alone governs lifelike appearance and accepted monument form; Image 2 supplies broad topology only. Every part of Image 1's old bridge and approach that is absent from Image 3 must become coherent urban bank, water, or ordinary city fabric, with no remnant structure. Image 3 is operational guidance only, not evidence, and must not appear as a diagram in the finished image.
+
+Use the reviewed working estimate derived from a Pedersen plan as a non-authoritative compositional guide: the bridge midpoint is approximately 170 metres west and 210 metres south of Etemenanki's ground-footprint centre, a centre-to-centre distance of about 270 metres toward southwest, approximately S39 degrees W at azimuth 219 degrees. This relationship is not yet an approved project evidence claim. Treat it as a source-led, needs-review working constraint at the scale of the historical scene, not as pixel-survey precision.
+
+Required reframing and cardinal frame
+
+Assume image top is north, image bottom is south, image left is west, and image right is east. This is a screen-space convention, not a claim that Image 1 is a metrically rectified orthophoto. Zoom out modestly and aim or frame farther south so more ground south of Etemenanki is visible, moving Etemenanki upward in the resulting frame toward y=470. Do not prescribe a physical camera translation. Preserve the existing oblique aerial viewing direction, lens character, perspective, horizon, 16:9 crop, and monument scale as closely as possible. This reframe is required so the correctly southern bridge and the downstream bend both fit. Do not rotate the scene or convert it into a top-down map.
+
+In the final 1536 by 864 composition, use these approximate screen targets as a perspective-aware layout guide: Etemenanki's ground-footprint centre near x=1040, y=470; the bridge midpoint near x=870, y=680; and the downstream river centre exiting the lower edge around x=1050 to x=1150. Exact pixels may vary modestly for natural perspective, but the bridge midpoint must be visibly below and left of Etemenanki, with the southward screen displacement greater than the westward displacement. It must never be level with or north of the ziggurat.
+
+River course and flow
+
+Keep one broad Euphrates channel west of the central eastern-bank monuments. It enters from the upper-left background, flows generally south, and divides extensive eastern and western urban sectors. Upstream of the bridge it may bow gently west/left. The bridge is the single broad inflection: downstream of the crossing, screen x of the river centre must increase continuously as screen y increases. At the lower edge, the river centre must be clearly about 180 to 280 screen pixels east/right of its centre at the bridge crossing, consistent with the x=1050 to x=1150 target; make the bend obvious but gentle. Do not reverse west/left again, exit the lower-left corner, split, vanish, or read as an exterior moat.
+
+Make the downstream direction visually legible but restrained: fine current seams, elongated reflected streaks, and small coherent wakes move from the upper-left distance through the crossing and toward the lower foreground along the eastward-curving channel. No upstream-pointing wakes, decorative swirls, rapids, surf, whitewater, arrows, or diagrammatic flow marks.
+
+Bridge position and connection
+
+Show exactly one bridge. Delete Image 1's old far-left bridge and all residual bridge fragments or abandoned approach roads. Place the replacement bridge midpoint approximately 170 metres west and 210 metres south of Etemenanki's centre. Its axis runs broadly west-east, nearly perpendicular to the local north-south current. The bridge must be clearly southwest of the ziggurat precinct, not beside its stairs, not through its forecourt, not level with it, and not near the Ishtar Gate.
+
+The eastern approach reaches the southwest edge of the Etemenanki precinct and continues east along or immediately outside the precinct's south wall, with Etemenanki north/northeast and the generalized Esagila zone south/southeast. The road must not aim into the central ziggurat stairs. Make the bridge deck, eastern landing, and east-west road read as one continuous traversable route with no side impact, blocked gate, broken deck, or ambiguous intersection. Use no monumental bridgehead gate; if a minor bank opening is necessary, make it a plain unobtrusive brown mudbrick passage aligned with the road, never blue and never Ishtar-like.
+
+Use the approximately 570 BCE pre-Nabonidus bridge form: a low straight deck between two bank abutments on six freestanding, massive, strongly battered baked-brick-and-dark-bitumen river piers. The piers are elongated in the current direction, with pointed or convex cutwaters facing north/upstream and rounded downstream ends. Keep the total crossing near 123 to 126 metres and the travelled deck visually much narrower than the roughly 21-metre pier length. Complete the lost superstructure modestly as a low, flat timber beam-and-plank roadway approximately 6 to 9 metres wide. This deck treatment is interpretive.
+
+No arches, suspension cables, drawbridge, causeway blocking the channel, Roman masonry arcade, grand stone bridge, blue glaze, dragon reliefs, towers, modern engineering, five-pier later phase, or 21-metre-wide roadway.
+
+Urban banks
+
+Keep substantial inhabited western Babylon on the left/west bank throughout the visible course: extensive low mud-plastered mudbrick courtyard houses, flat roofs, narrow packed-earth lanes, modest workshops and storage yards, riverside landings, and a sober defensive enclosure. Do not turn the far bank into countryside, a token row of huts, or a mirrored copy of the eastern monumental core. Fields and orchards belong only beyond the western city walls and on the distant horizon.
+
+Preserve the dense eastern city, palace district, streets, walls, markets, houses, people, animals, vegetation, and river activity from Image 1 except where the corrected channel, bridge, approaches, or modest camera reframe physically require a local reconstruction. Rebuild displaced fabric coherently as distinct low rectilinear mudbrick courtyard units. Keep every retained tree rooted in visible soil and out of roofs, walls, stairs, carts, and people. Keep houses, stalls, carts, boats, and figures structurally complete and correctly scaled with depth.
+
+Monument invariants
+
+Preserve Etemenanki's accepted compact square mass and architectural identity: exactly six earthen wall-faced stages plus one blue summit shrine, exactly seven visible levels in total, the same broad footprint proportions, setbacks, heights, blue colour, facade articulation, openings, and joined tripartite stair assembly. Preserve the one central south-projecting stair and two lateral facade-hugging stairs without deformation, duplication, added tiers, widened base, collapsed summit, diagonal Y-shaped branches, or new doors. Reframing may move its screen position, but do not redesign, rescale materially, recolour, rotate, or alter it.
+
+Keep exactly one Ishtar Gate far north in the royal/palace zone, much smaller in perspective than Etemenanki. Preserve the Processional Way centred through its single traversable portal and the long urban separation between Gate and ziggurat. Do not move the Ishtar Gate to the bridge, duplicate it, create another blue gate, or run a blue lion-lined avenue to Etemenanki.
+
+Surface and artifact guard
+
+Preserve Image 1's cleaned quiet matte packed-earth surfaces. Roads, forecourts, markets, courtyards, bridge approaches, and open ground must have broad low-contrast dusty areas, fine natural grain, soft wear, and only a few short isolated ruts. Do not reintroduce connected closed-loop lines, polygon cells, contour-map networks, cracked-mosaic tessellation, curls, spirals, fingerprints, embossed carpet patterns, pseudo-writing, cuneiform-like marks, murals, banners, symbols, or decorative citywide relief texture.
+
+Preserve the existing coherent late-afternoon sun direction, exposure, haze, and contact shadows. Every added or rebuilt figure, tree, boat, building, pier, and bridge component must have one consistent grounded shadow. Avoid melted rooflines, fused people, duplicated palms, floating awnings, malformed wheels, detached limbs, interpenetrations, or repeated smoke columns.
+
+Daily life
+
+Retain restrained river and bridge activity: modest non-iconic cargo craft, pedestrians, porters, pack donkeys, at most one service cart on the bridge, and workers handling sacks, baskets, barley, dates, sesame, and oil jars. Keep hull construction, exact bridge railings, west-bank parcel geometry, and precise everyday costume interpretive and visually sober.
+
+Uncertainty and authority
+
+The bridge placement, channel course, abutments, and massive pier geometry used here are source-led, needs-review working constraints rather than approved project claims. Image 2 supplies only schematic topology and does not authenticate them. The bridge deck, railings, exact traffic, and fine architectural completion are reconstructed. The western urban sector is required in broad relationship, while many exact house and street details remain generalized. The result is a derived presentation image, not archaeological evidence, and remains non-authoritative and manual-review-required.
+
+Hard composition checks
+
+Judge the final 1536 by 864 image in screen space before returning it. Etemenanki's ground-footprint centre must fall at x=1040, y=470, with tolerance of approximately 50 pixels in either direction. The bridge midpoint must fall at x=870, y=680, with tolerance of approximately 50 pixels. Therefore the bridge midpoint must be left of and at least 150 pixels below the ziggurat centre. The ratio of westward displacement to southward displacement should target 170 divided by 210, or 0.81, with an acceptable perspective-aware range of roughly 0.65 to 1.0. The bridge must not remain across half the image from Etemenanki: it belongs immediately southwest of the precinct, with its east end at the precinct's southwest edge.
+
+Below the bridge, the river-centre x coordinate must increase continuously toward the lower edge and finish at least 180 pixels right/east of the bridge midpoint, around x=1050 to x=1150. Show one complete broadly screen-horizontal west-east bridge with six freestanding piers. Reject the composition and rebuild it if any far-left old bridge, abandoned old approach, duplicate channel, northern or nearly level bridge, west-bending downstream channel, altered seven-level ziggurat, deformed tripartite stairs, duplicated Ishtar Gate, or misaligned Processional Way remains.
+
+Negative constraints
+
+No old far-left bridge; no duplicated bridge, channel, bank, wall, avenue, Ishtar Gate, ziggurat, or blue portal. No bridge midpoint north of or level with Etemenanki. No bridge touching the stairs or crossing the forecourt. No downstream river bending left/west or exiting left of its bridge-crossing centre. No countryside opposite the eastern core. No Greek theatre, Hanging Gardens, domes, minarets, pyramids, Roman columns, mass camel caravans, fantasy monument, labels, text, compass, scale bar, map graphics, border, logo, or watermark.
+
+Output
+
+Return one coherent photorealistic historical-documentary aerial frame at exactly 1536 by 864 pixels. It must read as a living city divided by a working river: Etemenanki north/northeast of the bridge, the bridge correctly southwest, and the Euphrates curving east/right downstream into the foreground. It must not read as a map, miniature, game environment, studio model, or pristine CGI scene.

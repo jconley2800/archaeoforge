@@ -1,0 +1,59 @@
+{
+  "spatial_contract_schema": 1,
+  "constraints": [
+    {
+      "id": "BABYLON-ETEMENANKI-PRESENTATION-IDENTITY",
+      "kind": "presence",
+      "required": true,
+      "feature_ids": [
+        "ETEMENANKI-VARIANT-DEMO"
+      ],
+      "requirement": "Show exactly one Etemenanki as the prominent eastern-bank ziggurat. Preserve the selected presentation identity: a compact square footprint, six earthen wall-faced stages plus one blue summit shrine for exactly seven visible levels, and one joined tripartite south stair assembly. The manifest point is a schematic feature locator, not a georeferenced screen coordinate; the active finish prompt supplies the selected screen anchor.",
+      "evidence_ids": []
+    },
+    {
+      "id": "BABYLON-ISHTAR-PROCESSIONAL-TOPOLOGY",
+      "kind": "topology",
+      "required": true,
+      "feature_ids": [
+        "ISHTAR-GATE-DEMO",
+        "PROCESSIONAL-WAY-DEMO"
+      ],
+      "requirement": "Show exactly one Ishtar Gate in the far northern royal and palace zone. Its single traversable portal must be centred on the local Processional Way so that the road visibly enters, passes through, and exits the Gate. Preserve this local Gate-road topology while keeping all starter coordinates explicitly schematic.",
+      "evidence_ids": []
+    },
+    {
+      "id": "BABYLON-GATE-ETEMENANKI-VISIBLE-SEPARATION",
+      "kind": "relative_layout",
+      "required": true,
+      "feature_ids": [
+        "ETEMENANKI-VARIANT-DEMO",
+        "ISHTAR-GATE-DEMO",
+        "PROCESSIONAL-WAY-DEMO"
+      ],
+      "requirement": "The final presentation must not inherit the starter's compressed schematic Gate-ziggurat spacing. The Ishtar Gate reads far north in the palace background and much smaller in perspective; Etemenanki reads far south-southwest in the foreground or midground, with a broad interval of palace and ordinary urban fabric between them. They never share a plaza or precinct, and the Processional Way does not become a continuous blue ceremonial corridor beside Etemenanki.",
+      "evidence_ids": []
+    },
+    {
+      "id": "BABYLON-MONUMENT-SCALE-HIERARCHY",
+      "kind": "scale_hierarchy",
+      "required": true,
+      "feature_ids": [
+        "ETEMENANKI-VARIANT-DEMO",
+        "ISHTAR-GATE-DEMO"
+      ],
+      "requirement": "Keep Etemenanki visually dominant and fully legible while the single northern Ishtar Gate remains visibly smaller with distance. Do not duplicate, merge, equalize, or swap the two monuments.",
+      "evidence_ids": []
+    }
+  ],
+  "mutable_feature_ids": [
+    "TERRAIN-CONTEXT",
+    "EUPHRATES-SCHEMATIC",
+    "INNER-WALL-DEMO",
+    "PALACE-MASS-DEMO",
+    "RESIDENTIAL-WEST-DEMO",
+    "RESIDENTIAL-CENTRAL-DEMO",
+    "RESIDENTIAL-EAST-DEMO"
+  ],
+  "notes": "This presentation contract fixes the previously reproduced prompt failure that promoted Babylon's schematic starter coordinates into archaeological placement. It protects the selected monument identities, local Gate-road topology, long Gate-Etemenanki separation, and scale hierarchy while explicitly allowing the schematic river, terrain, walls, palace mass, and residential proxies to change for a source-led historical-scene correction. Empty evidence_ids are deliberate: these are non-authoritative presentation constraints and do not elevate the starter geometry or the current bridge working estimate into approved evidence."
+}

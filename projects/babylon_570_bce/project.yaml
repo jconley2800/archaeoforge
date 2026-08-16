@@ -35,6 +35,7 @@ ai:
   finish_backend: interactive_handoff
   finish_mode: historical_scene
   geometry_audit_enabled: true
+  historical_scene_spatial_contract: data/historical_scene_spatial_contract.json
 blender:
   executable: blender
   engine: BLENDER_EEVEE

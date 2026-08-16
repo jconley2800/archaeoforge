@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+
+Image 1 is the sole edit target. Make one surface-only correction and change no geometry, object, composition, or lighting.
+
+Remove the dense connected network of pale and dark closed-loop lines, outlined polygon cells, contour-map shapes, cracked-mosaic tessellation, curls, spirals, fingerprints, pseudo-writing, and embossed carpet patterns from ordinary packed-earth ground. Apply this only to the Etemenanki forecourt, the eastern bridge approach, market ground, roads, lanes, courtyards, and other open earth surfaces where that accidental network appears.
+
+Replace only those line artifacts with smooth matte compacted earth at the same local brightness and colour. The corrected ground must read as broad continuous dusty surfaces at normal viewing size: soft low-contrast mottling, fine natural grain, subtle foot wear, faint irregular tonal patches, and no visible connected line network. Permit only a few short isolated shallow ruts that do not join, loop, repeat, outline cells, or resemble symbols. Do not create paving stones, decorative brick carpets, cracked-dry-lake polygons, tiles, cobbles, inscriptions, murals, reliefs, cuneiform, or map-like contours.
+
+Preserve legitimate architectural linework exactly: Etemenanki's recessed facade panels, stair treads and parapets; bridge deck edges, six piers, abutments, masonry joints and railings; city walls, gates, roof edges, doors, thresholds, and restrained straight paving seams immediately attached to buildings. Preserve every person, animal, cart, stall, awning, palm, boat, shadow, and contact point.
+
+Pixel-lock everything else: exact 1536 by 864 crop, camera, perspective, horizon, exposure, colour, haze, late-afternoon light, shadow direction, river course and wakes, both urban banks, western Babylon, bridge position and open east-west road connection, all walls and streets, eastern city, palace, exactly one northern Ishtar Gate and its Processional Way, and the long Gate-Etemenanki separation.
+
+Preserve Etemenanki without any alteration: exact position, footprint, dimensions, silhouette, stairs, doors, six earthen stages plus one blue summit shrine, exactly seven visible levels, setbacks, facade articulation, colour, and shadow.
+
+No added, removed, moved, resized, recoloured, sharpened, softened, or redesigned object. No changed water, vegetation, architecture, population, smoke, bridge, road alignment, riverbank, or background. No text, labels, symbols, arrows, border, logo, or watermark. The result remains an interpretive, non-authoritative, manual-review-required presentation image.

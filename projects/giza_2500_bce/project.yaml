@@ -1,0 +1,111 @@
+schema_version: 1
+project:
+  id: giza-2500-bce
+  title: Giza Plateau, approximately 2500 BCE | Evidence-led Late Fourth Dynasty Preview
+  place_name: Giza Plateau
+  target_year: -2500
+  target_year_label: approximately 2500 BCE
+  description: >-
+    Evidence-controlled preview of a functioning late Fourth Dynasty landscape at
+    approximately 2500 BCE. The visual pass prioritizes differentiated monument
+    histories: intact but older Khufu and Khafre complexes, Menkaure's documented
+    granite lower casing and incomplete finish, whitewashed-mudbrick completion,
+    supported cemetery and settlement fabric, and a cautiously reconstructed
+    waterfront. Exact chronology, local geometry, and shoreline remain needs-review.
+  spatial_reference: LOCAL_METERS
+  units: m
+  origin_note: >-
+    Survey-derived local-metre guide with the Khufu pyramid centre at
+    [0.000, 300.000, 0.000]. +X east, +Y north, +Z up. Khafre is at
+    [-333.978, -54.411, 10.100] and Menkaure at
+    [-573.513, -440.152, 12.700], transformed from the cited Dash survey centres
+    and elevations. The coordinate selection remains needs-review and is not
+    georeferenced project control.
+evidence_policy:
+  authoritative_statuses:
+  - approved
+  preview_statuses:
+  - approved
+  - needs_review
+  - draft
+  require_evidence_for_geometry: true
+  require_locator_for_classes:
+  - A
+  - B
+  require_local_copy_for_authoritative: false
+  conservative_feature_classification: true
+ai:
+  enabled: false
+  extraction_model: gpt-5.6-terra
+  reasoning_effort: medium
+  pdf_detail: high
+  max_source_mb: 48
+  max_text_chars_per_request: 60000
+  use_direct_pdf_input: true
+  image_model: gpt-image-2
+  image_quality: high
+  image_input_fidelity: high
+  image_size: 1536x864
+  finish_enabled: true
+  finish_backend: interactive_handoff
+  finish_mode: historical_scene
+  geometry_audit_enabled: false
+  historical_scene_spatial_contract: data/historical_scene_spatial_contract.json
+blender:
+  executable: /home/jeebus/.local/share/flatpak/exports/bin/org.blender.Blender
+  engine: BLENDER_EEVEE
+  resolution_x: 1536
+  resolution_y: 864
+  resolution_percentage: 100
+  samples: 64
+  transparent_background: false
+  view_transform: AgX
+  look: ''
+  exposure: -1.0
+  shadows: true
+  raytracing: true
+  shadow_ray_count: 4
+  shadow_step_count: 6
+  camera:
+    auto_frame: true
+    azimuth_degrees: 170.0
+    elevation_degrees: 40.0
+    margin: 1.04
+    target_height_bias: -0.05
+    frame_includes_context: false
+    location:
+    - 320.0
+    - -420.0
+    - 260.0
+    target:
+    - 0.0
+    - 60.0
+    - 20.0
+    lens_mm: 45.0
+    orthographic: false
+    ortho_scale: 600.0
+  sun:
+    elevation_degrees: 18.0
+    azimuth_degrees: 232.0
+    rotation_degrees: null
+    energy: 3.0
+    angle_degrees: 1.8
+  sky:
+    procedural_sky: true
+    strength: 0.58
+    turbidity: 3.2
+    ground_albedo: 0.38
+    air_density: 1.0
+    dust_density: 1.2
+    color:
+    - 0.28
+    - 0.42
+    - 0.62
+    - 1.0
+  render_mode: realistic
+  save_blend: true
+  render_passes: true
+gis:
+  target_crs: EPSG:32636
+  georeference_transform: affine
+  resampling: cubic

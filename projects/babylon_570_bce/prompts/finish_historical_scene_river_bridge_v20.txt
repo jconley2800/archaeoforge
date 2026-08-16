@@ -1,0 +1,53 @@
+Use case: historical-scene
+
+Identity and moment
+
+Depict Babylon as a functioning imperial city at approximately 570 BCE, during the late reign of Nebuchadnezzar II. Retain Image 1's warm late-afternoon documentary light and dry-season haze as illustrative visual completion, not as a known historical weather event.
+
+Reference role
+
+Image 1 is the sole edit target and the governing reference for the accepted appearance of Etemenanki, the Ishtar Gate, the eastern city, materials, population, atmosphere, and photographic style. Its river already appears on the left, west of Etemenanki, but it misleadingly reads as an exterior watercourse with countryside on the opposite bank and omits Babylon's Euphrates bridge. Correct that historical relationship. Treat the river-edge framing and the land beyond its far bank as mutable. Preserve the existing scene elsewhere. This remains a non-authoritative presentation image; do not imply that the schematic starter geometry has become measured archaeological geometry.
+
+Fixed broad anchors
+
+Assume that the top of the frame is north. Keep the Euphrates on the left side of the composition and make its course run from the upper-left background toward the lower-left foreground, broadly north to south with only a slight southeastward downstream trend. The river must pass through Babylon and divide substantial eastern and western urban sectors; it must not read as a moat or as water outside the city.
+
+Keep Etemenanki prominent on the eastern/right bank in the southern foreground-midground. Preserve its exact accepted compact square mass, stairs, openings, facade articulation, six earthen stages plus one blue summit shrine, exactly seven visible architectural levels, and all present setbacks, heights, colours, and shadows. Keep exactly one Ishtar Gate far north in the palace zone, visibly smaller than Etemenanki, with the existing Processional Way centred through its portal and the broad urban Gate-Etemenanki separation unchanged.
+
+Place the Euphrates bridge southwest of Etemenanki, crossing approximately east-west at the west end of the main street that runs along the south side of the Etemenanki precinct. Its eastern bridgehead belongs near the eastern embankment below and left of the ziggurat, not beside the Ishtar Gate and not through the ziggurat forecourt. The bridge must visibly connect the eastern sacred/urban sector to western Babylon.
+
+Preserve the same oblique aerial direction, perspective, 16:9 frame, and late-afternoon illumination. Widen and shift the view modestly toward the left only as much as needed to reveal a substantial, unmistakable western urban sector on the far/left bank and the full bridge crossing. Keep Etemenanki large and legible rather than turning the scene into a distant map. Do not rotate, redesign, or relocate the accepted monuments merely to make room.
+
+Ordinary built fabric
+
+Replace the apparent countryside immediately across the river with dense, inhabited western Babylon: extensive low mud-plastered mudbrick courtyard houses, mostly flat roofs, narrow packed-earth lanes, occasional workshops and storage yards, and a continuation of the city's defensive enclosure on the west side. The western sector should occupy a meaningful area of the image and continue along the river into the distance; a token row of riverside huts is not enough. Keep its exact street and parcel pattern restrained and non-iconic because most of western Babylon remains archaeologically unexcavated. Show fields, orchards, irrigation, and open countryside only beyond the western city walls and farther on the horizon.
+
+Keep the dense eastern city, palace district, wall paths, secondary streets, people, markets, vegetation, and roofs from Image 1 wherever they are not displaced by the corrected riverbank, bridge approach, or modest reframing. Maintain distinct rectilinear houses and courtyards with no trees, walls, roofs, people, carts, or awnings interpenetrating one another.
+
+Monuments and bridge
+
+Render a sober, low, approximately 120-metre Euphrates bridge, broadly consistent with the archaeologically attested structure at about UTM 445470E 3599830N. Show a nearly horizontal roadway crossing on massive baked-brick-and-bitumen abutments and roughly six freestanding river piers; perspective or water may partly occlude an exact pier count. The piers are long in the current direction, about 21 by 9 metres in archaeological plan, spaced at roughly 9-metre intervals, with tapered or pointed upstream/northern ends and softly curved downstream ends. The travelled deck is narrower than the full pier length. Use a restrained paved deck with plausible timber and stone support where visible, while keeping the lost superstructure visually modest and explicitly interpretive.
+
+At the eastern bridgehead, show a plain warm-brown baked-brick/mudbrick gateway integrated with the river embankment and aligned with the road across the deck. It is a secondary river-wall gate, never blue and never a duplicate Ishtar Gate. Retain a formal baked-brick/asphalt embankment on the eastern bank near the bridge. Treat the western bank edge more soberly rather than mirroring an unsupported identical monumental quay.
+
+Environment and flow
+
+Make the downstream direction visually legible but subtle. Use coherent fine current seams, elongated ripples, soft reflected streaks, and small boat wakes that travel from the upper-left distance toward the lower-left foreground. Align modest cargo craft naturally with or across that current. A few downstream V-wakes may point toward the foreground; no wake or repeated wave pattern should imply flow back toward the horizon. Keep the Euphrates broad and slow, with no rapids, surf, whitewater, giant waves, or diagrammatic arrows.
+
+Concentrate reeds, palms, small landings, and greener growth along both banks while retaining dense urban construction immediately behind them. Keep inner-city vegetation subordinate to buildings. Preserve the flat irrigated alluvial horizon, dusty golden atmosphere, physically consistent shadows, and restrained heat haze.
+
+Daily life
+
+Show small, believable bridge and river activity: pedestrians, porters, pack donkeys, at most one restrained service cart crossing the deck, modest cargo craft, and workers handling sacks, baskets, dates, barley, sesame, and oil jars at landings. Keep all figures subordinate to the architecture, distinct from one another, correctly scaled with depth, and grounded with coherent shadows.
+
+Uncertainty rules
+
+The existence, broad placement, abutments, and massive pier geometry of the bridge are directly archaeologically supported; its upper deck, railing, timber/stone arrangement, exact 570 BCE surface, and traffic are reconstructed. The Neo-Babylonian river course through the city is supported in broad terms but changed over time. Western Babylon and its enclosing walls are historically required, while most internal western street and house geometry is unexcavated and must remain generalized. Do not make completion details read as survey precision.
+
+Negative constraints
+
+No countryside immediately opposite Etemenanki across the river; no river outside all city walls; no bridge omitted, truncated at one bank, or disconnected from its road; no modern bridge, stone arches, Roman aqueduct, suspension cables, monumental tower bridge, floating bridge, causeway that blocks the water, or fantasy engineering. No duplicated Ishtar Gate, blue bridgehead, second ziggurat, Hanging Gardens, domes, minarets, pyramids, Roman columns, or mass camel caravan. No reversed-looking wakes, decorative swirl water, pseudo-writing, symbols, labels, arrows, compass, map graphics, text, border, logo, or watermark. No change to Etemenanki's exact seven levels, blue summit, accepted stair assembly, the single northern Ishtar Gate, its road-through-portal alignment, or their long separation.
+
+Output
+
+Return one coherent photorealistic historical-documentary aerial frame at exactly 1536 by 864 pixels. It should read as a living city divided by a working river and connected by its bridge, not as a miniature, game map, studio model, or pristine CGI scene. The result remains interpretive, non-authoritative, and manual-review-required.

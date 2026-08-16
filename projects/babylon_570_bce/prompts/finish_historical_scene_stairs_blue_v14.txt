@@ -1,0 +1,47 @@
+Use case: historical-scene targeted architectural correction
+
+Reference roles
+
+Image 1 is the registered, review-required v13 Babylon illustration and the sole edit target. Preserve its newly compact Etemenanki tower proportions and the entire surrounding city. Image 2 is the user-supplied ziggurat structure; use it only for clean continuous risers, constant stair width, shallow structural support, parapet edges, and a joined centre landing. Image 3 is the ArchaeoForge top-view capital-T orientation diagram and governs the stair footprints and directions. Ignore every word, label, arrow, border, and colour in Image 3; copy no diagram graphics into the scene.
+
+Make exactly two corrections
+
+1. Rebuild Etemenanki's complete three-stair assembly so its plan is the orthogonal capital T shown in Image 3, never a Y or fan.
+2. Finish only the uppermost stage and summit shrine in saturated blue glazed brick.
+
+Preserve the compact tower body
+
+Keep Image 1's current narrow, approximately square 91.5-metre tower footprint, roughly 90-metre total height, stage count, centred setbacks, summit size, position, and open surrounding courtyard. Do not widen the base, add a podium or apron, enlarge the lowest stage, make the tower squat, or reshape any upper stage. The lowest south/front facade must remain one straight, unbroken rectangular face from its west/left corner to its east/right corner.
+
+Remove the failed stair geometry first
+
+Delete all three existing stair flights, their camera-facing fan arrangement, and every diagonal wedge, buttress, notch, or chamfer they cut into the lowest stage. Restore the affected south facade to a straight vertical wall and restore level courtyard ground in front of it. Then construct the new stair assembly cleanly from scratch.
+
+Exact stair plan
+
+- Place one modest rectangular shared landing at the exact midpoint of the straight south/front facade, at first-terrace height.
+- The central stair is the only flight whose long axis projects southward into the open foreground. It runs straight and perpendicular from the facade centre to its forecourt foot. Keep a constant width, straight parallel parapets, a planar slope, and evenly spaced rectangular risers.
+- The west/left lateral flight occupies a narrow rectangular strip directly against the south facade. Its long axis runs east-west, parallel and flush to that facade, from the west/left corner inward and upward to the centre landing.
+- The east/right lateral flight mirrors it in a narrow rectangular strip directly against the same facade. Its long axis also runs east-west, parallel and flush to the facade, from the east/right corner inward and upward to the centre landing.
+- In top view, the two lateral strips form one straight crossbar along the facade and the central stair forms the perpendicular stem. The central flight is the only stair that enters the forecourt.
+- A triangular support profile is allowed only in side elevation beneath each sloping lateral flight. Confine all support mass inside the flight's narrow rectangular strip. No lateral stair or support may rotate diagonally toward the camera, splay southward, form a V, or occupy a triangular footprint in the courtyard.
+- Make all three flights the same constant usable width. Keep treads and risers straight, parallel, uniform, and continuous; keep parapet lips low enough that the steps remain readable.
+- Both lateral flights must be structurally complete and recognizable. Preserve the correct plan even if perspective partially occludes the farther flight; never rotate it toward the viewer merely to reveal it.
+- Join all three flights cleanly at the one centre landing. No gaps, overlaps, melting, crossed runs, branching midway, curved paths, pinched widths, broken risers, or stairs embedded in walls.
+- Stop all three external flights at the first terrace. Add no monumental stairs on higher stages or other faces.
+
+Blue uppermost level
+
+Change only the visible walls of the highest stage and its summit shrine to rich lapis/cobalt blue glazed brick, with physically plausible highlights and restrained dark-blue tonal variation. The blue belongs only at the very top; retain earthen mudbrick on every lower stage and on all stairs. Preserve the distant blue Ishtar Gate exactly and do not create another blue gate or blue band elsewhere.
+
+Freeze everything else
+
+Outside the rebuilt stair assembly and the top-level colour finish, preserve Image 1 exactly: Etemenanki's compact tower mass and location; identical 16:9 crop, oblique aerial camera, illumination, haze, shadows, and palette; western Euphrates and boats; all walls, houses, palace blocks, markets, people, animals, and vegetation; the single Ishtar Gate far north; the Processional Way centred through its portal; and the long urban separation between Gate and ziggurat. Change only tiny ground details or figures directly displaced by the correctly placed stairs.
+
+Negative constraints
+
+No wide ziggurat base; no added platform; no Y, V, fan, trident, or three forward-projecting flights; no diagonal lateral stair in the forecourt; no solid stair-shaped buttress without visible risers; no warped, uneven, curved, crossed, melted, or asymmetrical stairs; no missing lateral flight; no blue lower stage or blue stair; no change to the Ishtar Gate, road, river, city, camera, or lighting; no text, labels, arrows, map graphics, border, logo, or watermark.
+
+Output
+
+Return the same photorealistic historical-documentary Babylon frame at 1536 by 864 pixels. The result remains an interpretive, non-authoritative presentation image requiring manual review.

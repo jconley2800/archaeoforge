@@ -1,0 +1,119 @@
+{
+  "spatial_contract_schema": 1,
+  "constraints": [
+    {
+      "id": "GIZA-MAIN-PYRAMID-SURVEYED-CENTERS",
+      "kind": "relative_layout",
+      "required": true,
+      "feature_ids": [
+        "KHUFU-MAIN-PROXY",
+        "KHAFRE-MAIN-PROXY",
+        "MENKAURE-MAIN-PROXY"
+      ],
+      "requirement": "Preserve the survey-derived local centres and relative elevations exactly as encoded in the scene: Khufu [0.000, 300.000, 0.000], Khafre [-333.978, -54.411, 10.100], and Menkaure [-573.513, -440.152, 12.700], with +X east, +Y north, and +Z up. Khafre must remain 46.922 metres perpendicular to the direct Khufu-Menkaure centreline, so the three centres are not collinear and cannot be collapsed into a straight row.",
+      "evidence_ids": [
+        "EVID-PYRAMID-CENTERS",
+        "EVID-PLATEAU-LAYOUT"
+      ]
+    },
+    {
+      "id": "GIZA-MAIN-PYRAMID-VISIBLE-STAGGER",
+      "kind": "visible_stagger",
+      "required": true,
+      "feature_ids": [
+        "KHUFU-MAIN-PROXY",
+        "KHAFRE-MAIN-PROXY",
+        "MENKAURE-MAIN-PROXY"
+      ],
+      "requirement": "The final image must make exactly three separated principal pyramids visibly stagger northeast-to-southwest: Khufu is largest, northernmost, and easternmost; Khafre is almost as large, distinctly southwest, and higher on the plateau; Menkaure is distinctly smallest and farthest southwest. The centre path must show its kink at Khafre and must not read as an equal-depth side-by-side row, a straight diagonal, an overlapping cluster, or duplicated main pyramids.",
+      "evidence_ids": [
+        "EVID-PYRAMID-CENTERS",
+        "EVID-PLATEAU-LAYOUT",
+        "EVID-KHUFU-BASE",
+        "EVID-KHAFRE-BASE",
+        "EVID-MENKAURE-BASE"
+      ]
+    },
+    {
+      "id": "GIZA-GREAT-SPHINX-SINGLE-COMPLETE-FORM",
+      "kind": "presence",
+      "required": true,
+      "feature_ids": [
+        "SPHINX-ENVELOPE-GUIDE"
+      ],
+      "requirement": "The final image must contain exactly one continuous Great Sphinx: one human head physically attached to a broad chest, a complete low recumbent lion body with integrated hindquarters, and two long complete forepaws. Reject omission, a head-only bust, an oversized freestanding or upright head, detached or floating head or body, duplicate heads, duplicate bodies, a second Sphinx, or any separate round striped or headdress-like mass behind the true head.",
+      "evidence_ids": [
+        "EVID-SPHINX-FORM"
+      ]
+    },
+    {
+      "id": "GIZA-GREAT-SPHINX-EAST-FACING",
+      "kind": "orientation",
+      "required": true,
+      "feature_ids": [
+        "SPHINX-ENVELOPE-GUIDE"
+      ],
+      "requirement": "Keep the Great Sphinx on an east-west long axis. Its attached face, muzzle, and paired forepaws occupy the east/+X end of the protected footprint; its lion body, hindquarters, and tail end extend west/-X. Its face and gaze remain parallel to the forepaws toward due east and do not turn toward the camera, north, south, or west.",
+      "evidence_ids": [
+        "EVID-SPHINX-FORM",
+        "EVID-SPHINX-ORIENTATION"
+      ]
+    },
+    {
+      "id": "GIZA-GREAT-SPHINX-SCALE",
+      "kind": "scale_hierarchy",
+      "required": true,
+      "feature_ids": [
+        "SPHINX-ENVELOPE-GUIDE",
+        "KHAFRE-MAIN-PROXY"
+      ],
+      "requirement": "Retain the selected Great Sphinx envelope at approximately 73.5 metres long, 19 metres wide, and 20 metres high, an elongated footprint about 3.9 times as long as it is wide. It remains monumental but low and far below Khafre's 143.5-metre pyramid; do not turn it into a giant isolated head, squat statue, or tiny ornament.",
+      "evidence_ids": [
+        "EVID-SPHINX-FORM",
+        "EVID-KHAFRE-FORM"
+      ]
+    },
+    {
+      "id": "GIZA-SPHINX-COMPLEX-TOPOLOGY",
+      "kind": "topology",
+      "required": true,
+      "feature_ids": [
+        "SPHINX-ENVELOPE-GUIDE",
+        "SPHINX-ENCLOSURE-GUIDE",
+        "SPHINX-TEMPLE-GUIDE",
+        "KHAFRE-VALLEY-TEMPLE-GUIDE",
+        "KHAFRE-CAUSEWAY-GUIDE",
+        "KHAFRE-HARBOR-WATER-GUIDE"
+      ],
+      "requirement": "Keep the full Sphinx wholly inside a visibly legible dry sunken rock-cut quarry ditch, not a freestanding rectangular fortress or high masonry courtyard. The enclosure and sculpture lie north of and remain separate from Khafre's causeway, never astride or merged with it. The Sphinx stands immediately west of the Sphinx Temple; that unfinished temple lies in front/east beside Khafre's Valley Temple. Harbor water remains east of the valley complex and never enters the Sphinx enclosure.",
+      "evidence_ids": [
+        "EVID-SPHINX-RELATIONSHIP",
+        "EVID-SPHINX-DITCH-TOPOLOGY",
+        "EVID-SPHINX-TEMPLE-UNFINISHED",
+        "EVID-VALLEY-HYDROLOGY"
+      ]
+    }
+  ],
+  "base_render_requirements": [
+    {
+      "id": "GIZA-MAIN-PYRAMIDS-TYPE-SPECIFIC-BASE",
+      "feature_ids": [
+        "KHUFU-MAIN-PROXY",
+        "KHAFRE-MAIN-PROXY",
+        "MENKAURE-MAIN-PROXY"
+      ],
+      "minimum_recognizability": "type_specific",
+      "requirement": "The initial evidence render must use native planar pyramid geometry rather than generic boxes or stepped ziggurat stand-ins."
+    },
+    {
+      "id": "GIZA-GREAT-SPHINX-IDENTITY-SPECIFIC-BASE",
+      "feature_ids": [
+        "SPHINX-ENVELOPE-GUIDE"
+      ],
+      "minimum_recognizability": "identity_specific",
+      "requirement": "The initial evidence render must encode one attached human head, headdress, chest, a full low lion body with integrated hindquarters, and paired forepaws with an explicit east-facing direction; a generic rectangular envelope or isolated round rear volume is not finish-ready."
+    }
+  ],
+  "mutable_feature_ids": [],
+  "notes": "This visual contract protects the selected reconstruction's broad spatial and landmark-identity relationships independently of each claim's archaeological review status. Proxy materials and uncertain surface detail may change, but the main pyramid anchors and the single complete east-facing Sphinx may not be relocated, merged, duplicated, visually flattened, or reduced to generic forms."
+}

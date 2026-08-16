@@ -1,0 +1,11 @@
+Use case: precise-object-edit
+
+Image 1 is the sole edit target.
+
+Change exactly one thing: recolour only Etemenanki's single highest small rectangular summit shrine--the topmost architectural volume above every stepped terrace--from pale earthen plaster to rich lapis/cobalt blue glazed brick. Cover all visible exterior wall faces of that one summit shrine in the blue glaze, with restrained darker-blue variation and physically plausible highlights that match the existing late-afternoon light.
+
+Do not recolour the horizontal terrace or stepped level immediately beneath the shrine. Do not recolour any lower ziggurat stage, stair, parapet, facade, courtyard, wall, road, or building. The distant Ishtar Gate must remain exactly as it is.
+
+Preserve every geometric and compositional detail of Image 1 exactly: identical pixels and edges outside the summit shrine; ziggurat footprint, height, stage count, setbacks, stairs, risers, doors, facade articulation, materials, shadows, and position; city, Gate, Processional Way, river, boats, houses, walls, palace, people, animals, vegetation, atmosphere, lighting, crop, and camera. Do not add, remove, resize, move, reshape, sharpen, or restyle anything.
+
+No new blue bands or blue structures; no text, labels, logo, border, or watermark. Return the same photorealistic 16:9 frame at 1536 by 864 pixels.

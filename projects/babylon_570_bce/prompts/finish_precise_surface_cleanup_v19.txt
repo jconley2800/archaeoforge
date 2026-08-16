@@ -1,0 +1,19 @@
+Use case: precise-object-edit
+
+Image 1 is the sole edit target. Make one narrowly scoped surface-artifact correction and change nothing else.
+
+Remove every accidental large curling, looping, spiral, scribbled, fingerprint-like, embossed, pseudo-cuneiform, pseudo-writing, glyph, pictogram, carpet, or contour-line pattern from ordinary packed-earth roads, lanes, courtyards, open ground, house roofs, ordinary mud-plastered walls, distant fields, and the Euphrates water surface.
+
+Replace only those accidental patterns with quiet physically plausible surfaces at the same brightness and colour:
+
+- packed earth with fine dust, subtle foot wear, a few restrained straight or gently irregular wheel ruts, and small natural tonal variation;
+- ordinary flat mud-plastered roofs with sparse parapet wear, simple reed bundles, jars, and realistic seams only where already implied;
+- plain mudbrick wall plaster with subtle block joints, erosion, and no invented symbols;
+- natural river ripples, wake lines, and reflections aligned with the existing boats and light;
+- distant cultivated ground with subdued field texture rather than decorative curls.
+
+Do not erase or alter intentional architectural detail: preserve Etemenanki's vertical recessed facade panels, brick articulation, exactly seven levels, six earthen stages, blue summit, all stair geometry, openings, silhouettes, and shadows. Preserve the Ishtar Gate's blue glazed-brick ornament, tower articulation, central portal, scale, and silhouette. Preserve all legitimate wall buttresses, crenellations, roof edges, doors, windows, awnings, people, animals, trees, boats, carts, stalls, and their current positions.
+
+Keep every pixel relationship, silhouette, object count, position, scale, crop, camera, perspective, colour, exposure, late-afternoon lighting, haze, shadow direction, river, city layout, wall circuit, palace enclosure, Processional Way centre-line, Gate-road alignment, and Gate-ziggurat separation unchanged outside the accidental surface marks. Do not move vegetation or architecture in this pass.
+
+No writing, symbols, murals, decorative paving, relief carpets, added brick motifs, labels, text, numbers, border, logo, or watermark. Return the same photorealistic historical-documentary frame at exactly 1536 by 864 pixels. The result remains interpretive, non-authoritative, and manual-review-required.

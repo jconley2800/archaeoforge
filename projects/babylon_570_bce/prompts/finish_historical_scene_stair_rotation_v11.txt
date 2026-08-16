@@ -1,0 +1,16 @@
+Use case: historical-scene targeted architectural correction
+
+Image 1 is the registered, review-required v10 Babylon illustration and the only edit target. Image 2 is Pedersén's Etemenanki plan crop. Image 3 is the capital-T orientation diagram. Use Images 2 and 3 only to orient the stairs; copy no line art, text, symbols, colours, or white background.
+
+Change one thing only: correct the orientation of the two outer staircases on Etemenanki's lowest south facade. Image 1 already has three south-front stairs. Keep its middle staircase exactly as it is: centred, projecting from the facade into the southern foreground, and perpendicular to the facade. Remove the current left and right staircases that incorrectly project south parallel to the middle stair. Restore the forecourt where those two wrong projections stood.
+
+Replace those two outer stairs as follows:
+
+- Rotate the west/left stair footprint 90 degrees so it lies directly against and parallel to the ziggurat's south facade. It begins at the west/left corner of that facade and rises inward to the middle landing.
+- Rotate the east/right stair footprint 90 degrees in the mirror direction so it also lies directly against and parallel to the same south facade. It begins at the east/right corner and rises inward to the same middle landing.
+- The pair must form one straight, mirror-symmetrical crossbar along the visible front edge of the building, meeting the preserved central stair at the exact midpoint. Neither lateral stair may project into the southern forecourt.
+- Match the footprint shown in Images 2 and 3: central stair perpendicular, two lateral stairs parallel to the facade. Capital T, not three parallel prongs and not Y.
+
+Freeze everything else from Image 1: exact crop and camera; single blue Ishtar Gate far north; Processional Way through its portal; long urban separation from Etemenanki; western river; ziggurat stages, summit, materials, height, and footprint; palace, walls, houses, streets, people, animals, vegetation, light, dust, and colour. Do not add, remove, move, or redesign anything except the two incorrect outer stair flights and the tiny figures immediately displaced by them.
+
+No duplicate gate, no blue ziggurat shrine, no new stairs on other faces or upper stages, no map graphics, no labels, no text, no border, no logo, and no watermark. Return the same photorealistic 16:9 historical-documentary frame at 1536 by 864 pixels.

@@ -1,0 +1,48 @@
+1. Identity and moment
+
+Refine the registered, review-required Babylon illustration at approximately 570 BCE. This is a targeted correction pass, not a new composition.
+
+2. Reference roles
+
+Image 1 is the hash-bound, non-authoritative spatially corrected v7 illustration and the only edit target. Image 2 is Pedersén's Babylon Centre plan crop of Etemenanki; use only its stair footprint and south-face orientation. Image 3 is an explanatory top-view diagram of that footprint; use only its labelled capital-T geometry. Do not copy the plans' line-art style, text, symbols, white background, colours, or map rotation into the final image.
+
+Preserve Image 1's exact 16:9 crop, aerial camera, western Euphrates, lighting, atmosphere, city fabric, people, palace massing, single northern Ishtar Gate, road alignment, and long Gate-Etemenanki separation. Change only Etemenanki's exterior stair arrangement.
+
+3. Broad anchors
+
+Keep the Ishtar Gate exactly where Image 1 shows it: once only, far north in the palace wall, visibly smaller than Etemenanki, with the Processional Way passing through its central portal. Keep the broad urban interval between the gate and ziggurat and keep Etemenanki in its separate southern precinct. Do not relocate, duplicate, enlarge, or redesign the gate, ziggurat mass, river, avenue, palace, walls, districts, or camera.
+
+4. Ordinary built fabric
+
+Keep the dense earth-toned mudbrick houses, courtyards, lanes, workshops, scale, surface variation, and ordinary urban activity from Image 1 unchanged.
+
+5. Monument correction: Etemenanki stairs only
+
+Remove Image 1's incorrect exterior stair flights and reconstruct only the lowest south-face approach from the footprint in Images 2 and 3. It has exactly three complete flights and one shared first-terrace landing:
+
+- Central flight: the long stem visible in Images 2 and 3. It begins well south of the tower on the ziggurat centreline, projects perpendicular to the midpoint of the south facade, and climbs northward to the shared landing on the first terrace. It stops there and does not continue up the upper stages.
+- West and east lateral flights: the two halves of the straight crossbar visible against the tower in Images 2 and 3. They start at the two ends of the same south facade, run inward parallel to and pressed against that facade, and meet the central flight at the shared landing.
+- Show all three complete flights and their shared meeting point simultaneously. From this elevated oblique camera, the lateral pair must read as a mirror-symmetrical, facade-hugging crossbar, while the central flight projects toward the southern foreground.
+- Preserve plausible baked-brick and mudbrick construction. Do not copy map lines, arrows, labels, or diagram colours onto the building.
+
+The stair footprint must match Images 2 and 3: capital T, not Y. No diagonal fan arms, no missing flight, no extra monumental stairs on another face, and no exterior flight climbing the upper terraces. Preserve Image 1's restrained stage massing and earth-toned summit sanctuary; do not turn the sanctuary into a gate or add blue glaze to it.
+
+6. Environment
+
+Keep the river, irrigated plain, palms near water, packed urban core, late-afternoon light, dust, haze, and shadows unchanged.
+
+7. Daily life
+
+Keep all people, animals, boats, carts, market activity, and their scale unchanged except where a few tiny figures must shift locally around the corrected stair footprint.
+
+8. Uncertainty rules
+
+This remains an interpretive, non-authoritative presentation image. The three-stair south approach is source-led, but exact elevations, parapets, upper circulation, and incomplete stele details remain uncertain; render them soberly and add no new architecture elsewhere.
+
+9. Negative constraints
+
+No second blue gate; no gate beside or inside the Etemenanki precinct; no change to Gate-Etemenanki distance; no road realignment; no Y-shaped or fan-shaped stairs; no missing central, west, or east flight; no diagonal lateral flights; no stair climbing all terraces; no new blue summit building; no map text or line work; no Hanging Gardens, fantasy architecture, modern objects, ruins, labels, borders, logos, or watermarks.
+
+10. Output
+
+Return the same high-end photorealistic historical-documentary frame and exact 16:9 composition at 1536 by 864 pixels, with only the ziggurat stair geometry corrected.

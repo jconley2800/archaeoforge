@@ -1,0 +1,1 @@
+Strict geometry-preserving finishing is not the selected workflow for this project. If it is used later, preserve the camera, crop, pyramid-proxy footprints, temple envelopes, causeway paths, Sphinx envelope, and relative monument placement exactly; modify only materials, light, atmosphere, and small-scale surface treatment.
